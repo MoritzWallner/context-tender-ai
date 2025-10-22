@@ -24,9 +24,11 @@ const Imprint = () => {
 
           <div className="space-y-8 text-slate-300">
             <div className="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold text-white mb-4">Angaben gemäß § 5 TMG</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4">
+                Angaben gemäß § 5 TMG
+              </h2>
               <div className="space-y-2">
-                <p>Moritz Wallner</p>
+                <p>Ben Müller-Niklas & Moritz Wallner</p>
                 <p>Schrammelgasse 79</p>
                 <p>1170 Wien</p>
                 <p>Austria</p>
@@ -34,23 +36,36 @@ const Imprint = () => {
             </div>
 
             <div className="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold text-white mb-4">Kontakt</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4">
+                Kontakt
+              </h2>
               <div className="space-y-2">
-                <p><strong className="text-white">E-Mail:</strong> moritz.wallner@juhuu.app</p>
-                <p><strong className="text-white">Telefon:</strong> +49 176 82095563</p>
+                <p>
+                  <strong className="text-white">E-Mail:</strong>{" "}
+                  ben.muellerniklas@juhuu.app
+                </p>
+                <p>
+                  <strong className="text-white">Telefon:</strong> +43 660 9919
+                  009
+                </p>
               </div>
             </div>
 
             <div className="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold text-white mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-              <p>Moritz Wallner</p>
+              <h2 className="text-2xl font-semibold text-white mb-4">
+                Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+              </h2>
+              <p>Moritz Wallner & Ben Müller-Niklas</p>
               <p>Schrammelgasse 79, 1170 Wien, Austria</p>
             </div>
 
             <div className="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold text-white mb-4">Streitschlichtung</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4">
+                Streitschlichtung
+              </h2>
               <p className="leading-relaxed">
-                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+                Die Europäische Kommission stellt eine Plattform zur
+                Online-Streitbeilegung (OS) bereit:
                 <a
                   href="https://ec.europa.eu/consumers/odr"
                   target="_blank"
@@ -59,34 +74,52 @@ const Imprint = () => {
                 >
                   https://ec.europa.eu/consumers/odr
                 </a>
-                . Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                . Wir sind nicht bereit oder verpflichtet, an
+                Streitbeilegungsverfahren vor einer
+                Verbraucherschlichtungsstelle teilzunehmen.
               </p>
             </div>
 
             <div className="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold text-white mb-4">Haftung für Inhalte</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4">
+                Haftung für Inhalte
+              </h2>
               <p className="leading-relaxed">
-                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
-                Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen
-                oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
-                Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
+                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene
+                Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
+                verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
+                Diensteanbieter jedoch nicht verpflichtet, übermittelte oder
+                gespeicherte fremde Informationen zu überwachen oder nach
+                Umständen zu forschen, die auf eine rechtswidrige Tätigkeit
+                hinweisen. Verpflichtungen zur Entfernung oder Sperrung der
+                Nutzung von Informationen nach den allgemeinen Gesetzen bleiben
+                hiervon unberührt.
               </p>
             </div>
 
             <div className="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold text-white mb-4">Haftung für Links</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4">
+                Haftung für Links
+              </h2>
               <p className="leading-relaxed">
-                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte
-                auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+                Unser Angebot enthält Links zu externen Websites Dritter, auf
+                deren Inhalte wir keinen Einfluss haben. Deshalb können wir für
+                diese fremden Inhalte auch keine Gewähr übernehmen. Für die
+                Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
+                oder Betreiber der Seiten verantwortlich.
               </p>
             </div>
 
             <div className="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-2xl backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold text-white mb-4">Urheberrecht</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4">
+                Urheberrecht
+              </h2>
               <p className="leading-relaxed">
-                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
-                Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen
-                Autors bzw. Erstellers.
+                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf
+                diesen Seiten unterliegen dem deutschen Urheberrecht. Die
+                Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+                Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der
+                schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
               </p>
             </div>
           </div>
