@@ -1,0 +1,167 @@
+{
+  "nav": {
+    "brandName": "tender.match",
+    "joinWaitlist": "Zur Warteliste"
+  },
+  "hero": {
+    "badge": "🚀 Jetzt in Entwicklung – Früher Zugang Verfügbar",
+    "title1": "2.000+ Portale.",
+    "title2": "Eine Intelligente Suche.",
+    "subtitle": "Verschwenden Sie keine Stunden mehr mit manuellen Ausschreibungssuchen. Unsere KI-Plattform versteht Kontext, nicht nur Schlüsselwörter – und findet die Chancen, die wirklich zu Ihrem Unternehmen passen.",
+    "ctaPrimary": "Frühen Zugang Erhalten",
+    "ctaSecondary": "So Funktioniert's",
+    "benefit1": "Keine Kreditkarte erforderlich",
+    "benefit2": "2-5 Monate kostenloser Zugang",
+    "benefit3": "Jederzeit kündbar"
+  },
+  "problem": {
+    "title": "Das Problem der Ausschreibungssuche",
+    "subtitle": "Die europäische Ausschreibungsbeschaffung ist fragmentiert, zeitaufwendig und ungenau. Unternehmen verlieren täglich Stunden mit manuellen Suchen oder schlüsselwortbasierten Agenten, die mehr Rauschen als Chancen liefern.",
+    "timeDrain": {
+      "title": "Zeitverschwendung",
+      "desc": "Stunden verschwendet mit manueller Prüfung unzähliger Portale in verschiedenen Ländern und Formaten",
+      "stat": "8+ Stunden",
+      "statLabel": "pro Woche verloren"
+    },
+    "fragmented": {
+      "title": "Fragmentierte Systeme",
+      "desc": "Über 2000 Portale in Europa mit unterschiedlichen Ländern, Formaten und Systemen machen umfassende Suchen nahezu unmöglich",
+      "stat": "2.000+",
+      "statLabel": "Portale zu prüfen"
+    },
+    "missed": {
+      "title": "Verpasste Chancen",
+      "desc": "Relevante Projekte bleiben aufgrund schlechter Schlüsselwort-Übereinstimmung und unvollständiger Abdeckung unentdeckt",
+      "stat": "70%",
+      "statLabel": "Chancen verpasst",
+      "visual": "Gefunden: 30% | Verloren: 70%"
+    },
+    "result": "Ergebnis:",
+    "resultText": "Suchen und Prüfen aller Details nimmt bis zu 40% der gesamten Beschaffungszeit in Anspruch. Beschaffungsteams verschwenden diese Zeit mit manuellen Suchen anstatt mit strategischer Entscheidungsfindung"
+  },
+  "solution": {
+    "title1": "Kontext statt Schlüsselwörter.",
+    "title2": "Intelligenz statt Masse.",
+    "subtitle": "tender.match ersetzt Schlüsselwortsuchen durch kontextbasierte KI-Analyse, die Ihr Geschäft wirklich versteht.",
+    "dashboard": {
+      "url": "app.tender.match/dashboard",
+      "search": "Suchen",
+      "live": "Live",
+      "aiActive": "KI Aktiv",
+      "perfectMatch": "Perfekte Übereinstimmung",
+      "highMatch": "Hohe Übereinstimmung",
+      "goodMatch": "Gute Übereinstimmung"
+    },
+    "tenderMatch": {
+      "title": "tender.match",
+      "description": "Unsere KI versteht Ihren kompletten Geschäftskontext: Produkte, Dienstleistungen, Standorte, Referenzen und formale Anforderungen. Sie analysiert vollständige Ausschreibungsbeschreibungen und berechnet präzise Übereinstimmungswerte, die zeigen, ob Sie als Hauptauftragnehmer, Unterauftragnehmer oder Konsortialpartner geeignet sind."
+    },
+    "companyMatch": {
+      "title": "company.match",
+      "description": "Identifiziert automatisch potenzielle Partner für Konsortien oder Unteraufträge. Datengesteuerte Empfehlungen helfen Ihnen, die fehlenden Teile zu finden, um größere Projekte zu gewinnen, die Sie alleine nicht bewältigen könnten."
+    },
+    "whyBoth": {
+      "title": "Warum Beides Wichtig Ist",
+      "features": [
+        "Tiefes Kontextverständnis Ihrer Fähigkeiten",
+        "Vollständige Analyse der Ausschreibungsbeschreibung (nicht nur Titel)",
+        "Präzise Übereinstimmungswerte für jede Gelegenheit",
+        "Automatische Partnerempfehlungen",
+        "Kontinuierliche Überwachung aller Portale",
+        "Echtzeit-Benachrichtigungen über Konsortialchancen"
+      ]
+    }
+  },
+  "benefits": {
+    "title": "Kommende Vorteile",
+    "subtitle": "Entdecken Sie die Vorteile intelligenter Ausschreibungszuordnung",
+    "advantages": {
+      "timeEfficiency": {
+        "label": "Zeiteffizienz",
+        "desc": "Reduzieren Sie die manuelle Suchzeit erheblich"
+      },
+      "moreOpportunities": {
+        "label": "Bis zu 3x Mehr Chancen",
+        "desc": "Entdecken Sie Ausschreibungen, die Sie verpasst hätten"
+      },
+      "expandIndustry": {
+        "label": "Über Ihre Branche Hinaus",
+        "desc": "Finden Sie Chancen außerhalb Ihres traditionellen Sektors"
+      }
+    },
+    "cards": {
+      "saveTime": {
+        "title": "Sparen Sie Wertvolle Zeit",
+        "desc": "Verschwenden Sie keine Stunden mehr mit manueller Portal-Prüfung. Konzentrieren Sie Ihr Team auf strategische Entscheidungsfindung und erfolgreiche Angebote."
+      },
+      "precision": {
+        "title": "Präzise Zuordnung",
+        "desc": "Erhalten Sie nur Ausschreibungen, die wirklich zu Ihren Fähigkeiten passen. Kein Rauschen, keine irrelevanten Chancen."
+      },
+      "partnerships": {
+        "title": "Intelligente Partnerschaften",
+        "desc": "Entdecken Sie automatisch Konsortial- und Unterauftragsmöglichkeiten, die Ihre Stärken ergänzen."
+      },
+      "expansion": {
+        "title": "Markterweiterung",
+        "desc": "Zugang zu europäischen Ausschreibungen über alle Sektoren und Länder auf einer einheitlichen Plattform."
+      },
+      "deadlines": {
+        "title": "Verpassen Sie Keine Fristen",
+        "desc": "KI-gestützte kontinuierliche Überwachung stellt sicher, dass Sie immer über neue Chancen informiert sind."
+      },
+      "intelligence": {
+        "title": "Kontextbewusste Intelligenz",
+        "desc": "Unsere KI versteht Ihr Geschäft tiefgehend, nicht nur Schlüsselwörter. Bessere Übereinstimmungen, bessere Ergebnisse."
+      }
+    }
+  },
+  "waitlist": {
+    "title": "Werden Sie Early Adopter",
+    "subtitle": "Treten Sie tender.match & company.match vor dem offiziellen Start bei",
+    "form": {
+      "company": "Firmenname",
+      "name": "Ihr Name",
+      "email": "E-Mail",
+      "position": "Position",
+      "size": "Firmengröße",
+      "companyPlaceholder": "Ihre Firma",
+      "namePlaceholder": "Max Mustermann",
+      "emailPlaceholder": "max@firma.de",
+      "positionPlaceholder": "CEO, Einkaufsleiter...",
+      "sizeOptions": {
+        "default": "Größe auswählen",
+        "1-10": "1-10 Mitarbeiter",
+        "11-50": "11-50 Mitarbeiter",
+        "51-200": "51-200 Mitarbeiter",
+        "201-500": "201-500 Mitarbeiter",
+        "500+": "500+ Mitarbeiter"
+      },
+      "required": "*"
+    },
+    "info": {
+      "title": "Warteliste ist KEINE verbindliche Verpflichtung",
+      "desc": "Der Beitritt zu unserer Warteliste ist lediglich eine Interessensbekundung. Sie gehen keinerlei Verpflichtungen ein."
+    },
+    "checkbox": {
+      "label": "Ja, Sie dürfen unsere Firma als Wartelisten-Partner erwähnen",
+      "benefit": "→ Erhalten Sie 5 Monate statt 2 Monate kostenlosen Zugang + Helfen Sie mit, was wir als Nächstes bauen"
+    },
+    "earlyAccessTitle": "Frühe Zugangsvorteile:",
+    "earlyAccessBenefits": [
+      "2 Monate kostenlos (anonym) oder 5 Monate (öffentlicher Partner)",
+      "Keine Zahlung erforderlich, jederzeit kündbar",
+      "Prioritäts-Support & Feature-Input",
+      "Helfen Sie uns, die Zukunft der Ausschreibungszuordnung zu gestalten"
+    ],
+    "submitButton": "Zur Warteliste",
+    "success": {
+      "title": "Vielen Dank!",
+      "message": "Wir werden uns bald mit Ihren Details zum frühen Zugang bei Ihnen melden."
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 tender.match. Intelligente Ausschreibungsentdeckung für europäische Märkte.",
+    "imprint": "Impressum"
+  }
+}

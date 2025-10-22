@@ -1,0 +1,167 @@
+{
+  "nav": {
+    "brandName": "tender.match",
+    "joinWaitlist": "Join Waitlist"
+  },
+  "hero": {
+    "badge": "🚀 Now in Development – Early Access Available",
+    "title1": "2,000+ Portals.",
+    "title2": "One Intelligent Search.",
+    "subtitle": "Stop wasting hours on manual tender searches. Our AI platform understands context, not just keywords – finding the opportunities that actually match your business.",
+    "ctaPrimary": "Get Early Access",
+    "ctaSecondary": "See How It Works",
+    "benefit1": "No credit card required",
+    "benefit2": "2-5 months free access",
+    "benefit3": "Cancel anytime"
+  },
+  "problem": {
+    "title": "The Tender Search Problem",
+    "subtitle": "European tender procurement is fragmented, time-consuming, and imprecise. Companies lose hours daily to manual searches or keyword-based agents that deliver more noise than opportunities.",
+    "timeDrain": {
+      "title": "Time Drain",
+      "desc": "Hours wasted manually checking countless portals across different countries and formats",
+      "stat": "8+ hours",
+      "statLabel": "per week lost"
+    },
+    "fragmented": {
+      "title": "Fragmented Systems",
+      "desc": "2000+ portals across Europe with different countries, formats, and systems make comprehensive searches nearly impossible",
+      "stat": "2,000+",
+      "statLabel": "portals to check"
+    },
+    "missed": {
+      "title": "Missed Opportunities",
+      "desc": "Relevant projects remain undiscovered due to poor keyword matching and incomplete coverage",
+      "stat": "70%",
+      "statLabel": "opportunities missed",
+      "visual": "Found: 30% | Lost: 70%"
+    },
+    "result": "Result:",
+    "resultText": "Searching and checking all details takes up to 40% of total procurement time. Procurement teams waste this time on manual searches instead of strategic decision-making"
+  },
+  "solution": {
+    "title1": "Context Over Keywords.",
+    "title2": "Intelligence Over Volume.",
+    "subtitle": "tender.match replaces keyword searches with context-based AI analysis that truly understands your business.",
+    "dashboard": {
+      "url": "app.tender.match/dashboard",
+      "search": "Search",
+      "live": "Live",
+      "aiActive": "AI Active",
+      "perfectMatch": "Perfect Match",
+      "highMatch": "High Match",
+      "goodMatch": "Good Match"
+    },
+    "tenderMatch": {
+      "title": "tender.match",
+      "description": "Our AI understands your complete business context: products, services, locations, references, and formal requirements. It analyzes full tender descriptions and calculates precise matching scores showing whether you're suited as main contractor, subcontractor, or consortium partner."
+    },
+    "companyMatch": {
+      "title": "company.match",
+      "description": "Automatically identifies potential partners for consortiums or subcontracts. Data-driven recommendations help you find the missing pieces to win larger projects you couldn't tackle alone."
+    },
+    "whyBoth": {
+      "title": "Why Both Matter",
+      "features": [
+        "Deep context understanding of your capabilities",
+        "Full tender description analysis (not just titles)",
+        "Precise matching scores for every opportunity",
+        "Automatic partner recommendations",
+        "Continuous monitoring across all portals",
+        "Real-time consortium opportunity alerts"
+      ]
+    }
+  },
+  "benefits": {
+    "title": "Advantages That Will Come",
+    "subtitle": "Discover the benefits of intelligent tender matching",
+    "advantages": {
+      "timeEfficiency": {
+        "label": "Time Efficiency",
+        "desc": "Reduce manual search time significantly"
+      },
+      "moreOpportunities": {
+        "label": "Up to 3x More Opportunities",
+        "desc": "Discover tenders you would have missed"
+      },
+      "expandIndustry": {
+        "label": "Expand Beyond Your Industry",
+        "desc": "Find opportunities outside your traditional sector"
+      }
+    },
+    "cards": {
+      "saveTime": {
+        "title": "Save Valuable Time",
+        "desc": "Stop spending hours on manual portal checking. Focus your team on strategic decision-making and winning proposals."
+      },
+      "precision": {
+        "title": "Precision Matching",
+        "desc": "Only receive tenders that truly match your capabilities. No noise, no irrelevant opportunities."
+      },
+      "partnerships": {
+        "title": "Smart Partnerships",
+        "desc": "Automatically discover consortium and subcontracting opportunities that complement your strengths."
+      },
+      "expansion": {
+        "title": "Market Expansion",
+        "desc": "Access European tenders across all sectors and countries in one unified platform."
+      },
+      "deadlines": {
+        "title": "Never Miss Deadlines",
+        "desc": "AI-powered continuous monitoring ensures you're always aware of new opportunities."
+      },
+      "intelligence": {
+        "title": "Context-Aware Intelligence",
+        "desc": "Our AI understands your business deeply, not just keywords. Better matches, better results."
+      }
+    }
+  },
+  "waitlist": {
+    "title": "Become an Early Adopter",
+    "subtitle": "Join tender.match & company.match before official launch",
+    "form": {
+      "company": "Company Name",
+      "name": "Your Name",
+      "email": "Email",
+      "position": "Position",
+      "size": "Company Size",
+      "companyPlaceholder": "Your company",
+      "namePlaceholder": "John Doe",
+      "emailPlaceholder": "john@company.com",
+      "positionPlaceholder": "CEO, Procurement Manager...",
+      "sizeOptions": {
+        "default": "Select size",
+        "1-10": "1-10 employees",
+        "11-50": "11-50 employees",
+        "51-200": "51-200 employees",
+        "201-500": "201-500 employees",
+        "500+": "500+ employees"
+      },
+      "required": "*"
+    },
+    "info": {
+      "title": "Waitlist is NOT a Binding Commitment",
+      "desc": "Joining our waitlist is simply an expression of interest. You're under no obligation whatsoever."
+    },
+    "checkbox": {
+      "label": "Yes, you may mention our company as a waitlist partner",
+      "benefit": "→ Get 5 months free access instead of 2 + Help shape what we build next"
+    },
+    "earlyAccessTitle": "Early Access Benefits:",
+    "earlyAccessBenefits": [
+      "2 months free (anonymous) or 5 months (public partner)",
+      "No payment required, cancel anytime",
+      "Priority support & feature input",
+      "Help us build the future of tender matching"
+    ],
+    "submitButton": "Join the Waitlist",
+    "success": {
+      "title": "Thank You!",
+      "message": "We'll be in touch soon with your early access details."
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 tender.match. Intelligent tender discovery for European markets.",
+    "imprint": "Imprint"
+  }
+}

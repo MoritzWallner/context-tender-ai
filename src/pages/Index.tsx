@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
-import { Zap, Target, Users, Clock, TrendingUp, Shield, CheckCircle, ArrowRight, Sparkles } from "lucide-react";
+import { Zap, Target, Users, Clock, TrendingUp, Shield, CheckCircle, ArrowRight, Sparkles, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import Footer from "@/components/Footer";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({
     company: "",
     name: "",
@@ -51,14 +54,25 @@ const Index = () => {
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <Sparkles className="w-5 h-5" />
             </div>
-            <span className="text-xl font-bold">tender.match</span>
+            <span className="text-xl font-bold">{t('nav.brandName')}</span>
           </div>
-          <Button
-            onClick={() => scrollToSection("waitlist")}
-            className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-all"
-          >
-            Join Waitlist
-          </Button>
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'de' : 'en')}
+              className="flex items-center gap-2"
+            >
+              <Languages className="w-4 h-4" />
+              {i18n.language === 'en' ? 'DE' : 'EN'}
+            </Button>
+            <Button
+              onClick={() => scrollToSection("waitlist")}
+              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-all"
+            >
+              {t('nav.joinWaitlist')}
+            </Button>
+          </div>
         </div>
       </nav>
 
@@ -66,20 +80,19 @@ const Index = () => {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="inline-block mb-6 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium backdrop-blur-sm">
-            🚀 Now in Development – Early Access Available
+            {t('hero.badge')}
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              2,000+ Portals.
+              {t('hero.title1')}
             </span>
             <br />
-            <span className="text-white">One Intelligent Search.</span>
+            <span className="text-white">{t('hero.title2')}</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Stop wasting hours on manual tender searches. Our AI platform understands context, not just keywords –
-            finding the opportunities that actually match your business.
+            {t('hero.subtitle')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -87,7 +100,7 @@ const Index = () => {
               onClick={() => scrollToSection("waitlist")}
               className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-all shadow-lg shadow-blue-500/50 flex items-center justify-center gap-2"
             >
-              Get Early Access
+              {t('hero.ctaPrimary')}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
@@ -95,7 +108,7 @@ const Index = () => {
               variant="outline"
               className="px-8 py-4 bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all"
             >
-              See How It Works
+              {t('hero.ctaSecondary')}
             </Button>
           </div>
 
@@ -177,15 +190,15 @@ const Index = () => {
           <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-400">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-400" />
-              <span>No credit card required</span>
+              <span>{t('hero.benefit1')}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-400" />
-              <span>2-5 months free access</span>
+              <span>{t('hero.benefit2')}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-400" />
-              <span>Cancel anytime</span>
+              <span>{t('hero.benefit3')}</span>
             </div>
           </div>
         </div>
@@ -195,10 +208,9 @@ const Index = () => {
       <section className="py-20 px-6 bg-gradient-to-b from-transparent to-slate-950/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">The Tender Search Problem</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('problem.title')}</h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              European tender procurement is fragmented, time-consuming, and imprecise. Companies lose hours daily to
-              manual searches or keyword-based agents that deliver more noise than opportunities.
+              {t('problem.subtitle')}
             </p>
           </div>
 
@@ -206,11 +218,11 @@ const Index = () => {
             {[
               {
                 icon: Clock,
-                title: "Time Drain",
-                desc: "Hours wasted manually checking countless portals across different countries and formats",
+                title: t('problem.timeDrain.title'),
+                desc: t('problem.timeDrain.desc'),
                 color: "from-red-500 to-orange-500",
-                stat: "8+ hours",
-                statLabel: "per week lost",
+                stat: t('problem.timeDrain.stat'),
+                statLabel: t('problem.timeDrain.statLabel'),
                 visual: (
                   <div className="flex items-end justify-center gap-1 h-12">
                     {[30, 50, 70, 60, 80, 90, 85].map((h, i) => (
@@ -225,11 +237,11 @@ const Index = () => {
               },
               {
                 icon: Target,
-                title: "Fragmented Systems",
-                desc: "2000+ portals across Europe with different countries, formats, and systems make comprehensive searches nearly impossible",
+                title: t('problem.fragmented.title'),
+                desc: t('problem.fragmented.desc'),
                 color: "from-orange-500 to-yellow-500",
-                stat: "2,000+",
-                statLabel: "portals to check",
+                stat: t('problem.fragmented.stat'),
+                statLabel: t('problem.fragmented.statLabel'),
                 visual: (
                   <div className="flex items-center justify-center gap-2 h-12">
                     <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
@@ -242,18 +254,18 @@ const Index = () => {
               },
               {
                 icon: TrendingUp,
-                title: "Missed Opportunities",
-                desc: "Relevant projects remain undiscovered due to poor keyword matching and incomplete coverage",
+                title: t('problem.missed.title'),
+                desc: t('problem.missed.desc'),
                 color: "from-yellow-500 to-green-500",
-                stat: "70%",
-                statLabel: "opportunities missed",
+                stat: t('problem.missed.stat'),
+                statLabel: t('problem.missed.statLabel'),
                 visual: (
                   <div className="flex items-center justify-center h-12">
                     <div className="relative w-full">
                       <div className="h-1 bg-white/10 rounded-full overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-yellow-500 to-green-500 w-[30%]"></div>
                       </div>
-                      <div className="text-xs text-slate-400 mt-2 text-center">Found: 30% | Lost: 70%</div>
+                      <div className="text-xs text-slate-400 mt-2 text-center">{t('problem.missed.visual')}</div>
                     </div>
                   </div>
                 ),
@@ -297,9 +309,7 @@ const Index = () => {
             <div className="flex items-center gap-3 mb-3">
               <div className="w-2 h-2 bg-red-400 rounded-full"></div>
               <p className="text-slate-200 font-medium">
-                <span className="text-red-300 font-bold">Result:</span> Searching and checking all details takes up to
-                40% of total procurement time. Procurement teams waste this time on manual searches instead of strategic
-                decision-making
+                <span className="text-red-300 font-bold">{t('problem.result')}</span> {t('problem.resultText')}
               </p>
             </div>
           </div>
@@ -311,15 +321,14 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Context Over Keywords.
+              {t('solution.title1')}
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Intelligence Over Volume.
+                {t('solution.title2')}
               </span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              tender.match replaces keyword searches with context-based AI analysis that truly understands your
-              business.
+              {t('solution.subtitle')}
             </p>
           </div>
 
@@ -334,7 +343,7 @@ const Index = () => {
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
                 <div className="flex-1 mx-4 px-4 py-1 bg-white/5 rounded-lg text-xs text-slate-400 text-center">
-                  app.tender.match/dashboard
+                  {t('solution.dashboard.url')}
                 </div>
               </div>
 
@@ -351,22 +360,22 @@ const Index = () => {
                         dashboardAnimated ? "scale-95 opacity-70" : "scale-100 opacity-100"
                       }`}
                     >
-                      Search
+                      {t('solution.dashboard.search')}
                     </Button>
                     <div className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-xs text-green-300">
-                      Live
+                      {t('solution.dashboard.live')}
                     </div>
                     <div className="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-xs text-blue-300">
-                      AI Active
+                      {t('solution.dashboard.aiActive')}
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   {[
-                    { score: 95, color: "from-green-500 to-emerald-600", label: "Perfect Match" },
-                    { score: 87, color: "from-blue-500 to-cyan-600", label: "High Match" },
-                    { score: 78, color: "from-purple-500 to-pink-600", label: "Good Match" },
+                    { score: 95, color: "from-green-500 to-emerald-600", label: t('solution.dashboard.perfectMatch') },
+                    { score: 87, color: "from-blue-500 to-cyan-600", label: t('solution.dashboard.highMatch') },
+                    { score: 78, color: "from-purple-500 to-pink-600", label: t('solution.dashboard.goodMatch') },
                   ].map((match, idx) => (
                     <div
                       key={idx}
@@ -422,12 +431,10 @@ const Index = () => {
                       <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/30">
                         <Zap className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-2xl font-bold">tender.match</h3>
+                      <h3 className="text-2xl font-bold">{t('solution.tenderMatch.title')}</h3>
                     </div>
                     <p className="text-slate-300 leading-relaxed">
-                      Our AI understands your complete business context: products, services, locations, references, and
-                      formal requirements. It analyzes full tender descriptions and calculates precise matching scores
-                      showing whether you're suited as main contractor, subcontractor, or consortium partner.
+                      {t('solution.tenderMatch.description')}
                     </p>
                   </div>
                 </div>
@@ -443,11 +450,10 @@ const Index = () => {
                       <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-purple-500/30">
                         <Users className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-2xl font-bold">company.match</h3>
+                      <h3 className="text-2xl font-bold">{t('solution.companyMatch.title')}</h3>
                     </div>
                     <p className="text-slate-300 leading-relaxed">
-                      Automatically identifies potential partners for consortiums or subcontracts. Data-driven
-                      recommendations help you find the missing pieces to win larger projects you couldn't tackle alone.
+                      {t('solution.companyMatch.description')}
                     </p>
                   </div>
                 </div>
@@ -461,17 +467,10 @@ const Index = () => {
 
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold mb-8 group-hover:text-white transition-colors duration-300">
-                    Why Both Matter
+                    {t('solution.whyBoth.title')}
                   </h3>
                   <div className="space-y-4">
-                    {[
-                      "Deep context understanding of your capabilities",
-                      "Full tender description analysis (not just titles)",
-                      "Precise matching scores for every opportunity",
-                      "Automatic partner recommendations",
-                      "Continuous monitoring across all portals",
-                      "Real-time consortium opportunity alerts",
-                    ].map((feature, idx) => (
+                    {t('solution.whyBoth.features', { returnObjects: true }).map((feature: string, idx: number) => (
                       <div key={idx} className="flex items-start gap-3 group/item">
                         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0 mt-1 group-hover/item:scale-110 transition-transform duration-300 shadow-lg shadow-green-500/30">
                           <CheckCircle className="w-4 h-4 text-white" />
@@ -493,15 +492,15 @@ const Index = () => {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Advantages That Will Come</h2>
-            <p className="text-xl text-slate-300">Discover the benefits of intelligent tender matching</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('benefits.title')}</h2>
+            <p className="text-xl text-slate-300">{t('benefits.subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             {[
               {
-                label: "Time Efficiency",
-                desc: "Reduce manual search time significantly",
+                label: t('benefits.advantages.timeEfficiency.label'),
+                desc: t('benefits.advantages.timeEfficiency.desc'),
                 gradient: "from-blue-500 to-cyan-500",
                 visual: (
                   <div className="relative h-32 flex items-end justify-center gap-1.5 px-4">
@@ -516,8 +515,8 @@ const Index = () => {
                 ),
               },
               {
-                label: "Up to 3x More Opportunities",
-                desc: "Discover tenders you would have missed",
+                label: t('benefits.advantages.moreOpportunities.label'),
+                desc: t('benefits.advantages.moreOpportunities.desc'),
                 gradient: "from-green-500 to-emerald-500",
                 visual: (
                   <div className="relative h-32 flex items-center justify-center gap-4">
@@ -533,8 +532,8 @@ const Index = () => {
                 ),
               },
               {
-                label: "Expand Beyond Your Industry",
-                desc: "Find opportunities outside your traditional sector",
+                label: t('benefits.advantages.expandIndustry.label'),
+                desc: t('benefits.advantages.expandIndustry.desc'),
                 gradient: "from-purple-500 to-pink-500",
                 visual: (
                   <div className="relative h-32 flex items-center justify-center gap-3">
@@ -585,38 +584,38 @@ const Index = () => {
             {[
               {
                 icon: Clock,
-                title: "Save Valuable Time",
-                desc: "Stop spending hours on manual portal checking. Focus your team on strategic decision-making and winning proposals.",
+                title: t('benefits.cards.saveTime.title'),
+                desc: t('benefits.cards.saveTime.desc'),
                 gradient: "from-blue-500 to-cyan-500",
               },
               {
                 icon: Target,
-                title: "Precision Matching",
-                desc: "Only receive tenders that truly match your capabilities. No noise, no irrelevant opportunities.",
+                title: t('benefits.cards.precision.title'),
+                desc: t('benefits.cards.precision.desc'),
                 gradient: "from-purple-500 to-pink-500",
               },
               {
                 icon: Users,
-                title: "Smart Partnerships",
-                desc: "Automatically discover consortium and subcontracting opportunities that complement your strengths.",
+                title: t('benefits.cards.partnerships.title'),
+                desc: t('benefits.cards.partnerships.desc'),
                 gradient: "from-green-500 to-emerald-500",
               },
               {
                 icon: TrendingUp,
-                title: "Market Expansion",
-                desc: "Access European tenders across all sectors and countries in one unified platform.",
+                title: t('benefits.cards.expansion.title'),
+                desc: t('benefits.cards.expansion.desc'),
                 gradient: "from-orange-500 to-red-500",
               },
               {
                 icon: Shield,
-                title: "Never Miss Deadlines",
-                desc: "AI-powered continuous monitoring ensures you're always aware of new opportunities.",
+                title: t('benefits.cards.deadlines.title'),
+                desc: t('benefits.cards.deadlines.desc'),
                 gradient: "from-indigo-500 to-blue-500",
               },
               {
                 icon: Sparkles,
-                title: "Context-Aware Intelligence",
-                desc: "Our AI understands your business deeply, not just keywords. Better matches, better results.",
+                title: t('benefits.cards.intelligence.title'),
+                desc: t('benefits.cards.intelligence.desc'),
                 gradient: "from-pink-500 to-rose-500",
               },
             ].map((benefit, idx) => (
@@ -656,26 +655,26 @@ const Index = () => {
       <section id="waitlist" className="py-20 px-6 bg-gradient-to-b from-transparent to-slate-950">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Become an Early Adopter</h2>
-            <p className="text-xl text-slate-300">Join tender.match & company.match before official launch</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('waitlist.title')}</h2>
+            <p className="text-xl text-slate-300">{t('waitlist.subtitle')}</p>
           </div>
 
           <div className="p-8 md:p-12 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-3xl backdrop-blur-sm">
             {submitted ? (
               <div className="text-center py-12">
                 <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
-                <p className="text-slate-300">We'll be in touch soon with your early access details.</p>
+                <h3 className="text-2xl font-bold mb-2">{t('waitlist.success.title')}</h3>
+                <p className="text-slate-300">{t('waitlist.success.message')}</p>
               </div>
             ) : (
               <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="company" className="text-base">Company Name *</Label>
+                    <Label htmlFor="company" className="text-base">{t('waitlist.form.company')} {t('waitlist.form.required')}</Label>
                     <Input
                       id="company"
                       name="company"
-                      placeholder="Your company"
+                      placeholder={t('waitlist.form.companyPlaceholder')}
                       value={formData.company}
                       onChange={handleChange}
                       className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
@@ -683,11 +682,11 @@ const Index = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-base">Your Name *</Label>
+                    <Label htmlFor="name" className="text-base">{t('waitlist.form.name')} {t('waitlist.form.required')}</Label>
                     <Input
                       id="name"
                       name="name"
-                      placeholder="John Doe"
+                      placeholder={t('waitlist.form.namePlaceholder')}
                       value={formData.name}
                       onChange={handleChange}
                       className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
@@ -697,12 +696,12 @@ const Index = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-base">Email *</Label>
+                  <Label htmlFor="email" className="text-base">{t('waitlist.form.email')} {t('waitlist.form.required')}</Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="john@company.com"
+                    placeholder={t('waitlist.form.emailPlaceholder')}
                     value={formData.email}
                     onChange={handleChange}
                     className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
@@ -712,18 +711,18 @@ const Index = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="position" className="text-base">Position</Label>
+                    <Label htmlFor="position" className="text-base">{t('waitlist.form.position')}</Label>
                     <Input
                       id="position"
                       name="position"
-                      placeholder="CEO, Procurement Manager..."
+                      placeholder={t('waitlist.form.positionPlaceholder')}
                       value={formData.position}
                       onChange={handleChange}
                       className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="size" className="text-base">Company Size</Label>
+                    <Label htmlFor="size" className="text-base">{t('waitlist.form.size')}</Label>
                     <select
                       id="size"
                       name="size"
@@ -731,12 +730,12 @@ const Index = () => {
                       onChange={handleChange}
                       className="flex h-12 w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-base text-white"
                     >
-                      <option value="">Select size</option>
-                      <option value="1-10">1-10 employees</option>
-                      <option value="11-50">11-50 employees</option>
-                      <option value="51-200">51-200 employees</option>
-                      <option value="201-500">201-500 employees</option>
-                      <option value="500+">500+ employees</option>
+                      <option value="">{t('waitlist.form.sizeOptions.default')}</option>
+                      <option value="1-10">{t('waitlist.form.sizeOptions.1-10')}</option>
+                      <option value="11-50">{t('waitlist.form.sizeOptions.11-50')}</option>
+                      <option value="51-200">{t('waitlist.form.sizeOptions.51-200')}</option>
+                      <option value="201-500">{t('waitlist.form.sizeOptions.201-500')}</option>
+                      <option value="500+">{t('waitlist.form.sizeOptions.500+')}</option>
                     </select>
                   </div>
                 </div>
@@ -746,9 +745,9 @@ const Index = () => {
                   <div className="flex items-start gap-3">
                     <Shield className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-white mb-1">Waitlist is NOT a Binding Commitment</h4>
+                      <h4 className="font-semibold text-white mb-1">{t('waitlist.info.title')}</h4>
                       <p className="text-sm text-slate-300">
-                        Joining our waitlist is simply an expression of interest. You're under no obligation whatsoever.
+                        {t('waitlist.info.desc')}
                       </p>
                     </div>
                   </div>
@@ -766,23 +765,18 @@ const Index = () => {
                       className="mt-1"
                     />
                     <label htmlFor="canMention" className="text-sm text-slate-300 cursor-pointer flex-1">
-                      <span className="font-medium text-white">Yes, you may mention our company as a waitlist partner</span>
+                      <span className="font-medium text-white">{t('waitlist.checkbox.label')}</span>
                       <br />
-                      <span className="text-blue-400">→ Get 5 months free access instead of 2 + Help shape what we build next</span>
+                      <span className="text-blue-400">{t('waitlist.checkbox.benefit')}</span>
                     </label>
                   </div>
                 </div>
 
                 {/* Early Access Benefits */}
                 <div className="space-y-4">
-                  <h4 className="font-bold text-lg text-white">Early Access Benefits:</h4>
+                  <h4 className="font-bold text-lg text-white">{t('waitlist.earlyAccessTitle')}</h4>
                   <div className="space-y-3">
-                    {[
-                      "2 months free (anonymous) or 5 months (public partner)",
-                      "No payment required, cancel anytime",
-                      "Priority support & feature input",
-                      "Help us build the future of tender matching",
-                    ].map((benefit, idx) => (
+                    {t('waitlist.earlyAccessBenefits', { returnObjects: true }).map((benefit: string, idx: number) => (
                       <div key={idx} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                         <span className="text-slate-200">{benefit}</span>
@@ -795,7 +789,7 @@ const Index = () => {
                   onClick={handleSubmit}
                   className="w-full py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-all text-lg font-semibold flex items-center justify-center gap-2"
                 >
-                  Join the Waitlist
+                  {t('waitlist.submitButton')}
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
@@ -805,19 +799,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/10">
-        <div className="max-w-6xl mx-auto text-center text-slate-400">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Sparkles className="w-4 h-4" />
-            </div>
-            <span className="font-bold text-white">tender.match</span>
-          </div>
-          <p className="text-sm">
-            © 2025 tender.match. Intelligent tender discovery for European markets.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
