@@ -409,14 +409,16 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-stretch mb-16">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            {/* Left Column - tender.match and company.match cards */}
             <div className="space-y-6">
-              <div className="group relative overflow-hidden rounded-2xl transition-all duration-500 h-full">
-                <div className="relative p-8 bg-gradient-to-br from-blue-500/15 to-blue-500/5 backdrop-blur-md border border-blue-500/30 rounded-2xl hover:border-blue-500/50 transition-all duration-500 h-full shadow-lg hover:shadow-xl hover:shadow-blue-500/10 overflow-hidden">
+              {/* tender.match card */}
+              <div className="group relative overflow-hidden rounded-2xl transition-all duration-500">
+                <div className="relative p-8 bg-gradient-to-br from-blue-500/15 to-blue-500/5 backdrop-blur-md border border-blue-500/30 rounded-2xl hover:border-blue-500/50 transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
 
                   <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/30">
                         <Zap className="w-6 h-6 text-white" />
                       </div>
@@ -431,12 +433,13 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="group relative overflow-hidden rounded-2xl transition-all duration-500 h-full">
-                <div className="relative p-8 bg-gradient-to-br from-purple-500/15 to-purple-500/5 backdrop-blur-md border border-purple-500/30 rounded-2xl hover:border-purple-500/50 transition-all duration-500 h-full shadow-lg hover:shadow-xl hover:shadow-purple-500/10 overflow-hidden">
+              {/* company.match card */}
+              <div className="group relative overflow-hidden rounded-2xl transition-all duration-500">
+                <div className="relative p-8 bg-gradient-to-br from-purple-500/15 to-purple-500/5 backdrop-blur-md border border-purple-500/30 rounded-2xl hover:border-purple-500/50 transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-purple-500/10 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
 
                   <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-purple-500/30">
                         <Users className="w-6 h-6 text-white" />
                       </div>
@@ -451,6 +454,7 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Right Column - Why Both Matter */}
             <div className="group relative overflow-hidden rounded-2xl transition-all duration-500">
               <div className="relative p-8 bg-gradient-to-br from-slate-800/60 to-slate-900/60 border border-white/15 rounded-2xl hover:border-white/30 transition-all duration-500 h-full shadow-lg hover:shadow-xl hover:shadow-white/5 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
@@ -485,170 +489,96 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section id="how-it-works" className="py-20 px-6 bg-gradient-to-b from-slate-950/50 to-transparent">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              How It Works <span className="text-sm text-slate-400">*</span>
-            </h2>
-            <p className="text-xl text-slate-300">Four simple steps to smarter tender discovery</p>
-            <p className="text-sm text-slate-400 mt-4">* Simplified representation of our process</p>
-          </div>
-
-          <div className="relative">
-            <div className="hidden lg:block absolute top-32 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent rounded-full"></div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  step: "1",
-                  title: "Create Profile",
-                  desc: "Enter your products, services, references, and locations once",
-                  icon: Target,
-                  color: "from-blue-500 to-cyan-500",
-                  visual: (
-                    <div className="relative h-32 flex items-center justify-center overflow-hidden rounded-xl">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 blur-xl"></div>
-                      <div className="relative space-y-3 w-full px-6">
-                        <div className="h-2.5 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full w-3/4 shadow-lg shadow-blue-500/30"></div>
-                        <div className="h-2.5 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full w-full shadow-lg shadow-blue-500/30"></div>
-                        <div className="h-2.5 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full w-2/3 shadow-lg shadow-blue-500/30"></div>
-                      </div>
-                    </div>
-                  ),
-                },
-                {
-                  step: "2",
-                  title: "AI Activates",
-                  desc: "tender.match continuously searches all connected portals",
-                  icon: Zap,
-                  color: "from-purple-500 to-pink-500",
-                  visual: (
-                    <div className="relative h-32 flex items-center justify-center overflow-hidden rounded-xl">
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 blur-xl"></div>
-                      <div className="relative flex items-center justify-center gap-3">
-                        <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse shadow-lg shadow-purple-500/50"></div>
-                        <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse delay-200 shadow-lg shadow-purple-500/50"></div>
-                        <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse delay-400 shadow-lg shadow-purple-500/50"></div>
-                      </div>
-                    </div>
-                  ),
-                },
-                {
-                  step: "3",
-                  title: "Get Matches",
-                  desc: "Receive only relevant tenders with matching scores",
-                  icon: TrendingUp,
-                  color: "from-green-500 to-emerald-500",
-                  visual: (
-                    <div className="relative h-32 flex items-end justify-center gap-1.5 overflow-hidden rounded-xl">
-                      <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-emerald-500/20 blur-xl"></div>
-                      <div className="relative flex items-end gap-1.5 h-full justify-center">
-                        {[30, 50, 70, 85, 95].map((h, i) => (
-                          <div
-                            key={i}
-                            className="flex-1 bg-gradient-to-t from-green-500 to-emerald-400 rounded-t-lg transition-all hover:scale-110 shadow-lg shadow-green-500/30 max-w-[12px]"
-                            style={{ height: `${h}%` }}
-                          ></div>
-                        ))}
-                      </div>
-                    </div>
-                  ),
-                },
-                {
-                  step: "4",
-                  title: "Find Partners",
-                  desc: "company.match suggests the perfect consortium members",
-                  icon: Users,
-                  color: "from-orange-500 to-red-500",
-                  visual: (
-                    <div className="relative h-32 flex items-center justify-center overflow-hidden rounded-xl">
-                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-red-500/20 blur-xl"></div>
-                      <div className="relative flex items-center justify-center gap-2">
-                        <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white/30 shadow-lg shadow-orange-500/30">
-                          A
-                        </div>
-                        <div className="text-orange-400 text-lg font-light">+</div>
-                        <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white/30 shadow-lg shadow-red-500/30">
-                          B
-                        </div>
-                        <div className="text-orange-400 text-lg font-light">=</div>
-                        <div className="w-8 h-8 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white/30 shadow-lg shadow-yellow-500/30">
-                          ✓
-                        </div>
-                      </div>
-                    </div>
-                  ),
-                },
-              ].map((step, idx) => (
-                <div key={idx} className="group relative">
-                  <div className="relative h-full p-8 bg-gradient-to-br from-white/8 to-white/2 backdrop-blur-md border border-white/15 rounded-3xl hover:from-white/12 hover:to-white/5 hover:border-white/30 transition-all duration-500 flex flex-col shadow-xl hover:shadow-2xl hover:shadow-white/5 overflow-hidden">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-8 transition-opacity duration-500 rounded-3xl`}
-                    ></div>
-
-                    <div className="relative z-10 flex flex-col h-full">
-                      <div className="mb-8 rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors duration-300 shadow-lg">
-                        {step.visual}
-                      </div>
-
-                      <div
-                        className={`w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-300 shadow-2xl`}
-                      >
-                        <span className="text-4xl font-bold text-white">{step.step}</span>
-                      </div>
-
-                      <h3 className="text-2xl font-bold mb-4 group-hover:text-white transition-colors duration-300">
-                        {step.title}
-                      </h3>
-
-                      <p className="text-slate-300 text-sm leading-relaxed flex-1 group-hover:text-slate-200 transition-colors duration-300">
-                        {step.desc}
-                      </p>
-
-                      <div
-                        className={`mt-8 h-1 bg-gradient-to-r ${step.color} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-lg`}
-                      ></div>
-                    </div>
-                  </div>
-
-                  {idx < 3 && (
-                    <div className="hidden lg:flex absolute -right-4 top-1/3 z-20">
-                      <div
-                        className={`w-10 h-10 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center shadow-2xl group-hover:scale-125 transition-transform duration-300`}
-                      >
-                        <ArrowRight className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-16 p-8 bg-gradient-to-r from-blue-500/15 via-purple-500/15 to-pink-500/15 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-white/20 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/5">
-            <div className="flex items-start gap-4">
-              <Sparkles className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
-              <div>
-                <p className="font-semibold text-white mb-2">Continuous Intelligence</p>
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  Once your profile is set up, tender.match works 24/7 monitoring all 2,000+ European portals. You'll
-                  receive only the opportunities that truly match your business, with detailed matching scores and
-                  partner recommendations.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Benefits */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Advantages That Will Come</h2>
             <p className="text-xl text-slate-300">Discover the benefits of intelligent tender matching</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {[
+              {
+                label: "Time Efficiency",
+                desc: "Reduce manual search time significantly",
+                gradient: "from-blue-500 to-cyan-500",
+                visual: (
+                  <div className="relative h-32 flex items-end justify-center gap-1.5 px-4">
+                    {[25, 45, 65, 80, 95, 85, 90].map((height, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 bg-gradient-to-t from-blue-500 to-cyan-400 rounded-t-lg transition-all duration-300 hover:scale-110 shadow-lg shadow-blue-500/30"
+                        style={{ height: `${height}%`, maxWidth: "16px" }}
+                      ></div>
+                    ))}
+                  </div>
+                ),
+              },
+              {
+                label: "Up to 3x More Opportunities",
+                desc: "Discover tenders you would have missed",
+                gradient: "from-green-500 to-emerald-500",
+                visual: (
+                  <div className="relative h-32 flex items-center justify-center gap-4">
+                    <div className="space-y-2">
+                      <div className="w-12 h-2.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg shadow-green-500/30"></div>
+                      <div className="w-16 h-2.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg shadow-green-500/30"></div>
+                      <div className="w-20 h-2.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg shadow-green-500/30"></div>
+                    </div>
+                    <div className="text-3xl font-bold bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">
+                      3x
+                    </div>
+                  </div>
+                ),
+              },
+              {
+                label: "Expand Beyond Your Industry",
+                desc: "Find opportunities outside your traditional sector",
+                gradient: "from-purple-500 to-pink-500",
+                visual: (
+                  <div className="relative h-32 flex items-center justify-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-xs font-bold shadow-lg shadow-purple-500/40 border-2 border-white/20">
+                      A
+                    </div>
+                    <div className="text-2xl text-slate-400">→</div>
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-xs font-bold shadow-lg shadow-blue-500/40 border-2 border-white/20">
+                      B
+                    </div>
+                    <div className="text-2xl text-slate-400">→</div>
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-xs font-bold shadow-lg shadow-green-500/40 border-2 border-white/20">
+                      C
+                    </div>
+                  </div>
+                ),
+              },
+            ].map((advantage, idx) => (
+              <div key={idx} className="group relative overflow-hidden rounded-3xl transition-all duration-500">
+                <div className="relative p-8 bg-gradient-to-br from-white/8 to-white/2 backdrop-blur-md border border-white/15 rounded-3xl hover:from-white/12 hover:to-white/5 hover:border-white/30 transition-all duration-500 h-full shadow-xl hover:shadow-2xl hover:shadow-white/5 overflow-hidden">
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-8 transition-opacity duration-500 rounded-3xl`}
+                  ></div>
+
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="mb-8 p-6 rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors duration-300 bg-gradient-to-br from-white/5 to-white/0 shadow-lg">
+                      {advantage.visual}
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-3 group-hover:text-white transition-colors duration-300">
+                      {advantage.label}
+                    </h3>
+
+                    <p className="text-slate-300 text-sm leading-relaxed flex-1 group-hover:text-slate-200 transition-colors duration-300">
+                      {advantage.desc}
+                    </p>
+
+                    <div
+                      className={`mt-8 h-1.5 bg-gradient-to-r ${advantage.gradient} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-lg shadow-current/50`}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -741,61 +671,65 @@ const Index = () => {
               <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="company">Company Name *</Label>
+                    <Label htmlFor="company" className="text-base">Company Name *</Label>
                     <Input
                       id="company"
                       name="company"
+                      placeholder="Your company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="bg-white/5 border-white/10"
+                      className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="name">Your Name *</Label>
+                    <Label htmlFor="name" className="text-base">Your Name *</Label>
                     <Input
                       id="name"
                       name="name"
+                      placeholder="John Doe"
                       value={formData.name}
                       onChange={handleChange}
-                      className="bg-white/5 border-white/10"
+                      className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
                       required
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
+                  <Label htmlFor="email" className="text-base">Email *</Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
+                    placeholder="john@company.com"
                     value={formData.email}
                     onChange={handleChange}
-                    className="bg-white/5 border-white/10"
+                    className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
                     required
                   />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="position">Position</Label>
+                    <Label htmlFor="position" className="text-base">Position</Label>
                     <Input
                       id="position"
                       name="position"
+                      placeholder="CEO, Procurement Manager..."
                       value={formData.position}
                       onChange={handleChange}
-                      className="bg-white/5 border-white/10"
+                      className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="size">Company Size</Label>
+                    <Label htmlFor="size" className="text-base">Company Size</Label>
                     <select
                       id="size"
                       name="size"
                       value={formData.size}
                       onChange={handleChange}
-                      className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white"
+                      className="flex h-12 w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-base text-white"
                     >
                       <option value="">Select size</option>
                       <option value="1-10">1-10 employees</option>
@@ -807,29 +741,63 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="canMention"
-                    checked={formData.canMention}
-                    onCheckedChange={(checked) =>
-                      setFormData((prev) => ({ ...prev, canMention: checked as boolean }))
-                    }
-                  />
-                  <label htmlFor="canMention" className="text-sm text-slate-300 cursor-pointer">
-                    We can mention your company as a beta tester
-                  </label>
+                {/* Info box */}
+                <div className="p-6 bg-blue-500/10 border border-blue-500/30 rounded-xl">
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">Waitlist is NOT a Binding Commitment</h4>
+                      <p className="text-sm text-slate-300">
+                        Joining our waitlist is simply an expression of interest. You're under no obligation whatsoever.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Checkbox with enhanced benefits */}
+                <div className="p-6 bg-slate-900/50 border border-white/10 rounded-xl">
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="canMention"
+                      checked={formData.canMention}
+                      onCheckedChange={(checked) =>
+                        setFormData((prev) => ({ ...prev, canMention: checked as boolean }))
+                      }
+                      className="mt-1"
+                    />
+                    <label htmlFor="canMention" className="text-sm text-slate-300 cursor-pointer flex-1">
+                      <span className="font-medium text-white">Yes, you may mention our company as a waitlist partner</span>
+                      <br />
+                      <span className="text-blue-400">→ Get 5 months free access instead of 2 + Help shape what we build next</span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* Early Access Benefits */}
+                <div className="space-y-4">
+                  <h4 className="font-bold text-lg text-white">Early Access Benefits:</h4>
+                  <div className="space-y-3">
+                    {[
+                      "2 months free (anonymous) or 5 months (public partner)",
+                      "No payment required, cancel anytime",
+                      "Priority support & feature input",
+                      "Help us build the future of tender matching",
+                    ].map((benefit, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-200">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <Button
                   onClick={handleSubmit}
-                  className="w-full py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-all text-lg font-semibold"
+                  className="w-full py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-all text-lg font-semibold flex items-center justify-center gap-2"
                 >
                   Join the Waitlist
+                  <ArrowRight className="w-5 h-5" />
                 </Button>
-
-                <p className="text-center text-sm text-slate-400">
-                  Early adopters get 2-5 months of free access and priority support
-                </p>
               </div>
             )}
           </div>
