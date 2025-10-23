@@ -418,70 +418,57 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
             {/* Left Column - tender.match and company.match cards */}
             <div className="space-y-6">
               {/* tender.match card */}
-              <div className="group relative overflow-hidden rounded-2xl transition-all duration-500">
-                <div className="relative p-8 bg-gradient-to-br from-blue-500/15 to-blue-500/5 backdrop-blur-md border border-blue-500/30 rounded-2xl hover:border-blue-500/50 transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/30">
-                        <Zap className="w-6 h-6 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-bold">{t('solution.tenderMatch.title')}</h3>
-                    </div>
-                    <p className="text-slate-300 leading-relaxed">
-                      {t('solution.tenderMatch.description')}
-                    </p>
+              <div className="relative p-8 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-md border border-blue-500/30 rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/30">
+                    <Zap className="w-8 h-8 text-white" />
                   </div>
+                  <h3 className="text-3xl font-bold text-white">tender.match</h3>
                 </div>
+                <p className="text-slate-300 leading-relaxed text-lg">
+                  Our AI understands your complete business context: products, services, locations, references, and formal requirements. It analyzes full tender descriptions and calculates precise matching scores showing whether you're suited as main contractor, subcontractor, or consortium partner.
+                </p>
               </div>
 
               {/* company.match card */}
-              <div className="group relative overflow-hidden rounded-2xl transition-all duration-500">
-                <div className="relative p-8 bg-gradient-to-br from-purple-500/15 to-purple-500/5 backdrop-blur-md border border-purple-500/30 rounded-2xl hover:border-purple-500/50 transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-purple-500/10 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-purple-500/30">
-                        <Users className="w-6 h-6 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-bold">{t('solution.companyMatch.title')}</h3>
-                    </div>
-                    <p className="text-slate-300 leading-relaxed">
-                      {t('solution.companyMatch.description')}
-                    </p>
+              <div className="relative p-8 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-md border border-purple-500/30 rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/30">
+                    <Users className="w-8 h-8 text-white" />
                   </div>
+                  <h3 className="text-3xl font-bold text-white">company.match</h3>
                 </div>
+                <p className="text-slate-300 leading-relaxed text-lg">
+                  Automatically identifies potential partners for consortiums or subcontracts. Data-driven recommendations help you find the missing pieces to win larger projects you couldn't tackle alone.
+                </p>
               </div>
             </div>
 
             {/* Right Column - Why Both Matter */}
-            <div className="group relative overflow-hidden rounded-2xl transition-all duration-500">
-              <div className="relative p-8 bg-gradient-to-br from-slate-800/60 to-slate-900/60 border border-white/15 rounded-2xl hover:border-white/30 transition-all duration-500 h-full shadow-lg hover:shadow-xl hover:shadow-white/5 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-8 group-hover:text-white transition-colors duration-300">
-                    {t('solution.whyBoth.title')}
-                  </h3>
-                  <div className="space-y-4">
-                    {t('solution.whyBoth.features', { returnObjects: true }).map((feature: string, idx: number) => (
-                      <div key={idx} className="flex items-start gap-3 group/item">
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0 mt-1 group-hover/item:scale-110 transition-transform duration-300 shadow-lg shadow-green-500/30">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-slate-200 group-hover/item:text-white transition-colors duration-300">
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
+            <div className="relative p-8 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-md border border-white/20 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500">
+              <h3 className="text-3xl font-bold mb-8 text-white">Why Both Matter</h3>
+              <div className="space-y-6">
+                {[
+                  "Deep context understanding of your capabilities",
+                  "Full tender description analysis (not just titles)",
+                  "Precise matching scores for every opportunity",
+                  "Automatic partner recommendations",
+                  "Continuous monitoring across all portals",
+                  "Real-time consortium opportunity alerts",
+                ].map((feature, idx) => (
+                  <div key={idx} className="flex items-start gap-4 group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-green-500/30">
+                      <CheckCircle className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-slate-200 text-lg group-hover:text-white transition-colors duration-300">
+                      {feature}
+                    </span>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -774,9 +761,14 @@ const Index = () => {
 
                 {/* Early Access Benefits */}
                 <div className="space-y-4">
-                  <h4 className="font-bold text-lg text-white">{t('waitlist.earlyAccessTitle')}</h4>
+                  <h4 className="font-bold text-lg text-white">Early Access Benefits</h4>
                   <div className="space-y-3">
-                    {t('waitlist.earlyAccessBenefits', { returnObjects: true }).map((benefit: string, idx: number) => (
+                    {[
+                      "2-5 months free access to both platforms",
+                      "Priority support during beta phase",
+                      "Influence product development with your feedback",
+                      "Lock in special early adopter pricing",
+                    ].map((benefit, idx) => (
                       <div key={idx} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                         <span className="text-slate-200">{benefit}</span>
