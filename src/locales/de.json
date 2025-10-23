@@ -72,6 +72,32 @@
       ]
     }
   },
+  "howItWorks": {
+    "title": "So Funktioniert's",
+    "subtitle": "Vier einfache Schritte zur intelligenteren Ausschreibungsentdeckung",
+    "steps": {
+      "profile": {
+        "title": "Profil Erstellen",
+        "desc": "Geben Sie Ihre Produkte, Dienstleistungen, Referenzen und Standorte einmal ein"
+      },
+      "activate": {
+        "title": "KI Aktiviert",
+        "desc": "tender.match durchsucht kontinuierlich alle verbundenen Portale"
+      },
+      "matches": {
+        "title": "Treffer Erhalten",
+        "desc": "Erhalten Sie nur relevante Ausschreibungen mit Übereinstimmungswerten"
+      },
+      "partners": {
+        "title": "Partner Finden",
+        "desc": "company.match schlägt die perfekten Konsortialmitglieder vor"
+      }
+    },
+    "continuous": {
+      "title": "Kontinuierliche Intelligenz",
+      "desc": "Sobald Ihr Profil eingerichtet ist, arbeitet tender.match rund um die Uhr und überwacht alle 2.000+ europäischen Portale. Sie erhalten nur die Chancen, die wirklich zu Ihrem Geschäft passen, mit detaillierten Übereinstimmungswerten und Partnerempfehlungen."
+    }
+  },
   "benefits": {
     "title": "Kommende Vorteile",
     "subtitle": "Entdecken Sie die Vorteile intelligenter Ausschreibungszuordnung",
