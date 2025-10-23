@@ -72,6 +72,32 @@
       ]
     }
   },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Four simple steps to smarter tender discovery",
+    "steps": {
+      "profile": {
+        "title": "Create Profile",
+        "desc": "Enter your products, services, references, and locations once"
+      },
+      "activate": {
+        "title": "AI Activates",
+        "desc": "tender.match continuously searches all connected portals"
+      },
+      "matches": {
+        "title": "Get Matches",
+        "desc": "Receive only relevant tenders with matching scores"
+      },
+      "partners": {
+        "title": "Find Partners",
+        "desc": "company.match suggests the perfect consortium members"
+      }
+    },
+    "continuous": {
+      "title": "Continuous Intelligence",
+      "desc": "Once your profile is set up, tender.match works 24/7 monitoring all 2,000+ European portals. You'll receive only the opportunities that truly match your business, with detailed matching scores and partner recommendations."
+    }
+  },
   "benefits": {
     "title": "Advantages That Will Come",
     "subtitle": "Discover the benefits of intelligent tender matching",
