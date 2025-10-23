@@ -26,9 +26,72 @@ const Index = () => {
   }, []);
 
   const handleSubmit = () => {
+    console.log("handleSubmit called");
+    console.log("Form data:", formData);
+    console.log("Validation:", {
+      email: formData.email,
+      company: formData.company,
+      name: formData.name,
+      valid: !!(formData.email && formData.company && formData.name)
+    });
+
     if (formData.email && formData.company && formData.name) {
+      console.log("✅ Validation passed, submitting...");
+
+      const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeIffDA00NSNCRXPM3joe1icGNV4nKX6198VXDBfF_vQ4qh9w/formResponse";
+
+      // Create and submit form with iframe target
+      const iframe = document.createElement("iframe");
+      iframe.name = "hidden_iframe_" + Date.now();
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+      console.log("Created iframe:", iframe.name);
+
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = googleFormUrl;
+      form.target = iframe.name;
+
+      const fields = {
+        "entry.676647335": formData.company,
+        "entry.2118133853": formData.name,
+        "entry.1646847582": formData.email,
+        "entry.366614289": formData.position,
+        "entry.1949663896": formData.size,
+      };
+
+      console.log("Fields to submit:", fields);
+
+      Object.entries(fields).forEach(([name, value]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = value || "";
+        form.appendChild(input);
+        console.log(`Added field: ${name} = ${value || ""}`);
+      });
+
+      document.body.appendChild(form);
+      console.log("Form appended, submitting to:", googleFormUrl);
+      console.log("Form HTML:", form.innerHTML);
+      form.submit();
+      console.log("Form.submit() called");
+
+      // Clean up after submission
+      setTimeout(() => {
+        try {
+          document.body.removeChild(form);
+          document.body.removeChild(iframe);
+          console.log("Cleaned up form and iframe");
+        } catch (e) {
+          console.error("Cleanup error:", e);
+        }
+      }, 2000);
+
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 5000);
+    } else {
+      console.log("❌ Validation failed - missing required fields");
     }
   };
 
