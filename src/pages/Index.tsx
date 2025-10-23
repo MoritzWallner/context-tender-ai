@@ -1,11 +1,23 @@
 import { useState, useEffect } from "react";
-import { Zap, Target, Users, Clock, TrendingUp, Shield, CheckCircle, ArrowRight, Sparkles, Languages } from "lucide-react";
+import {
+  Zap,
+  Target,
+  Users,
+  Clock,
+  TrendingUp,
+  Shield,
+  CheckCircle,
+  ArrowRight,
+  Sparkles,
+  Languages,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   const { t, i18n } = useTranslation();
@@ -32,13 +44,14 @@ const Index = () => {
       email: formData.email,
       company: formData.company,
       name: formData.name,
-      valid: !!(formData.email && formData.company && formData.name)
+      valid: !!(formData.email && formData.company && formData.name),
     });
 
     if (formData.email && formData.company && formData.name) {
       console.log("✅ Validation passed, submitting...");
 
-      const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeIffDA00NSNCRXPM3joe1icGNV4nKX6198VXDBfF_vQ4qh9w/formResponse";
+      const googleFormUrl =
+        "https://docs.google.com/forms/d/e/1FAIpQLSeIffDA00NSNCRXPM3joe1icGNV4nKX6198VXDBfF_vQ4qh9w/formResponse";
 
       // Create and submit form with iframe target
       const iframe = document.createElement("iframe");
@@ -96,7 +109,9 @@ const Index = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
     setFormData((prev) => ({
@@ -115,26 +130,25 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-slate-950/50 backdrop-blur-xl border-b border-white/10 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <span className="text-xl font-bold">{t('nav.brandName')}</span>
+            <img src={logo} className="w-64" />
           </div>
           <div className="flex items-center gap-4">
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'de' : 'en')}
+              onClick={() =>
+                i18n.changeLanguage(i18n.language === "en" ? "de" : "en")
+              }
               className="flex items-center gap-2"
             >
               <Languages className="w-4 h-4" />
-              {i18n.language === 'en' ? 'DE' : 'EN'}
+              {i18n.language === "en" ? "DE" : "EN"}
             </Button>
             <Button
               onClick={() => scrollToSection("waitlist")}
               className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-all"
             >
-              {t('nav.joinWaitlist')}
+              {t("nav.joinWaitlist")}
             </Button>
           </div>
         </div>
@@ -144,19 +158,19 @@ const Index = () => {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="inline-block mb-6 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium backdrop-blur-sm">
-            {t('hero.badge')}
+            {t("hero.badge")}
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              {t('hero.title1')}
+              {t("hero.title1")}
             </span>
             <br />
-            <span className="text-white">{t('hero.title2')}</span>
+            <span className="text-white">{t("hero.title2")}</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            {t('hero.subtitle')}
+            {t("hero.subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -164,7 +178,7 @@ const Index = () => {
               onClick={() => scrollToSection("waitlist")}
               className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-all shadow-lg shadow-blue-500/50 flex items-center justify-center gap-2"
             >
-              {t('hero.ctaPrimary')}
+              {t("hero.ctaPrimary")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
@@ -172,7 +186,7 @@ const Index = () => {
               variant="outline"
               className="px-8 py-4 bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all"
             >
-              {t('hero.ctaSecondary')}
+              {t("hero.ctaSecondary")}
             </Button>
           </div>
 
@@ -194,8 +208,12 @@ const Index = () => {
                 <div className="h-2 bg-white/10 rounded w-1/2"></div>
               </div>
               <div className="mt-3 flex gap-1">
-                <div className="px-2 py-1 bg-blue-500/20 rounded text-xs text-blue-300">EU Project</div>
-                <div className="px-2 py-1 bg-purple-500/20 rounded text-xs text-purple-300">Tech</div>
+                <div className="px-2 py-1 bg-blue-500/20 rounded text-xs text-blue-300">
+                  EU Project
+                </div>
+                <div className="px-2 py-1 bg-purple-500/20 rounded text-xs text-purple-300">
+                  Tech
+                </div>
               </div>
             </div>
 
@@ -206,7 +224,9 @@ const Index = () => {
                   97%
                 </div>
                 <div className="flex-1">
-                  <div className="text-xs text-green-400 font-semibold mb-1">Perfect Match</div>
+                  <div className="text-xs text-green-400 font-semibold mb-1">
+                    Perfect Match
+                  </div>
                   <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 w-[97%]"></div>
                   </div>
@@ -221,7 +241,9 @@ const Index = () => {
                 <div className="px-2 py-1 bg-green-500/20 border border-green-500/30 rounded text-xs text-green-300">
                   Main Contractor
                 </div>
-                <div className="px-2 py-1 bg-blue-500/20 rounded text-xs text-blue-300">Infrastructure</div>
+                <div className="px-2 py-1 bg-blue-500/20 rounded text-xs text-blue-300">
+                  Infrastructure
+                </div>
               </div>
             </div>
 
@@ -241,8 +263,12 @@ const Index = () => {
                 <div className="h-2 bg-white/10 rounded w-1/3"></div>
               </div>
               <div className="mt-3 flex gap-1">
-                <div className="px-2 py-1 bg-purple-500/20 rounded text-xs text-purple-300">Partner</div>
-                <div className="px-2 py-1 bg-orange-500/20 rounded text-xs text-orange-300">Energy</div>
+                <div className="px-2 py-1 bg-purple-500/20 rounded text-xs text-purple-300">
+                  Partner
+                </div>
+                <div className="px-2 py-1 bg-orange-500/20 rounded text-xs text-orange-300">
+                  Energy
+                </div>
               </div>
             </div>
 
@@ -254,15 +280,15 @@ const Index = () => {
           <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-400">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-400" />
-              <span>{t('hero.benefit1')}</span>
+              <span>{t("hero.benefit1")}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-400" />
-              <span>{t('hero.benefit2')}</span>
+              <span>{t("hero.benefit2")}</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-400" />
-              <span>{t('hero.benefit3')}</span>
+              <span>{t("hero.benefit3")}</span>
             </div>
           </div>
         </div>
@@ -272,9 +298,11 @@ const Index = () => {
       <section className="py-20 px-6 bg-gradient-to-b from-transparent to-slate-950/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('problem.title')}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              {t("problem.title")}
+            </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              {t('problem.subtitle')}
+              {t("problem.subtitle")}
             </p>
           </div>
 
@@ -282,11 +310,11 @@ const Index = () => {
             {[
               {
                 icon: Clock,
-                title: t('problem.timeDrain.title'),
-                desc: t('problem.timeDrain.desc'),
+                title: t("problem.timeDrain.title"),
+                desc: t("problem.timeDrain.desc"),
                 color: "from-red-500 to-orange-500",
-                stat: t('problem.timeDrain.stat'),
-                statLabel: t('problem.timeDrain.statLabel'),
+                stat: t("problem.timeDrain.stat"),
+                statLabel: t("problem.timeDrain.statLabel"),
                 visual: (
                   <div className="flex items-end justify-center gap-1 h-12">
                     {[30, 50, 70, 60, 80, 90, 85].map((h, i) => (
@@ -301,11 +329,11 @@ const Index = () => {
               },
               {
                 icon: Target,
-                title: t('problem.fragmented.title'),
-                desc: t('problem.fragmented.desc'),
+                title: t("problem.fragmented.title"),
+                desc: t("problem.fragmented.desc"),
                 color: "from-orange-500 to-yellow-500",
-                stat: t('problem.fragmented.stat'),
-                statLabel: t('problem.fragmented.statLabel'),
+                stat: t("problem.fragmented.stat"),
+                statLabel: t("problem.fragmented.statLabel"),
                 visual: (
                   <div className="flex items-center justify-center gap-2 h-12">
                     <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
@@ -318,18 +346,20 @@ const Index = () => {
               },
               {
                 icon: TrendingUp,
-                title: t('problem.missed.title'),
-                desc: t('problem.missed.desc'),
+                title: t("problem.missed.title"),
+                desc: t("problem.missed.desc"),
                 color: "from-yellow-500 to-green-500",
-                stat: t('problem.missed.stat'),
-                statLabel: t('problem.missed.statLabel'),
+                stat: t("problem.missed.stat"),
+                statLabel: t("problem.missed.statLabel"),
                 visual: (
                   <div className="flex items-center justify-center h-12">
                     <div className="relative w-full">
                       <div className="h-1 bg-white/10 rounded-full overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-yellow-500 to-green-500 w-[30%]"></div>
                       </div>
-                      <div className="text-xs text-slate-400 mt-2 text-center">{t('problem.missed.visual')}</div>
+                      <div className="text-xs text-slate-400 mt-2 text-center">
+                        {t("problem.missed.visual")}
+                      </div>
                     </div>
                   </div>
                 ),
@@ -356,14 +386,22 @@ const Index = () => {
                       >
                         {problem.stat}
                       </div>
-                      <div className="text-xs text-slate-400">{problem.statLabel}</div>
+                      <div className="text-xs text-slate-400">
+                        {problem.statLabel}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="mb-4 p-3 bg-white/5 rounded-lg border border-white/5">{problem.visual}</div>
+                  <div className="mb-4 p-3 bg-white/5 rounded-lg border border-white/5">
+                    {problem.visual}
+                  </div>
 
-                  <h3 className="text-xl font-semibold mb-3">{problem.title}</h3>
-                  <p className="text-slate-300 text-sm leading-relaxed">{problem.desc}</p>
+                  <h3 className="text-xl font-semibold mb-3">
+                    {problem.title}
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    {problem.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -373,7 +411,10 @@ const Index = () => {
             <div className="flex items-center gap-3 mb-3">
               <div className="w-2 h-2 bg-red-400 rounded-full"></div>
               <p className="text-slate-200 font-medium">
-                <span className="text-red-300 font-bold">{t('problem.result')}</span> {t('problem.resultText')}
+                <span className="text-red-300 font-bold">
+                  {t("problem.result")}
+                </span>{" "}
+                {t("problem.resultText")}
               </p>
             </div>
           </div>
@@ -385,14 +426,14 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              {t('solution.title1')}
+              {t("solution.title1")}
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                {t('solution.title2')}
+                {t("solution.title2")}
               </span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              {t('solution.subtitle')}
+              {t("solution.subtitle")}
             </p>
           </div>
 
@@ -407,7 +448,7 @@ const Index = () => {
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
                 <div className="flex-1 mx-4 px-4 py-1 bg-white/5 rounded-lg text-xs text-slate-400 text-center">
-                  {t('solution.dashboard.url')}
+                  {t("solution.dashboard.url")}
                 </div>
               </div>
 
@@ -421,36 +462,54 @@ const Index = () => {
                     <Button
                       size="sm"
                       className={`bg-blue-500 hover:bg-blue-600 text-xs transition-all ${
-                        dashboardAnimated ? "scale-95 opacity-70" : "scale-100 opacity-100"
+                        dashboardAnimated
+                          ? "scale-95 opacity-70"
+                          : "scale-100 opacity-100"
                       }`}
                     >
-                      {t('solution.dashboard.search')}
+                      {t("solution.dashboard.search")}
                     </Button>
                     <div className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-xs text-green-300">
-                      {t('solution.dashboard.live')}
+                      {t("solution.dashboard.live")}
                     </div>
                     <div className="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-xs text-blue-300">
-                      {t('solution.dashboard.aiActive')}
+                      {t("solution.dashboard.aiActive")}
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   {[
-                    { score: 95, color: "from-green-500 to-emerald-600", label: t('solution.dashboard.perfectMatch') },
-                    { score: 87, color: "from-blue-500 to-cyan-600", label: t('solution.dashboard.highMatch') },
-                    { score: 78, color: "from-purple-500 to-pink-600", label: t('solution.dashboard.goodMatch') },
+                    {
+                      score: 95,
+                      color: "from-green-500 to-emerald-600",
+                      label: t("solution.dashboard.perfectMatch"),
+                    },
+                    {
+                      score: 87,
+                      color: "from-blue-500 to-cyan-600",
+                      label: t("solution.dashboard.highMatch"),
+                    },
+                    {
+                      score: 78,
+                      color: "from-purple-500 to-pink-600",
+                      label: t("solution.dashboard.goodMatch"),
+                    },
                   ].map((match, idx) => (
                     <div
                       key={idx}
                       className={`p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all group transform ${
-                        dashboardAnimated ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                        dashboardAnimated
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-4 opacity-0"
                       }`}
                       style={{
                         transitionProperty: "all",
                         transitionDuration: "0.5s",
                         transitionTimingFunction: "ease-out",
-                        transitionDelay: dashboardAnimated ? `${(idx + 1) * 150}ms` : "0ms",
+                        transitionDelay: dashboardAnimated
+                          ? `${(idx + 1) * 150}ms`
+                          : "0ms",
                       }}
                     >
                       <div className="flex items-start justify-between mb-3">
@@ -491,10 +550,16 @@ const Index = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/30">
                     <Zap className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white">tender.match</h3>
+                  <h3 className="text-3xl font-bold text-white">
+                    tender.match
+                  </h3>
                 </div>
                 <p className="text-slate-300 leading-relaxed text-lg">
-                  Our AI understands your complete business context: products, services, locations, references, and formal requirements. It analyzes full tender descriptions and calculates precise matching scores showing whether you're suited as main contractor, subcontractor, or consortium partner.
+                  Our AI understands your complete business context: products,
+                  services, locations, references, and formal requirements. It
+                  analyzes full tender descriptions and calculates precise
+                  matching scores showing whether you're suited as main
+                  contractor, subcontractor, or consortium partner.
                 </p>
               </div>
 
@@ -504,17 +569,24 @@ const Index = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/30">
                     <Users className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white">company.match</h3>
+                  <h3 className="text-3xl font-bold text-white">
+                    company.match
+                  </h3>
                 </div>
                 <p className="text-slate-300 leading-relaxed text-lg">
-                  Automatically identifies potential partners for consortiums or subcontracts. Data-driven recommendations help you find the missing pieces to win larger projects you couldn't tackle alone.
+                  Automatically identifies potential partners for consortiums or
+                  subcontracts. Data-driven recommendations help you find the
+                  missing pieces to win larger projects you couldn't tackle
+                  alone.
                 </p>
               </div>
             </div>
 
             {/* Right Column - Why Both Matter */}
             <div className="relative p-8 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-md border border-white/20 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500">
-              <h3 className="text-3xl font-bold mb-8 text-white">Why Both Matter</h3>
+              <h3 className="text-3xl font-bold mb-8 text-white">
+                Why Both Matter
+              </h3>
               <div className="space-y-6">
                 {[
                   "Deep context understanding of your capabilities",
@@ -540,11 +612,16 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 px-6 bg-gradient-to-b from-slate-950/50 to-transparent">
+      <section
+        id="how-it-works"
+        className="py-20 px-6 bg-gradient-to-b from-slate-950/50 to-transparent"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('howItWorks.title')}</h2>
-            <p className="text-xl text-slate-300">{t('howItWorks.subtitle')}</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              {t("howItWorks.title")}
+            </h2>
+            <p className="text-xl text-slate-300">{t("howItWorks.subtitle")}</p>
           </div>
 
           <div className="relative">
@@ -555,8 +632,8 @@ const Index = () => {
               {[
                 {
                   step: "1",
-                  title: t('howItWorks.steps.profile.title'),
-                  desc: t('howItWorks.steps.profile.desc'),
+                  title: t("howItWorks.steps.profile.title"),
+                  desc: t("howItWorks.steps.profile.desc"),
                   color: "from-blue-500 to-cyan-500",
                   visual: (
                     <div className="relative h-32 flex items-center justify-center overflow-hidden">
@@ -570,23 +647,29 @@ const Index = () => {
                 },
                 {
                   step: "2",
-                  title: t('howItWorks.steps.activate.title'),
-                  desc: t('howItWorks.steps.activate.desc'),
+                  title: t("howItWorks.steps.activate.title"),
+                  desc: t("howItWorks.steps.activate.desc"),
                   color: "from-purple-500 to-pink-500",
                   visual: (
                     <div className="relative h-32 flex items-center justify-center overflow-hidden">
                       <div className="flex items-center justify-center gap-3">
                         <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
-                        <div className="w-3 h-3 bg-pink-400 rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
-                        <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
+                        <div
+                          className="w-3 h-3 bg-pink-400 rounded-full animate-pulse"
+                          style={{ animationDelay: "0.2s" }}
+                        ></div>
+                        <div
+                          className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"
+                          style={{ animationDelay: "0.4s" }}
+                        ></div>
                       </div>
                     </div>
                   ),
                 },
                 {
                   step: "3",
-                  title: t('howItWorks.steps.matches.title'),
-                  desc: t('howItWorks.steps.matches.desc'),
+                  title: t("howItWorks.steps.matches.title"),
+                  desc: t("howItWorks.steps.matches.desc"),
                   color: "from-green-500 to-emerald-500",
                   visual: (
                     <div className="relative h-32 flex items-end justify-center gap-1.5 overflow-hidden">
@@ -604,8 +687,8 @@ const Index = () => {
                 },
                 {
                   step: "4",
-                  title: t('howItWorks.steps.partners.title'),
-                  desc: t('howItWorks.steps.partners.desc'),
+                  title: t("howItWorks.steps.partners.title"),
+                  desc: t("howItWorks.steps.partners.desc"),
                   color: "from-orange-500 to-red-500",
                   visual: (
                     <div className="relative h-32 flex items-center justify-center overflow-hidden">
@@ -629,31 +712,47 @@ const Index = () => {
                 <div key={idx} className="relative group">
                   <div className="relative p-8 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-md border border-white/10 rounded-3xl hover:border-white/25 transition-all duration-500 flex flex-col h-full shadow-xl hover:shadow-2xl overflow-hidden">
                     {/* Gradient background on hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    ></div>
 
                     <div className="relative z-10 flex flex-col h-full">
                       {/* Visual box */}
-                      <div className={`mb-6 rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br ${step.color.replace('from-', 'from-').replace('to-', 'to-')}/10`}>
+                      <div
+                        className={`mb-6 rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br ${step.color
+                          .replace("from-", "from-")
+                          .replace("to-", "to-")}/10`}
+                      >
                         {step.visual}
                       </div>
 
                       {/* Step badge */}
-                      <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                        <span className="text-3xl font-bold text-white">{step.step}</span>
+                      <div
+                        className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                      >
+                        <span className="text-3xl font-bold text-white">
+                          {step.step}
+                        </span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-2xl font-bold mb-4 text-white">{step.title}</h3>
+                      <h3 className="text-2xl font-bold mb-4 text-white">
+                        {step.title}
+                      </h3>
 
                       {/* Description */}
-                      <p className="text-slate-300 text-sm leading-relaxed flex-1">{step.desc}</p>
+                      <p className="text-slate-300 text-sm leading-relaxed flex-1">
+                        {step.desc}
+                      </p>
                     </div>
                   </div>
 
                   {/* Arrow connector */}
                   {idx < 3 && (
                     <div className="hidden lg:flex absolute -right-4 top-1/3 z-20">
-                      <div className={`w-8 h-8 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform duration-300`}>
+                      <div
+                        className={`w-8 h-8 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform duration-300`}
+                      >
                         <ArrowRight className="w-5 h-5 text-white" />
                       </div>
                     </div>
@@ -668,9 +767,11 @@ const Index = () => {
             <div className="flex items-start gap-4">
               <Sparkles className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" />
               <div>
-                <p className="font-semibold text-white mb-2">{t('howItWorks.continuous.title')}</p>
+                <p className="font-semibold text-white mb-2">
+                  {t("howItWorks.continuous.title")}
+                </p>
                 <p className="text-slate-300 text-sm leading-relaxed">
-                  {t('howItWorks.continuous.desc')}
+                  {t("howItWorks.continuous.desc")}
                 </p>
               </div>
             </div>
@@ -682,15 +783,17 @@ const Index = () => {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('benefits.title')}</h2>
-            <p className="text-xl text-slate-300">{t('benefits.subtitle')}</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              {t("benefits.title")}
+            </h2>
+            <p className="text-xl text-slate-300">{t("benefits.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             {[
               {
-                label: t('benefits.advantages.timeEfficiency.label'),
-                desc: t('benefits.advantages.timeEfficiency.desc'),
+                label: t("benefits.advantages.timeEfficiency.label"),
+                desc: t("benefits.advantages.timeEfficiency.desc"),
                 gradient: "from-blue-500 to-cyan-500",
                 visual: (
                   <div className="relative h-32 flex items-end justify-center gap-1.5 px-4">
@@ -705,8 +808,8 @@ const Index = () => {
                 ),
               },
               {
-                label: t('benefits.advantages.moreOpportunities.label'),
-                desc: t('benefits.advantages.moreOpportunities.desc'),
+                label: t("benefits.advantages.moreOpportunities.label"),
+                desc: t("benefits.advantages.moreOpportunities.desc"),
                 gradient: "from-green-500 to-emerald-500",
                 visual: (
                   <div className="relative h-32 flex items-center justify-center gap-4">
@@ -722,8 +825,8 @@ const Index = () => {
                 ),
               },
               {
-                label: t('benefits.advantages.expandIndustry.label'),
-                desc: t('benefits.advantages.expandIndustry.desc'),
+                label: t("benefits.advantages.expandIndustry.label"),
+                desc: t("benefits.advantages.expandIndustry.desc"),
                 gradient: "from-purple-500 to-pink-500",
                 visual: (
                   <div className="relative h-32 flex items-center justify-center gap-3">
@@ -742,7 +845,10 @@ const Index = () => {
                 ),
               },
             ].map((advantage, idx) => (
-              <div key={idx} className="group relative overflow-hidden rounded-3xl transition-all duration-500">
+              <div
+                key={idx}
+                className="group relative overflow-hidden rounded-3xl transition-all duration-500"
+              >
                 <div className="relative p-8 bg-gradient-to-br from-white/8 to-white/2 backdrop-blur-md border border-white/15 rounded-3xl hover:from-white/12 hover:to-white/5 hover:border-white/30 transition-all duration-500 h-full shadow-xl hover:shadow-2xl hover:shadow-white/5 overflow-hidden">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-8 transition-opacity duration-500 rounded-3xl`}
@@ -774,42 +880,45 @@ const Index = () => {
             {[
               {
                 icon: Clock,
-                title: t('benefits.cards.saveTime.title'),
-                desc: t('benefits.cards.saveTime.desc'),
+                title: t("benefits.cards.saveTime.title"),
+                desc: t("benefits.cards.saveTime.desc"),
                 gradient: "from-blue-500 to-cyan-500",
               },
               {
                 icon: Target,
-                title: t('benefits.cards.precision.title'),
-                desc: t('benefits.cards.precision.desc'),
+                title: t("benefits.cards.precision.title"),
+                desc: t("benefits.cards.precision.desc"),
                 gradient: "from-purple-500 to-pink-500",
               },
               {
                 icon: Users,
-                title: t('benefits.cards.partnerships.title'),
-                desc: t('benefits.cards.partnerships.desc'),
+                title: t("benefits.cards.partnerships.title"),
+                desc: t("benefits.cards.partnerships.desc"),
                 gradient: "from-green-500 to-emerald-500",
               },
               {
                 icon: TrendingUp,
-                title: t('benefits.cards.expansion.title'),
-                desc: t('benefits.cards.expansion.desc'),
+                title: t("benefits.cards.expansion.title"),
+                desc: t("benefits.cards.expansion.desc"),
                 gradient: "from-orange-500 to-red-500",
               },
               {
                 icon: Shield,
-                title: t('benefits.cards.deadlines.title'),
-                desc: t('benefits.cards.deadlines.desc'),
+                title: t("benefits.cards.deadlines.title"),
+                desc: t("benefits.cards.deadlines.desc"),
                 gradient: "from-indigo-500 to-blue-500",
               },
               {
                 icon: Sparkles,
-                title: t('benefits.cards.intelligence.title'),
-                desc: t('benefits.cards.intelligence.desc'),
+                title: t("benefits.cards.intelligence.title"),
+                desc: t("benefits.cards.intelligence.desc"),
                 gradient: "from-pink-500 to-rose-500",
               },
             ].map((benefit, idx) => (
-              <div key={idx} className="group relative overflow-hidden rounded-2xl transition-all duration-500">
+              <div
+                key={idx}
+                className="group relative overflow-hidden rounded-2xl transition-all duration-500"
+              >
                 <div className="relative p-6 bg-gradient-to-br from-white/6 to-white/0 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/25 transition-all duration-500 h-full shadow-lg hover:shadow-xl hover:shadow-white/5 overflow-hidden">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}
@@ -842,29 +951,40 @@ const Index = () => {
       </section>
 
       {/* Waitlist Form */}
-      <section id="waitlist" className="py-20 px-6 bg-gradient-to-b from-transparent to-slate-950">
+      <section
+        id="waitlist"
+        className="py-20 px-6 bg-gradient-to-b from-transparent to-slate-950"
+      >
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('waitlist.title')}</h2>
-            <p className="text-xl text-slate-300">{t('waitlist.subtitle')}</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              {t("waitlist.title")}
+            </h2>
+            <p className="text-xl text-slate-300">{t("waitlist.subtitle")}</p>
           </div>
 
           <div className="p-8 md:p-12 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 rounded-3xl backdrop-blur-sm">
             {submitted ? (
               <div className="text-center py-12">
                 <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">{t('waitlist.success.title')}</h3>
-                <p className="text-slate-300">{t('waitlist.success.message')}</p>
+                <h3 className="text-2xl font-bold mb-2">
+                  {t("waitlist.success.title")}
+                </h3>
+                <p className="text-slate-300">
+                  {t("waitlist.success.message")}
+                </p>
               </div>
             ) : (
               <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="company" className="text-base">{t('waitlist.form.company')} {t('waitlist.form.required')}</Label>
+                    <Label htmlFor="company" className="text-base">
+                      {t("waitlist.form.company")} {t("waitlist.form.required")}
+                    </Label>
                     <Input
                       id="company"
                       name="company"
-                      placeholder={t('waitlist.form.companyPlaceholder')}
+                      placeholder={t("waitlist.form.companyPlaceholder")}
                       value={formData.company}
                       onChange={handleChange}
                       className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
@@ -872,11 +992,13 @@ const Index = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-base">{t('waitlist.form.name')} {t('waitlist.form.required')}</Label>
+                    <Label htmlFor="name" className="text-base">
+                      {t("waitlist.form.name")} {t("waitlist.form.required")}
+                    </Label>
                     <Input
                       id="name"
                       name="name"
-                      placeholder={t('waitlist.form.namePlaceholder')}
+                      placeholder={t("waitlist.form.namePlaceholder")}
                       value={formData.name}
                       onChange={handleChange}
                       className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
@@ -886,12 +1008,14 @@ const Index = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-base">{t('waitlist.form.email')} {t('waitlist.form.required')}</Label>
+                  <Label htmlFor="email" className="text-base">
+                    {t("waitlist.form.email")} {t("waitlist.form.required")}
+                  </Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder={t('waitlist.form.emailPlaceholder')}
+                    placeholder={t("waitlist.form.emailPlaceholder")}
                     value={formData.email}
                     onChange={handleChange}
                     className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
@@ -901,18 +1025,22 @@ const Index = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="position" className="text-base">{t('waitlist.form.position')}</Label>
+                    <Label htmlFor="position" className="text-base">
+                      {t("waitlist.form.position")}
+                    </Label>
                     <Input
                       id="position"
                       name="position"
-                      placeholder={t('waitlist.form.positionPlaceholder')}
+                      placeholder={t("waitlist.form.positionPlaceholder")}
                       value={formData.position}
                       onChange={handleChange}
                       className="bg-slate-900/50 border-white/10 h-12 text-base placeholder:text-slate-500"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="size" className="text-base">{t('waitlist.form.size')}</Label>
+                    <Label htmlFor="size" className="text-base">
+                      {t("waitlist.form.size")}
+                    </Label>
                     <select
                       id="size"
                       name="size"
@@ -920,12 +1048,24 @@ const Index = () => {
                       onChange={handleChange}
                       className="flex h-12 w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-base text-white"
                     >
-                      <option value="">{t('waitlist.form.sizeOptions.default')}</option>
-                      <option value="1-10">{t('waitlist.form.sizeOptions.1-10')}</option>
-                      <option value="11-50">{t('waitlist.form.sizeOptions.11-50')}</option>
-                      <option value="51-200">{t('waitlist.form.sizeOptions.51-200')}</option>
-                      <option value="201-500">{t('waitlist.form.sizeOptions.201-500')}</option>
-                      <option value="500+">{t('waitlist.form.sizeOptions.500+')}</option>
+                      <option value="">
+                        {t("waitlist.form.sizeOptions.default")}
+                      </option>
+                      <option value="1-10">
+                        {t("waitlist.form.sizeOptions.1-10")}
+                      </option>
+                      <option value="11-50">
+                        {t("waitlist.form.sizeOptions.11-50")}
+                      </option>
+                      <option value="51-200">
+                        {t("waitlist.form.sizeOptions.51-200")}
+                      </option>
+                      <option value="201-500">
+                        {t("waitlist.form.sizeOptions.201-500")}
+                      </option>
+                      <option value="500+">
+                        {t("waitlist.form.sizeOptions.500+")}
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -935,9 +1075,11 @@ const Index = () => {
                   <div className="flex items-start gap-3">
                     <Shield className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-white mb-1">{t('waitlist.info.title')}</h4>
+                      <h4 className="font-semibold text-white mb-1">
+                        {t("waitlist.info.title")}
+                      </h4>
                       <p className="text-sm text-slate-300">
-                        {t('waitlist.info.desc')}
+                        {t("waitlist.info.desc")}
                       </p>
                     </div>
                   </div>
@@ -950,21 +1092,33 @@ const Index = () => {
                       id="canMention"
                       checked={formData.canMention}
                       onCheckedChange={(checked) =>
-                        setFormData((prev) => ({ ...prev, canMention: checked as boolean }))
+                        setFormData((prev) => ({
+                          ...prev,
+                          canMention: checked as boolean,
+                        }))
                       }
                       className="mt-1"
                     />
-                    <label htmlFor="canMention" className="text-sm text-slate-300 cursor-pointer flex-1">
-                      <span className="font-medium text-white">{t('waitlist.checkbox.label')}</span>
+                    <label
+                      htmlFor="canMention"
+                      className="text-sm text-slate-300 cursor-pointer flex-1"
+                    >
+                      <span className="font-medium text-white">
+                        {t("waitlist.checkbox.label")}
+                      </span>
                       <br />
-                      <span className="text-blue-400">{t('waitlist.checkbox.benefit')}</span>
+                      <span className="text-blue-400">
+                        {t("waitlist.checkbox.benefit")}
+                      </span>
                     </label>
                   </div>
                 </div>
 
                 {/* Early Access Benefits */}
                 <div className="space-y-4">
-                  <h4 className="font-bold text-lg text-white">Early Access Benefits</h4>
+                  <h4 className="font-bold text-lg text-white">
+                    Early Access Benefits
+                  </h4>
                   <div className="space-y-3">
                     {[
                       "2-5 months free access to both platforms",
@@ -984,7 +1138,7 @@ const Index = () => {
                   onClick={handleSubmit}
                   className="w-full py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-all text-lg font-semibold flex items-center justify-center gap-2"
                 >
-                  {t('waitlist.submitButton')}
+                  {t("waitlist.submitButton")}
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
