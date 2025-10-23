@@ -58,6 +58,7 @@ const Index = () => {
         "entry.1646847582": formData.email,
         "entry.366614289": formData.position,
         "entry.1949663896": formData.size,
+        "entry.68019609": formData.canMention ? "Yes" : "No",
       };
 
       console.log("Fields to submit:", fields);
