@@ -1141,6 +1141,50 @@ const Index = () => {
                   {t("waitlist.submitButton")}
                   <ArrowRight className="w-5 h-5" />
                 </Button>
+
+                {/* Trust Indicators */}
+                <div className="mt-8 space-y-6">
+                  {/* Companies Joined */}
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="flex items-center gap-6 flex-wrap justify-center">
+                      {/* Company logos placeholder circles */}
+                      <div className="flex -space-x-2">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
+                          A
+                        </div>
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
+                          B
+                        </div>
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
+                          C
+                        </div>
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-green-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
+                          D
+                        </div>
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
+                          E
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-slate-300 text-sm">
+                      <span className="font-bold text-white text-lg">127+</span> companies already joined the program
+                    </p>
+                  </div>
+
+                  {/* Seats Left Counter */}
+                  <div className="relative">
+                    <div className="p-4 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 border border-orange-500/30 rounded-xl backdrop-blur-sm">
+                      <div className="flex items-center justify-center gap-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                          <span className="text-slate-200 font-medium">
+                            Just <span className="text-orange-400 font-bold text-xl mx-1">27 Seats</span> left for early access!
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
