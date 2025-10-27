@@ -18,6 +18,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
+import companyLogo1 from "@/assets/company-logo-1.png";
+import companyLogo2 from "@/assets/company-logo-2.png";
+import companyLogo3 from "@/assets/company-logo-3.png";
+import companyLogo4 from "@/assets/company-logo-4.png";
+import companyLogo5 from "@/assets/company-logo-5.png";
 
 const Index = () => {
   const { t, i18n } = useTranslation();
@@ -1147,27 +1152,37 @@ const Index = () => {
                   {/* Companies Joined */}
                   <div className="flex flex-col items-center gap-4">
                     <div className="flex items-center gap-6 flex-wrap justify-center">
-                      {/* Company logos placeholder circles */}
+                      {/* Company logos */}
                       <div className="flex -space-x-2">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
-                          A
-                        </div>
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
-                          B
-                        </div>
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
-                          C
-                        </div>
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-green-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
-                          D
-                        </div>
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 border-2 border-slate-800 flex items-center justify-center text-xs font-bold shadow-lg">
-                          E
-                        </div>
+                        <img 
+                          src={companyLogo1} 
+                          alt="Company 1" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
+                        <img 
+                          src={companyLogo2} 
+                          alt="Company 2" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
+                        <img 
+                          src={companyLogo3} 
+                          alt="Company 3" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
+                        <img 
+                          src={companyLogo4} 
+                          alt="Company 4" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
+                        <img 
+                          src={companyLogo5} 
+                          alt="Company 5" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
                       </div>
                     </div>
                     <p className="text-slate-300 text-sm">
-                      <span className="font-bold text-white text-lg">127+</span> companies already joined the program
+                      <span className="font-bold text-white text-lg">57</span> companies already joined the program
                     </p>
                   </div>
 
