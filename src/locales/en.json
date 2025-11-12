@@ -151,6 +151,7 @@
       "email": "Email",
       "position": "Position",
       "size": "Company Size",
+      "paymentEstimate": "How much would you be willing to pay per month?",
       "companyPlaceholder": "Your company",
       "namePlaceholder": "John Doe",
       "emailPlaceholder": "john@company.com",
@@ -162,6 +163,13 @@
         "51-200": "51-200 employees",
         "201-500": "201-500 employees",
         "500+": "500+ employees"
+      },
+      "paymentEstimateOptions": {
+        "default": "Select payment range",
+        "below100": "Below 100 €",
+        "100to300": "100 to 300 €",
+        "300to1000": "300 to 1000 €",
+        "above1000": "Above 1000 €"
       },
       "required": "*"
     },

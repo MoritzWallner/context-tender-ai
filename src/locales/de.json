@@ -151,6 +151,7 @@
       "email": "E-Mail",
       "position": "Position",
       "size": "Firmengröße",
+      "paymentEstimate": "Wie viel wären Sie bereit pro Monat zu zahlen?",
       "companyPlaceholder": "Ihre Firma",
       "namePlaceholder": "Max Mustermann",
       "emailPlaceholder": "max@firma.de",
@@ -162,6 +163,13 @@
         "51-200": "51-200 Mitarbeiter",
         "201-500": "201-500 Mitarbeiter",
         "500+": "500+ Mitarbeiter"
+      },
+      "paymentEstimateOptions": {
+        "default": "Preisspanne auswählen",
+        "below100": "Unter 100 €",
+        "100to300": "100 bis 300 €",
+        "300to1000": "300 bis 1000 €",
+        "above1000": "Über 1000 €"
       },
       "required": "*"
     },

@@ -28,6 +28,7 @@ const Index = () => {
     position: "",
     size: "",
     canMention: false,
+    payment_estimate: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [dashboardAnimated, setDashboardAnimated] = useState(false);
@@ -72,6 +73,7 @@ const Index = () => {
         "entry.366614289": formData.position,
         "entry.1949663896": formData.size,
         "entry.68019609": formData.canMention ? "Yes" : "No",
+        "entry.903064583": formData.payment_estimate,
       };
 
       console.log("Fields to submit:", fields);
@@ -1068,6 +1070,36 @@ const Index = () => {
                       </option>
                     </select>
                   </div>
+                </div>
+
+                {/* Payment Estimate */}
+                <div className="space-y-2">
+                  <Label htmlFor="payment_estimate" className="text-base">
+                    {t("waitlist.form.paymentEstimate")}
+                  </Label>
+                  <select
+                    id="payment_estimate"
+                    name="payment_estimate"
+                    value={formData.payment_estimate}
+                    onChange={handleChange}
+                    className="flex h-12 w-full rounded-md border border-white/10 bg-slate-900/50 px-3 py-2 text-base text-white"
+                  >
+                    <option value="">
+                      {t("waitlist.form.paymentEstimateOptions.default")}
+                    </option>
+                    <option value="below 100">
+                      {t("waitlist.form.paymentEstimateOptions.below100")}
+                    </option>
+                    <option value="100 to 300">
+                      {t("waitlist.form.paymentEstimateOptions.100to300")}
+                    </option>
+                    <option value="300 to 1000">
+                      {t("waitlist.form.paymentEstimateOptions.300to1000")}
+                    </option>
+                    <option value="above 1000">
+                      {t("waitlist.form.paymentEstimateOptions.above1000")}
+                    </option>
+                  </select>
                 </div>
 
                 {/* Info box */}
