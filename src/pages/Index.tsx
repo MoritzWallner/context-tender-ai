@@ -1186,35 +1186,36 @@ const Index = () => {
                     <div className="flex items-center gap-6 flex-wrap justify-center">
                       {/* Company logos */}
                       <div className="flex -space-x-2">
-                        <img 
-                          src={companyLogo1} 
-                          alt="Company 1" 
+                        <img
+                          src={companyLogo1}
+                          alt="Company 1"
                           className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
                         />
-                        <img 
-                          src={companyLogo2} 
-                          alt="Company 2" 
+                        <img
+                          src={companyLogo2}
+                          alt="Company 2"
                           className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
                         />
-                        <img 
-                          src={companyLogo3} 
-                          alt="Company 3" 
+                        <img
+                          src={companyLogo3}
+                          alt="Company 3"
                           className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
                         />
-                        <img 
-                          src={companyLogo4} 
-                          alt="Company 4" 
+                        <img
+                          src={companyLogo4}
+                          alt="Company 4"
                           className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
                         />
-                        <img 
-                          src={companyLogo5} 
-                          alt="Company 5" 
+                        <img
+                          src={companyLogo5}
+                          alt="Company 5"
                           className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
                         />
                       </div>
                     </div>
                     <p className="text-slate-300 text-sm">
-                      <span className="font-bold text-white text-lg">57</span> companies already joined the program
+                      <span className="font-bold text-white text-lg">73</span>{" "}
+                      companies already joined the program
                     </p>
                   </div>
 
@@ -1225,7 +1226,11 @@ const Index = () => {
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
                           <span className="text-slate-200 font-medium">
-                            Just <span className="text-orange-400 font-bold text-xl mx-1">27 Seats</span> left for early access!
+                            Just{" "}
+                            <span className="text-orange-400 font-bold text-xl mx-1">
+                              27 Seats
+                            </span>{" "}
+                            left for early access!
                           </span>
                         </div>
                       </div>
