@@ -18,6 +18,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
+import companyLogo1 from "@/assets/company-logo-1.png";
+import companyLogo2 from "@/assets/company-logo-2.png";
+import companyLogo3 from "@/assets/company-logo-3.png";
+import companyLogo4 from "@/assets/company-logo-4.png";
+import companyLogo5 from "@/assets/company-logo-5.png";
 
 const Index = () => {
   const { t, i18n } = useTranslation();
@@ -1173,6 +1178,60 @@ const Index = () => {
                   {t("waitlist.submitButton")}
                   <ArrowRight className="w-5 h-5" />
                 </Button>
+
+                {/* Trust Indicators */}
+                <div className="mt-8 space-y-6">
+                  {/* Companies Joined */}
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="flex items-center gap-6 flex-wrap justify-center">
+                      {/* Company logos */}
+                      <div className="flex -space-x-2">
+                        <img 
+                          src={companyLogo1} 
+                          alt="Company 1" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
+                        <img 
+                          src={companyLogo2} 
+                          alt="Company 2" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
+                        <img 
+                          src={companyLogo3} 
+                          alt="Company 3" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
+                        <img 
+                          src={companyLogo4} 
+                          alt="Company 4" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
+                        <img 
+                          src={companyLogo5} 
+                          alt="Company 5" 
+                          className="w-10 h-10 rounded-full border-2 border-slate-800 shadow-lg object-cover bg-white"
+                        />
+                      </div>
+                    </div>
+                    <p className="text-slate-300 text-sm">
+                      <span className="font-bold text-white text-lg">57</span> companies already joined the program
+                    </p>
+                  </div>
+
+                  {/* Seats Left Counter */}
+                  <div className="relative">
+                    <div className="p-4 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 border border-orange-500/30 rounded-xl backdrop-blur-sm">
+                      <div className="flex items-center justify-center gap-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                          <span className="text-slate-200 font-medium">
+                            Just <span className="text-orange-400 font-bold text-xl mx-1">27 Seats</span> left for early access!
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
