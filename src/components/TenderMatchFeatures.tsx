@@ -40,43 +40,43 @@ const FeatureCard: React.FC<{
 
 const TenderMatchFeatures: React.FC = () => {
   return (
-    <section id="tender-match-features" className="bg-white relative py-10">
+    <section id="tender-match-features" className="bg-slate-50/50 relative py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <span className="text-blue-600 tracking-[0.3em] uppercase mb-4 block text-sm font-extrabold">Ecosystem</span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 tracking-tight">
-            Complete company.match ecosystem
+            All-in-one tender.match engine
           </h2>
           <p className="text-slate-500 text-lg leading-relaxed">
-            Find the perfect consortium partner in minutes, not weeks. Turn complex tenders into collaborative
-            opportunities and win projects you couldn't tackle alone.
+            From intelligent discovery across 2,000+ European portals to AI-powered gap analysis, tender.match automates
+            your entire procurement workflow with surgical precision.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10">
           <FeatureCard
-            title="10M+ European Companies"
+            title="European Market Coverage"
             image="/european-company-database-network.jpg"
-            description="Built from 30 years of tender outcomes, trade register data, website analysis, and real-time updates. The most comprehensive B2B database for European public procurement. Find partners you never knew existed."
-            href="/products#company-database"
+            description="Monitor 2,000+ procurement portals across 27 EU countries in real-time. Our AI scans every portal 24/7, aggregates opportunities in one dashboard, and alerts you instantly when relevant tenders appear."
+            href="/product#portal-coverage"
           />
           <FeatureCard
-            title="AI-Powered Partner Matching"
+            title="AI-Powered Matching"
             image="/ai-matching-algorithm-visualization.jpg"
-            description="Our AI identifies perfect consortium partners based on complementary capabilities, proven track record, and geographic coverage. Find partners in minutes, not weeks of networking. Win tenders worth millions."
-            href="/products#partner-matching"
+            description="Automatic capability matching with 70%+ accuracy. Our AI identifies opportunities you can win based on your expertise, experience, and qualifications—no manual screening required."
+            href="/product#semantic-matching"
           />
           <FeatureCard
-            title="Automatic Gap Coverage"
-            image="/gap-analysis-interface-with-solutions.jpg"
-            description="See exactly which capabilities you're missing to win a tender. Our AI automatically suggests partners who can close those gaps. Turn 'we can't do this' into 'we found the perfect partner' in seconds."
-            href="/products#gap-coverage"
+            title="Deep Gap Analysis"
+            image="/gap-analysis-interface-with-checkmarks.jpg"
+            description="See exactly what you can deliver and what's missing. AI-powered analysis with 95% accuracy shows which subcontractors or partners you need for each opportunity."
+            href="/product#gap-analysis"
           />
           <FeatureCard
-            title="Proven Track Records"
-            image="/track-record-performance-dashboard.jpg"
-            description="See past tender success rates, reliability scores, and expertise areas. Partner with companies that have proven track records in your specific sector. Based on 30 years of actual tender outcomes, not just claims."
-            href="/products#track-record"
+            title="Enterprise-Grade Tools"
+            image="/performance-scorecard-with-ratings.jpg"
+            description="Deadline management, compliance checks, team collaboration, and role-based access. Everything you need to manage tenders efficiently in one platform."
+            href="/product#tools"
           />
         </div>
       </div>

@@ -967,9 +967,7 @@ const HeroSection: React.FC = () => {
         {/* Buttons */}
         <div style={{ display: "flex", gap: "12px", marginTop: "8px" }}>
           <a
-            href="https://forms.gle/ksHE5peBn5p2d9W47"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/waitlist"
             style={{
               padding: "14px 32px",
               background: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",

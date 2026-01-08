@@ -39,8 +39,16 @@ const Footer = () => {
 
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
             <div className="space-y-6">
-              <h5 className="font-bold text-slate-900 text-sm uppercase tracking-widest">Home</h5>
+              <h5 className="font-bold text-slate-900 text-sm uppercase tracking-widest">Navigation</h5>
               <ul className="space-y-4 text-sm text-slate-500">
+                <li>
+                  <Link
+                    to="/"
+                    className="hover:text-blue-600 transition-colors text-left"
+                  >
+                    Home
+                  </Link>
+                </li>
                 <li>
                   <Link
                     to="/product"
@@ -59,16 +67,11 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/blog"
+                    to="/waitlist"
                     className="hover:text-blue-600 transition-colors text-left"
                   >
-                    Blog
+                    Join Waitlist
                   </Link>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-600 transition-colors">
-                    Contact Us
-                  </a>
                 </li>
               </ul>
             </div>
@@ -76,19 +79,40 @@ const Footer = () => {
               <h5 className="font-bold text-slate-900 text-sm uppercase tracking-widest">Contact</h5>
               <ul className="space-y-4 text-sm">
                 <li>
-                  <a href="tel:+436609919009" className="hover:text-blue-600 transition-colors">
-                    Phone: +43 660 9919 009
+                  <a href="tel:+436609919009" className="hover:text-blue-600 transition-colors text-slate-500">
+                    +43 660 9919 009
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:office@juhuu.app" className="hover:text-blue-600 transition-colors">
-                    Mail: office@juhuu.app
+                  <a href="mailto:office@alpx.at" className="hover:text-blue-600 transition-colors text-slate-500">
+                    office@alpx.at
                   </a>
                 </li>
                 <li className="text-slate-500">
-                  Adresse: Schrammelgasse 79,
+                  Schrammelgasse 79,
                   <br />
                   1170 Vienna, Austria
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-6">
+              <h5 className="font-bold text-slate-900 text-sm uppercase tracking-widest">Legal</h5>
+              <ul className="space-y-4 text-sm text-slate-500">
+                <li>
+                  <Link
+                    to="/imprint"
+                    className="hover:text-blue-600 transition-colors text-left"
+                  >
+                    Imprint
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/privacy"
+                    className="hover:text-blue-600 transition-colors text-left"
+                  >
+                    Privacy Policy
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -103,12 +127,9 @@ const Footer = () => {
             <Link to="/imprint" className="hover:text-slate-900 transition-colors">
               Imprint
             </Link>
-            <a href="#" className="hover:text-slate-900 transition-colors">
+            <Link to="/privacy" className="hover:text-slate-900 transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-slate-900 transition-colors">
-              Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
 
