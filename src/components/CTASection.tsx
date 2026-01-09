@@ -37,10 +37,10 @@ const TenderMatchCTA: React.FC = () => {
             Let tender.match handle the searching, so you can focus on winning contracts.
           </p>
           
-          <button className="group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-3.5 text-base font-semibold text-white shadow-[0_4px_12px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)]">
+          <a href="/waitlist" className="group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-3.5 text-base font-semibold text-white shadow-[0_4px_12px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)]">
             Join Waitlist
             <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
-          </button>
+          </a>
         </div>
 
         {/* --- Right Visual Area (Hidden on mobile for layout sanity, or adjusted) --- */}

@@ -2,64 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Definition of the design system - Light Theme */
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
     --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 11%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 262 83% 58%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
     --ring: 217 91% 60%;
 
     --radius: 1rem;
 
-    /* Custom gradients for TenderMatch */
-    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%), hsl(262, 83%, 58%));
-    --gradient-secondary: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(330, 81%, 60%));
-    --gradient-success: linear-gradient(135deg, hsl(142, 76%, 36%), hsl(160, 84%, 39%));
-    --gradient-info: linear-gradient(135deg, hsl(217, 91%, 60%), hsl(189, 94%, 43%));
-    --gradient-warning: linear-gradient(135deg, hsl(25, 95%, 53%), hsl(0, 91%, 71%));
-    
-    /* Background gradients */
-    --bg-base: linear-gradient(135deg, hsl(222, 47%, 2%) 0%, hsl(217, 91%, 10%) 50%, hsl(222, 47%, 7%) 100%);
-    
-    /* Glow effects */
-    --glow-primary: 0 0 40px hsla(217, 91%, 60%, 0.3);
-    --glow-secondary: 0 0 40px hsla(262, 83%, 58%, 0.3);
-    --glow-success: 0 0 40px hsla(142, 76%, 36%, 0.3);
-
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 210 40% 98%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 47% 11%;
     --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 17%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
     --sidebar-ring: 217 91% 60%;
   }
 }
@@ -72,4 +55,57 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Stripe-style dotted background pattern */
+.bg-dotted-pattern {
+  background-image:
+    radial-gradient(circle, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Vertical guide lines for content area - Stripe style */
+.bg-guide-lines {
+  position: relative;
+}
+
+.bg-guide-lines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 80rem; /* max-w-7xl */
+  height: 100%;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right,
+      transparent 0%,
+      transparent calc(50% - 40rem),
+      rgba(148, 163, 184, 0.08) calc(50% - 40rem),
+      rgba(148, 163, 184, 0.08) calc(50% - 40rem + 1px),
+      transparent calc(50% - 40rem + 1px),
+      transparent calc(50% + 40rem - 1px),
+      rgba(148, 163, 184, 0.08) calc(50% + 40rem - 1px),
+      rgba(148, 163, 184, 0.08) calc(50% + 40rem),
+      transparent calc(50% + 40rem),
+      transparent 100%
+    );
+  z-index: 0;
+}
+
+/* Subtle grid pattern for sections */
+.bg-subtle-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Decorative dots for accent areas */
+.bg-accent-dots {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.1) 1px, transparent 0);
+  background-size: 32px 32px;
 }

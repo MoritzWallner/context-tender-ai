@@ -35,22 +35,16 @@ const Navbar = () => {
               >
                 About Us
               </Link>
-              <Link
-                to="/blog"
-                className={`transition-colors text-lg font-bold ${currentPage === "/blog" ? "text-blue-600" : "text-slate-600 hover:text-blue-600"}`}
-              >
-                Blogs
-              </Link>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="px-4 py-2 font-semibold text-slate-600 hover:text-slate-900 transition-colors text-base">
-              Login
-            </button>
-            <button className="px-5 py-2.5 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 hover:scale-105 transition-all shadow-md hover:shadow-lg text-base">
-              Get Started
-            </button>
+            <Link
+              to="/waitlist"
+              className="px-5 py-2.5 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 hover:scale-105 transition-all shadow-md hover:shadow-lg text-base"
+            >
+              Join Waitlist
+            </Link>
           </div>
         </div>
       </div>
