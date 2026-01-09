@@ -37,10 +37,15 @@ const TenderMatchCTA: React.FC = () => {
             Let tender.match handle the searching, so you can focus on winning contracts.
           </p>
           
-          <a href="/waitlist" className="group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-3.5 text-base font-semibold text-white shadow-[0_4px_12px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)]">
-            Join Waitlist
-            <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="/waitlist" className="group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-3.5 text-base font-semibold text-white shadow-[0_4px_12px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)]">
+              Join Waitlist
+              <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+            </a>
+            <a href="mailto:office@alpx.at?subject=Talk to Founders" className="group inline-flex items-center gap-2 rounded-xl bg-white/80 backdrop-blur px-7 py-3.5 text-base font-semibold text-slate-700 border border-slate-200 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-md">
+              Talk to Founders
+            </a>
+          </div>
         </div>
 
         {/* --- Right Visual Area (Hidden on mobile for layout sanity, or adjusted) --- */}

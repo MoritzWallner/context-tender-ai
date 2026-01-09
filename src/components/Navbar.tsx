@@ -35,15 +35,27 @@ const Navbar = () => {
               >
                 About Us
               </Link>
+              <Link
+                to="/why-alpx"
+                className={`transition-colors text-lg font-bold ${currentPage === "/why-alpx" ? "text-blue-600" : "text-slate-600 hover:text-blue-600"}`}
+              >
+                Why AlpX
+              </Link>
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <Link
+              to="/waitlist"
+              className="px-4 py-2 font-semibold text-slate-700 hover:text-blue-600 transition-colors text-base"
+            >
+              Login
+            </Link>
             <Link
               to="/waitlist"
               className="px-5 py-2.5 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 hover:scale-105 transition-all shadow-md hover:shadow-lg text-base"
             >
-              Join Waitlist
+              Sign Up
             </Link>
           </div>
         </div>

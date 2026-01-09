@@ -63,13 +63,13 @@ const AboutUs: React.FC = () => {
                   <p className="text-slate-500 text-lg mb-8 leading-relaxed">
                     We're building AlpX to help procurement teams win more public contracts with less effort and manual searching.
                   </p>
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-4">
                     <Link to="/waitlist" className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                       Join Waitlist
                     </Link>
-                    <Link to="/product" className="px-6 py-3 bg-white border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-colors">
-                      Explore Features
-                    </Link>
+                    <a href="mailto:office@alpx.at?subject=Talk to Founders" className="px-6 py-3 bg-white border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-colors">
+                      Talk to Founders
+                    </a>
                   </div>
                 </div>
                 <div className="space-y-6 text-slate-600 leading-relaxed">

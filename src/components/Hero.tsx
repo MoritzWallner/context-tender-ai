@@ -965,7 +965,7 @@ const HeroSection: React.FC = () => {
         </p>
 
         {/* Buttons */}
-        <div style={{ display: "flex", gap: "12px", marginTop: "8px" }}>
+        <div style={{ display: "flex", gap: "12px", marginTop: "8px", flexWrap: "wrap" }}>
           <a
             href="/waitlist"
             style={{
@@ -989,7 +989,7 @@ const HeroSection: React.FC = () => {
             <span>→</span>
           </a>
           <a
-            href="#why-alpx"
+            href="mailto:office@alpx.at?subject=Talk to Founders"
             style={{
               padding: "14px 28px",
               background: "white",
@@ -1003,7 +1003,7 @@ const HeroSection: React.FC = () => {
               transition: "all 0.2s",
             }}
           >
-            See How It Works
+            Talk to Founders
           </a>
         </div>
 

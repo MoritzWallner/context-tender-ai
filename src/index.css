@@ -57,10 +57,11 @@
   }
 }
 
-/* Stripe-style dotted background pattern */
+/* Stripe-style dotted lines background pattern */
 .bg-dotted-pattern {
   background-image:
-    radial-gradient(circle, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+    linear-gradient(90deg, transparent 23px, rgba(148, 163, 184, 0.08) 23px, rgba(148, 163, 184, 0.08) 24px, transparent 24px),
+    linear-gradient(0deg, transparent 23px, rgba(148, 163, 184, 0.08) 23px, rgba(148, 163, 184, 0.08) 24px, transparent 24px);
   background-size: 24px 24px;
 }
 
