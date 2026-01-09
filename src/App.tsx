@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Waitlist from "./pages/Waitlist";
 import Imprint from "./pages/Imprint";
 import Privacy from "./pages/Privacy";
+import WhyAlpX from "./pages/WhyAlpX";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/waitlist" element={<Waitlist />} />
           <Route path="/imprint" element={<Imprint />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/why-alpx" element={<WhyAlpX />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
