@@ -28,7 +28,7 @@ const CheckItem: React.FC<CheckItemProps> = ({ text }) => (
 
 const ProductPage: React.FC = () => {
   return (
-    <div className="pt-32 bg-white">
+    <div className="pt-32 bg-white bg-dotted-pattern">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-20">
         <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
