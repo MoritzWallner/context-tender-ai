@@ -1,21 +1,299 @@
+"use client"
+
 import type React from "react"
 import FramedCard from "./FramedCard"
 
+// ============================================
+// OPTION A: Animated Network Graph
+// ============================================
+const NetworkGraphVisualization: React.FC = () => {
+  return (
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden relative flex items-center justify-center">
+      <style>{`
+        @keyframes pulse-node {
+          0%, 100% { transform: scale(1); opacity: 0.8; }
+          50% { transform: scale(1.1); opacity: 1; }
+        }
+        @keyframes flow-line {
+          0% { stroke-dashoffset: 20; }
+          100% { stroke-dashoffset: 0; }
+        }
+        @keyframes float-node {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+        }
+      `}</style>
+
+      <svg className="w-full h-full" viewBox="0 0 400 250" fill="none">
+        {/* Connection Lines */}
+        <g className="opacity-40">
+          <line x1="200" y1="125" x2="80" y2="60" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 2" style={{ animation: "flow-line 2s linear infinite" }} />
+          <line x1="200" y1="125" x2="320" y2="50" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 2" style={{ animation: "flow-line 2s linear infinite 0.3s" }} />
+          <line x1="200" y1="125" x2="60" y2="180" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 2" style={{ animation: "flow-line 2s linear infinite 0.6s" }} />
+          <line x1="200" y1="125" x2="340" y2="190" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 2" style={{ animation: "flow-line 2s linear infinite 0.9s" }} />
+          <line x1="200" y1="125" x2="130" y2="200" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 2" style={{ animation: "flow-line 2s linear infinite 1.2s" }} />
+          <line x1="200" y1="125" x2="280" y2="210" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 2" style={{ animation: "flow-line 2s linear infinite 1.5s" }} />
+        </g>
+
+        {/* Central Hub */}
+        <g style={{ animation: "pulse-node 3s ease-in-out infinite" }}>
+          <circle cx="200" cy="125" r="35" fill="url(#gradient-center)" className="drop-shadow-lg" />
+          <text x="200" y="130" textAnchor="middle" fill="white" fontSize="11" fontWeight="bold">AI Hub</text>
+        </g>
+
+        {/* Company Nodes */}
+        <g style={{ animation: "float-node 4s ease-in-out infinite" }}>
+          <circle cx="80" cy="60" r="22" fill="white" stroke="#e2e8f0" strokeWidth="2" className="drop-shadow-sm" />
+          <text x="80" y="64" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600">GmbH</text>
+        </g>
+        <g style={{ animation: "float-node 4s ease-in-out infinite 0.5s" }}>
+          <circle cx="320" cy="50" r="22" fill="white" stroke="#e2e8f0" strokeWidth="2" className="drop-shadow-sm" />
+          <text x="320" y="54" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600">AG</text>
+        </g>
+        <g style={{ animation: "float-node 4s ease-in-out infinite 1s" }}>
+          <circle cx="60" cy="180" r="18" fill="white" stroke="#e2e8f0" strokeWidth="2" className="drop-shadow-sm" />
+          <text x="60" y="183" textAnchor="middle" fill="#475569" fontSize="7" fontWeight="600">KG</text>
+        </g>
+        <g style={{ animation: "float-node 4s ease-in-out infinite 1.5s" }}>
+          <circle cx="340" cy="190" r="20" fill="white" stroke="#e2e8f0" strokeWidth="2" className="drop-shadow-sm" />
+          <text x="340" y="194" textAnchor="middle" fill="#475569" fontSize="8" fontWeight="600">BV</text>
+        </g>
+        <g style={{ animation: "float-node 4s ease-in-out infinite 2s" }}>
+          <circle cx="130" cy="200" r="16" fill="white" stroke="#e2e8f0" strokeWidth="2" className="drop-shadow-sm" />
+          <text x="130" y="203" textAnchor="middle" fill="#475569" fontSize="7" fontWeight="600">SRL</text>
+        </g>
+        <g style={{ animation: "float-node 4s ease-in-out infinite 2.5s" }}>
+          <circle cx="280" cy="210" r="17" fill="white" stroke="#e2e8f0" strokeWidth="2" className="drop-shadow-sm" />
+          <text x="280" y="213" textAnchor="middle" fill="#475569" fontSize="7" fontWeight="600">SA</text>
+        </g>
+
+        {/* Gradient Definition */}
+        <defs>
+          <linearGradient id="gradient-center" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#3b82f6" />
+            <stop offset="100%" stopColor="#1d4ed8" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* Stats Badge */}
+      <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm border border-slate-100">
+        <span className="text-blue-600 font-bold text-sm">10M+</span>
+        <span className="text-slate-500 text-xs ml-1">Companies</span>
+      </div>
+    </div>
+  )
+}
+
+// ============================================
+// OPTION B: Floating Company Cards
+// ============================================
+const FloatingCardsVisualization: React.FC = () => {
+  return (
+    <div className="aspect-[16/10] bg-gradient-to-br from-blue-50 to-slate-50 overflow-hidden relative">
+      <style>{`
+        @keyframes float-card-1 {
+          0%, 100% { transform: translate(0, 0) rotate(-2deg); }
+          50% { transform: translate(5px, -8px) rotate(0deg); }
+        }
+        @keyframes float-card-2 {
+          0%, 100% { transform: translate(0, 0) rotate(3deg); }
+          50% { transform: translate(-8px, -5px) rotate(1deg); }
+        }
+        @keyframes float-card-3 {
+          0%, 100% { transform: translate(0, 0) rotate(-1deg); }
+          50% { transform: translate(3px, -10px) rotate(2deg); }
+        }
+        @keyframes match-pulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+          50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        }
+      `}</style>
+
+      {/* Card 1 - Top Left */}
+      <div
+        className="absolute top-6 left-8 bg-white rounded-xl shadow-lg border border-slate-100 p-3 w-36"
+        style={{ animation: "float-card-1 6s ease-in-out infinite" }}
+      >
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-xs font-bold">TB</div>
+          <div>
+            <div className="text-xs font-semibold text-slate-800">TechBuild AG</div>
+            <div className="text-[10px] text-slate-400">Munich, DE</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-medium" style={{ animation: "match-pulse 2s ease-in-out infinite" }}>96% Match</div>
+        </div>
+      </div>
+
+      {/* Card 2 - Center Right */}
+      <div
+        className="absolute top-1/2 right-6 -translate-y-1/2 bg-white rounded-xl shadow-lg border border-slate-100 p-3 w-40"
+        style={{ animation: "float-card-2 5s ease-in-out infinite 0.5s" }}
+      >
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white text-xs font-bold">GE</div>
+          <div>
+            <div className="text-xs font-semibold text-slate-800">GreenEnergy BV</div>
+            <div className="text-[10px] text-slate-400">Amsterdam, NL</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-medium" style={{ animation: "match-pulse 2s ease-in-out infinite 0.3s" }}>92% Match</div>
+          <div className="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">ISO 9001</div>
+        </div>
+      </div>
+
+      {/* Card 3 - Bottom Center */}
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-lg border border-slate-100 p-3 w-44"
+        style={{ animation: "float-card-3 7s ease-in-out infinite 1s" }}
+      >
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">IN</div>
+          <div>
+            <div className="text-xs font-semibold text-slate-800">InfraSolutions SRL</div>
+            <div className="text-[10px] text-slate-400">Vienna, AT</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-1 flex-wrap">
+          <div className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-medium" style={{ animation: "match-pulse 2s ease-in-out infinite 0.6s" }}>89% Match</div>
+          <div className="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">Fills Gap</div>
+        </div>
+      </div>
+
+      {/* Connecting Lines */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
+        <line x1="50%" y1="50%" x2="25%" y2="20%" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 4" />
+        <line x1="50%" y1="50%" x2="80%" y2="50%" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 4" />
+        <line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 4" />
+      </svg>
+
+      {/* Center AI Badge */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+        <span className="text-white text-xs font-bold">AI</span>
+      </div>
+    </div>
+  )
+}
+
+// ============================================
+// OPTION C: Matching Flow Animation
+// ============================================
+const MatchingFlowVisualization: React.FC = () => {
+  return (
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-blue-50/50 to-slate-50 overflow-hidden relative flex items-center justify-center">
+      <style>{`
+        @keyframes particle-flow {
+          0% { transform: translateX(-100%); opacity: 0; }
+          20% { opacity: 1; }
+          80% { opacity: 1; }
+          100% { transform: translateX(100%); opacity: 0; }
+        }
+        @keyframes glow-center {
+          0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.5); }
+        }
+        @keyframes rotate-ring {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+      `}</style>
+
+      {/* Left Side - Companies */}
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 space-y-3">
+        <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-slate-100">
+          <div className="w-6 h-6 rounded bg-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-600">A</div>
+          <span className="text-xs text-slate-600 font-medium">Your Company</span>
+        </div>
+        <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-slate-100 ml-4 opacity-60">
+          <div className="w-5 h-5 rounded bg-red-100 flex items-center justify-center text-[9px] font-bold text-red-600">!</div>
+          <span className="text-[10px] text-slate-500">Missing: ISO 14001</span>
+        </div>
+        <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-slate-100 ml-4 opacity-60">
+          <div className="w-5 h-5 rounded bg-red-100 flex items-center justify-center text-[9px] font-bold text-red-600">!</div>
+          <span className="text-[10px] text-slate-500">Missing: Local Partner</span>
+        </div>
+      </div>
+
+      {/* Center AI Hub with rotating ring */}
+      <div className="relative">
+        <div
+          className="absolute left-1/2 top-1/2 w-24 h-24 rounded-full border-2 border-dashed border-blue-200"
+          style={{ animation: "rotate-ring 20s linear infinite" }}
+        />
+        <div
+          className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex flex-col items-center justify-center shadow-lg relative z-10"
+          style={{ animation: "glow-center 3s ease-in-out infinite" }}
+        >
+          <span className="text-white text-[10px] font-bold">MATCH</span>
+          <span className="text-blue-200 text-[8px]">ENGINE</span>
+        </div>
+      </div>
+
+      {/* Right Side - Matched Partners */}
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 space-y-3">
+        <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-green-200">
+          <div className="w-6 h-6 rounded bg-green-100 flex items-center justify-center text-[10px] font-bold text-green-600">✓</div>
+          <div>
+            <span className="text-xs text-slate-700 font-medium block">EcoPartner GmbH</span>
+            <span className="text-[9px] text-green-600">Has ISO 14001</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-green-200">
+          <div className="w-6 h-6 rounded bg-green-100 flex items-center justify-center text-[10px] font-bold text-green-600">✓</div>
+          <div>
+            <span className="text-xs text-slate-700 font-medium block">LocalBuild AG</span>
+            <span className="text-[9px] text-green-600">Vienna Region</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Particle Flow Lines */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Left to Center */}
+        <div className="absolute top-1/2 left-[30%] w-[20%] h-0.5 bg-gradient-to-r from-slate-300 to-blue-400">
+          <div
+            className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-500"
+            style={{ animation: "particle-flow 2s ease-in-out infinite" }}
+          />
+        </div>
+        {/* Center to Right */}
+        <div className="absolute top-1/2 left-[50%] w-[20%] h-0.5 bg-gradient-to-r from-blue-400 to-green-400">
+          <div
+            className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-green-500"
+            style={{ animation: "particle-flow 2s ease-in-out infinite 1s" }}
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ============================================
+// FEATURE CARD COMPONENT
+// ============================================
 const FeatureCard: React.FC<{
   title: string
   description: string
-  image: string
+  image?: string
+  visualization?: React.ReactNode
   href: string
-}> = ({ title, description, image, href }) => (
+}> = ({ title, description, image, visualization, href }) => (
   <FramedCard variant="default">
     <div className="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500 overflow-hidden">
-      <div className="aspect-[16/10] bg-slate-50 overflow-hidden relative">
-        <img
-          src={image || "/placeholder.svg"}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-        />
-      </div>
+      {visualization ? (
+        visualization
+      ) : (
+        <div className="aspect-[16/10] bg-slate-50 overflow-hidden relative">
+          <img
+            src={image || "/placeholder.svg"}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+      )}
       <div className="p-10">
         <h3 className="text-2xl font-bold text-slate-900 mb-4">{title}</h3>
         <p className="text-slate-500 leading-relaxed mb-8">{description}</p>
@@ -38,6 +316,9 @@ const FeatureCard: React.FC<{
   </FramedCard>
 )
 
+// ============================================
+// MAIN COMPONENT
+// ============================================
 const CompanyMatchFeatures: React.FC = () => {
   return (
     <section id="company-match-features" className="bg-white relative py-10">
@@ -54,24 +335,31 @@ const CompanyMatchFeatures: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10">
+          {/* Card 1: Option A - Network Graph */}
           <FeatureCard
             title="10M+ European Companies"
-            image="/european-company-database-network.jpg"
+            visualization={<NetworkGraphVisualization />}
             description="Built from 30 years of tender outcomes, trade register data, website analysis, and real-time updates. The most comprehensive B2B database for European public procurement. Find partners you never knew existed."
             href="/product#company-database"
           />
+
+          {/* Card 2: Option B - Floating Cards */}
           <FeatureCard
             title="AI-Powered Partner Matching"
-            image="/ai-matching-algorithm-visualization.jpg"
+            visualization={<FloatingCardsVisualization />}
             description="Our AI identifies perfect consortium partners based on complementary capabilities, proven track record, and geographic coverage. Find partners in minutes, not weeks of networking. Win tenders worth millions."
             href="/product#partner-matching"
           />
+
+          {/* Card 3: Option C - Matching Flow */}
           <FeatureCard
             title="Automatic Gap Coverage"
-            image="/gap-analysis-interface-with-solutions.jpg"
+            visualization={<MatchingFlowVisualization />}
             description="See exactly which capabilities you're missing to win a tender. Our AI automatically suggests partners who can close those gaps. Turn 'we can't do this' into 'we found the perfect partner' in seconds."
             href="/product#gap-coverage"
           />
+
+          {/* Card 4: Keep Image (for comparison) */}
           <FeatureCard
             title="Proven Track Records"
             image="/track-record-performance-dashboard.jpg"

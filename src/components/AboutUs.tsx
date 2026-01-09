@@ -33,26 +33,32 @@ const AboutUs: React.FC = () => {
   return (
     <div className="pt-32 bg-white">
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-12">
         <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">About Us</span>
         <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight max-w-4xl mx-auto">
           Building the future of public procurement
         </h1>
-        <p className="text-lg text-slate-500 mb-12">AI-first approach to smarter, faster tender discovery.</p>
+        <p className="text-lg text-slate-500 mb-10">AI-first approach to smarter, faster tender discovery.</p>
 
+        {/* Logo with Blue Gradient Background */}
         <FramedCard variant="default">
-          <div className="max-w-6xl mx-auto aspect-video bg-slate-50 rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-2xl flex items-center justify-center relative">
-            <img src="/alpx-logo-3d.png" alt="AlpX 3D Logo" className="w-full h-full object-cover" />
+          <div className="max-w-6xl mx-auto h-48 md:h-56 bg-gradient-to-br from-blue-50 via-blue-100 to-slate-100 rounded-[2rem] overflow-hidden border border-blue-100 shadow-lg flex items-center justify-center relative">
+            {/* Subtle pattern overlay */}
+            <div className="absolute inset-0 opacity-30" style={{
+              backgroundImage: "radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0)",
+              backgroundSize: "24px 24px"
+            }}></div>
+            <img src="/alpx-logo-symbol.png" alt="AlpX Logo" className="h-20 md:h-28 w-auto object-contain relative z-10 drop-shadow-lg" />
           </div>
         </FramedCard>
       </section>
 
       {/* Founding Story */}
-      <section className="bg-slate-50/50 py-24">
+      <section className="bg-slate-50/50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FramedCard>
-            <div className="bg-white rounded-3xl border border-slate-100 p-12 shadow-sm">
-              <div className="grid lg:grid-cols-2 gap-16">
+            <div className="bg-white rounded-3xl border border-slate-100 p-10 shadow-sm">
+              <div className="grid lg:grid-cols-2 gap-12">
                 <div>
                   <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
                     Our Story
@@ -72,7 +78,7 @@ const AboutUs: React.FC = () => {
                     </a>
                   </div>
                 </div>
-                <div className="space-y-6 text-slate-600 leading-relaxed">
+                <div className="space-y-5 text-slate-600 leading-relaxed">
                   <p>
                     B2G procurement needs a revolution. Procurement managers are stuck in endless manual searches across 2,000+ European tender portals. Finding relevant opportunities is a constant bottleneck, and companies miss billions in potential contracts every year.
                   </p>
@@ -90,19 +96,19 @@ const AboutUs: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Founders</span>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Team AlpX</h2>
-          <p className="text-slate-500 mb-16 max-w-2xl mx-auto">
+          <p className="text-slate-500 mb-12 max-w-2xl mx-auto">
             Building the future of intelligent public procurement.
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, i) => (
               <FramedCard key={i} variant="compact">
                 <div className="group text-left">
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 mb-6 relative">
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 mb-5 relative">
                     <img
                       src={member.img || "/placeholder.svg"}
                       alt={member.name}

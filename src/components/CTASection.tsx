@@ -25,7 +25,7 @@ const TenderMatchCTA: React.FC = () => {
       `}</style>
 
       {/* Main Banner Container */}
-      <div className="relative mx-auto flex w-full max-w-[1200px] flex-col items-center justify-between overflow-hidden rounded-[24px] bg-gradient-to-br from-slate-50 via-[#e8f4fc] via-[#d4edfc] to-[#bae6fd] px-8 py-12 shadow-sm md:flex-row md:px-20 md:py-16">
+      <div className="relative mx-auto flex w-full max-w-[1200px] flex-col items-center justify-between overflow-hidden rounded-[24px] bg-gradient-to-br from-slate-50 via-[#e8f4fc] via-[#d4edfc] to-[#bae6fd] px-8 py-8 shadow-sm md:flex-row md:px-16 md:py-10">
         
         {/* --- Left Content --- */}
         <div className="relative z-10 max-w-full text-center md:max-w-[600px] md:text-left">
@@ -49,7 +49,7 @@ const TenderMatchCTA: React.FC = () => {
         </div>
 
         {/* --- Right Visual Area (Hidden on mobile for layout sanity, or adjusted) --- */}
-        <div className="hidden md:block relative h-[450px] w-[550px] flex-shrink-0">
+        <div className="hidden md:block relative h-[350px] w-[450px] flex-shrink-0">
             
           {/* Glowing Orbs */}
           <div className="absolute right-[120px] top-[15%] h-[200px] w-[200px] rounded-full bg-blue-500/20 blur-3xl filter" />
