@@ -1,63 +1,60 @@
 import type React from "react"
 import { Link } from "react-router-dom"
 import FramedCard from "./FramedCard"
+import SectionDivider from "./SectionDivider"
 
 const AboutUs: React.FC = () => {
   const team = [
     {
       name: "Ben Müller-Niklas",
       role: "Co-Founder, CEO",
-      img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400",
+      img: "/team-ben.png",
       linkedin: "https://www.linkedin.com/in/ben-mueller-niklas/",
+      blurred: false,
     },
     {
       name: "Moritz Wallner",
       role: "Co-Founder, CTO",
-      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+      img: "/team-moritz.png",
       linkedin: "https://www.linkedin.com/in/moritz-wallner/",
+      blurred: false,
     },
     {
       name: "Quentin Binder",
-      role: "Co-Founder, Technical Expert",
-      img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400",
+      role: "COO",
+      img: "/team-placeholder.png",
       linkedin: "https://www.linkedin.com/in/quentin-binder/",
-    },
-    {
-      name: "Philipp Semmler",
-      role: "Co-Founder, CFO/COO",
-      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
-      linkedin: "https://www.linkedin.com/in/philipp-semmler/",
+      blurred: true,
     },
   ]
 
   return (
-    <div className="pt-32 bg-white">
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-12">
-        <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">About Us</span>
-        <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight max-w-4xl mx-auto">
-          Building the future of public procurement
-        </h1>
-        <p className="text-lg text-slate-500 mb-10">AI-first approach to smarter, faster tender discovery.</p>
+    <div className="pt-32 bg-white bg-dotted-pattern">
+      {/* Hero + Story Combined Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">About Us</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight max-w-4xl mx-auto">
+            Building the future of public procurement
+          </h1>
+          <p className="text-lg text-slate-500">AI-first approach to smarter, faster tender discovery.</p>
+        </div>
 
-        {/* Logo with Blue Gradient Background */}
-        <FramedCard variant="default">
-          <div className="max-w-6xl mx-auto h-48 md:h-56 bg-gradient-to-br from-blue-50 via-blue-100 to-slate-100 rounded-[2rem] overflow-hidden border border-blue-100 shadow-lg flex items-center justify-center relative">
-            {/* Subtle pattern overlay */}
-            <div className="absolute inset-0 opacity-30" style={{
-              backgroundImage: "radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0)",
-              backgroundSize: "24px 24px"
-            }}></div>
-            <img src="/alpx-logo-symbol.png" alt="AlpX Logo" className="h-20 md:h-28 w-auto object-contain relative z-10 drop-shadow-lg" />
-          </div>
-        </FramedCard>
-      </section>
+        {/* Combined Card: Logo + Story */}
+        <FramedCard>
+          <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm">
+            {/* Logo Banner */}
+            <div className="h-40 md:h-48 bg-gradient-to-br from-blue-50 via-blue-100 to-slate-100 flex items-center justify-center relative">
+              <div className="absolute inset-0 opacity-30" style={{
+                backgroundImage: "radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0)",
+                backgroundSize: "24px 24px"
+              }}></div>
+              <img src="/alpx-logo-symbol.png" alt="AlpX Logo" className="h-16 md:h-20 w-auto object-contain relative z-10 drop-shadow-lg" />
+            </div>
 
-      {/* Founding Story */}
-      <section className="bg-slate-50/50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FramedCard>
-            <div className="bg-white rounded-3xl border border-slate-100 p-10 shadow-sm">
+            {/* Story Content */}
+            <div className="p-10">
               <div className="grid lg:grid-cols-2 gap-12">
                 <div>
                   <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
@@ -91,9 +88,11 @@ const AboutUs: React.FC = () => {
                 </div>
               </div>
             </div>
-          </FramedCard>
-        </div>
+          </div>
+        </FramedCard>
       </section>
+
+      <SectionDivider variant="dots" />
 
       {/* Team Section */}
       <section className="py-16">
@@ -104,16 +103,26 @@ const AboutUs: React.FC = () => {
             Building the future of intelligent public procurement.
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {team.map((member, i) => (
               <FramedCard key={i} variant="compact">
                 <div className="group text-left">
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 mb-5 relative">
-                    <img
-                      src={member.img || "/placeholder.svg"}
-                      alt={member.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                    />
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 mb-5 relative">
+                    {member.blurred ? (
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-slate-200">
+                        <div className="text-center">
+                          <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-slate-300 to-slate-400 blur-sm"></div>
+                          <div className="h-4 w-32 mx-auto bg-slate-300 rounded blur-sm mb-2"></div>
+                          <div className="h-3 w-24 mx-auto bg-slate-200 rounded blur-sm"></div>
+                        </div>
+                      </div>
+                    ) : (
+                      <img
+                        src={member.img || "/placeholder.svg"}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
+                      />
+                    )}
                   </div>
                   <div className="flex items-center justify-between mb-1">
                     <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>

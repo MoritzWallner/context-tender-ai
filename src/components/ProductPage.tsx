@@ -1,5 +1,6 @@
 import type React from "react"
 import FramedCard from "./FramedCard"
+import SectionDivider from "./SectionDivider"
 
 interface StatProps {
   value: string
@@ -41,6 +42,8 @@ const ProductPage: React.FC = () => {
           From intelligent discovery across 2,000+ portals to AI-powered partner matching. One platform, complete control, maximum results.
         </p>
       </section>
+
+      <SectionDivider variant="line" />
 
       {/* Feature 1: Portal Coverage */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -220,6 +223,8 @@ const ProductPage: React.FC = () => {
           </div>
         </FramedCard>
       </section>
+
+      <SectionDivider variant="dots" />
 
       {/* company.match Section Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
