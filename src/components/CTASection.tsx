@@ -3,7 +3,7 @@ import { ArrowRight, Check } from 'lucide-react';
 
 const TenderMatchCTA: React.FC = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white p-6 font-sans">
+    <div className="flex min-h-screen items-center justify-center p-6 font-sans">
       
       {/* Inject Custom Keyframes for specific animations */}
       <style>{`

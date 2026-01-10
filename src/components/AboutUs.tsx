@@ -8,14 +8,14 @@ const AboutUs: React.FC = () => {
     {
       name: "Ben Müller-Niklas",
       role: "Co-Founder, CEO",
-      img: "/team-ben.png",
+      img: "/Ben Foto Website.png",
       linkedin: "https://www.linkedin.com/in/benmuellerniklas/",
       blurred: false,
     },
     {
       name: "Moritz Wallner",
       role: "Co-Founder, CTO",
-      img: "/team-moritz.png",
+      img: "/Moritz Foto Website.png",
       linkedin: "https://www.linkedin.com/in/moritz-wallner-aab0291b2/",
       blurred: false,
     },

@@ -152,7 +152,7 @@ const ComparisonTable: React.FC = () => {
   ]
 
   return (
-    <section id="why-alpx" className="bg-white py-10">
+    <section id="why-alpx" className="py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
