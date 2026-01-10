@@ -146,7 +146,7 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({ category, traditional, 
             <div className="absolute bottom-6 left-7 right-7">
               <Link
                 to="/waitlist"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur rounded-lg text-white text-sm font-semibold hover:bg-white/30 transition-colors"
+                className="btn-shine inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur rounded-lg text-white text-sm font-semibold hover:bg-white/30 transition-colors"
               >
                 Get Started
               </Link>
@@ -238,12 +238,16 @@ const WhyAlpX: React.FC = () => {
             </h1>
           </div>
 
-          {/* Animated Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {/* Animated Stats Grid - Single Row */}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             {heroStats.map((stat, idx) => (
               <ScrollReveal key={idx} delay={idx * 100}>
-                <div className="text-center p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
-                  <AnimatedCounter end={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
+                <div className="text-center p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow min-w-[160px] md:min-w-[200px]">
+                  <div className="relative">
+                    <AnimatedCounter end={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
+                    {/* Fade gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent pointer-events-none opacity-50"></div>
+                  </div>
                   <div className="text-slate-900 font-semibold mt-2">{stat.label}</div>
                   <div className="text-slate-400 text-sm">{stat.desc}</div>
                 </div>
