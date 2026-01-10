@@ -12,7 +12,7 @@ const Product = () => {
       <Navbar />
       <main>
         <ProductPage />
-        <SectionDivider variant="dots" />
+        <SectionDivider variant="line" />
         <CTASection />
       </main>
       <Footer />

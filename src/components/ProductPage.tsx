@@ -31,16 +31,44 @@ const ProductPage: React.FC = () => {
   return (
     <div className="pt-32 bg-white bg-dotted-pattern">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-20">
-        <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
-          Product Features
-        </span>
-        <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tight max-w-4xl mx-auto">
-          Everything You Need to Win European Tenders
-        </h1>
-        <p className="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
-          From intelligent discovery across 2,000+ portals to AI-powered partner matching. One platform, complete control, maximum results.
-        </p>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-20 relative">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-1/4 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-1/4 w-64 h-64 bg-sky-100/30 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative">
+          <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+            Product Features
+          </span>
+          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tight max-w-4xl mx-auto">
+            Everything You Need to Win European Tenders
+          </h1>
+          <p className="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+            From intelligent discovery across 2,000+ portals to AI-powered partner matching. One platform, complete control, maximum results.
+          </p>
+
+          {/* Quick stats row */}
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600">2,000+</div>
+              <div className="text-sm text-slate-500">EU Portals</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600">27</div>
+              <div className="text-sm text-slate-500">Countries</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600">10M+</div>
+              <div className="text-sm text-slate-500">Companies</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600">24/7</div>
+              <div className="text-sm text-slate-500">Monitoring</div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <SectionDivider variant="line" />
@@ -224,7 +252,7 @@ const ProductPage: React.FC = () => {
         </FramedCard>
       </section>
 
-      <SectionDivider variant="dots" />
+      <SectionDivider variant="line" />
 
       {/* company.match Section Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
@@ -380,33 +408,6 @@ const ProductPage: React.FC = () => {
         </FramedCard>
       </section>
 
-      {/* CTA Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <FramedCard>
-          <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-12 text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-              Ready to Transform Your Procurement?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join leading European companies winning more public contracts with AI.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/waitlist"
-                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-              >
-                Join Waitlist
-              </a>
-              <a
-                href="mailto:office@alpx.at?subject=Talk to Founders"
-                className="px-8 py-4 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-400 transition-colors border border-blue-400"
-              >
-                Talk to Founders
-              </a>
-            </div>
-          </div>
-        </FramedCard>
-      </section>
     </div>
   )
 }

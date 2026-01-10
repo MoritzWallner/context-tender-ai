@@ -13,21 +13,21 @@ import SectionDivider from "@/components/SectionDivider"
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden bg-dotted-pattern">
+    <div className="min-h-screen bg-dotted-pattern text-slate-900 overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
         <SectionDivider variant="line" />
         <ProblemSection />
-        <SectionDivider variant="dots" />
+        <SectionDivider variant="line" />
         <ComparisonTable />
         <SectionDivider variant="line" />
         <TenderMatchFeatures />
-        <SectionDivider variant="dots" />
+        <SectionDivider variant="line" />
         <CompanyMatchFeatures />
         <SectionDivider variant="line" />
         <IndustryFeatures />
-        <SectionDivider variant="dots" />
+        <SectionDivider variant="line" />
         <CTASection />
       </main>
       <Footer />

@@ -8,28 +8,28 @@ const AboutUs: React.FC = () => {
     {
       name: "Ben Müller-Niklas",
       role: "Co-Founder, CEO",
-      img: "/team-ben.png",
+      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
       linkedin: "https://www.linkedin.com/in/ben-mueller-niklas/",
       blurred: false,
     },
     {
       name: "Moritz Wallner",
       role: "Co-Founder, CTO",
-      img: "/team-moritz.png",
+      img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400",
       linkedin: "https://www.linkedin.com/in/moritz-wallner/",
       blurred: false,
     },
     {
-      name: "Quentin Binder",
+      name: "Coming Soon",
       role: "COO",
-      img: "/team-placeholder.png",
-      linkedin: "https://www.linkedin.com/in/quentin-binder/",
+      img: "",
+      linkedin: "#",
       blurred: true,
     },
   ]
 
   return (
-    <div className="pt-32 bg-white bg-dotted-pattern">
+    <div className="pt-32 bg-white">
       {/* Hero + Story Combined Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         {/* Header */}
@@ -92,7 +92,7 @@ const AboutUs: React.FC = () => {
         </FramedCard>
       </section>
 
-      <SectionDivider variant="dots" />
+      <SectionDivider variant="line" />
 
       {/* Team Section */}
       <section className="py-16">
@@ -125,21 +125,27 @@ const AboutUs: React.FC = () => {
                     )}
                   </div>
                   <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 bg-slate-100 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors group/linkedin"
-                    >
-                      <svg
-                        className="w-4 h-4 text-slate-600 group-hover/linkedin:text-white transition-colors"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
+                    {member.blurred ? (
+                      <div className="h-6 w-28 bg-slate-200 rounded blur-[2px]"></div>
+                    ) : (
+                      <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>
+                    )}
+                    {!member.blurred && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 bg-slate-100 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors group/linkedin"
                       >
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
-                      </svg>
-                    </a>
+                        <svg
+                          className="w-4 h-4 text-slate-600 group-hover/linkedin:text-white transition-colors"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                        </svg>
+                      </a>
+                    )}
                   </div>
                   <p className="text-slate-500 font-medium">{member.role}</p>
                 </div>
