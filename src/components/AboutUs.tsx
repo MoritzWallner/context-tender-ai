@@ -9,14 +9,14 @@ const AboutUs: React.FC = () => {
       name: "Ben Müller-Niklas",
       role: "Co-Founder, CEO",
       img: "/team-ben.png",
-      linkedin: "https://www.linkedin.com/in/ben-mueller-niklas/",
+      linkedin: "https://www.linkedin.com/in/benmuellerniklas/",
       blurred: false,
     },
     {
       name: "Moritz Wallner",
       role: "Co-Founder, CTO",
       img: "/team-moritz.png",
-      linkedin: "https://www.linkedin.com/in/moritz-wallner/",
+      linkedin: "https://www.linkedin.com/in/moritz-wallner-aab0291b2/",
       blurred: false,
     },
     {
@@ -29,7 +29,7 @@ const AboutUs: React.FC = () => {
   ]
 
   return (
-    <div className="pt-32 bg-white">
+    <div className="pt-32 bg-white bg-dotted-pattern">
       {/* Hero + Story Combined Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         {/* Header */}
@@ -103,7 +103,7 @@ const AboutUs: React.FC = () => {
             Building the future of intelligent public procurement.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-10">
             {team.map((member, i) => (
               <FramedCard key={i} variant="compact">
                 <div className="group text-left">

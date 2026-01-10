@@ -272,6 +272,85 @@ const MatchingFlowVisualization: React.FC = () => {
 }
 
 // ============================================
+// OPTION D: Track Record Visualization
+// ============================================
+const TrackRecordVisualization: React.FC = () => {
+  return (
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 overflow-hidden relative p-6 flex items-center justify-center">
+      <style>{`
+        @keyframes bar-grow-track {
+          0% { width: 0%; }
+        }
+        @keyframes star-appear {
+          0% { transform: scale(0); opacity: 0; }
+          50% { transform: scale(1.2); }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes count-up {
+          0% { opacity: 0; transform: translateY(10px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+
+      <div className="w-full max-w-[320px] bg-white rounded-2xl p-5 shadow-lg border border-slate-100">
+        <div className="flex items-center justify-between mb-4">
+          <div className="text-sm font-semibold text-slate-700">Company Track Record</div>
+          <div className="flex gap-0.5">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <svg
+                key={i}
+                className="w-4 h-4 text-amber-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                style={{ animation: `star-appear 0.3s ease-out ${i * 0.1}s both` }}
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          {[
+            { label: "Win Rate", value: 78, color: "bg-green-500" },
+            { label: "On-Time Delivery", value: 95, color: "bg-blue-500" },
+            { label: "Client Retention", value: 88, color: "bg-purple-500" },
+          ].map((item, i) => (
+            <div key={i} className="space-y-1">
+              <div className="flex justify-between text-xs">
+                <span className="text-slate-600">{item.label}</span>
+                <span className="font-semibold text-slate-700">{item.value}%</span>
+              </div>
+              <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div
+                  className={`h-full ${item.color} rounded-full`}
+                  style={{ width: `${item.value}%`, animation: `bar-grow-track 1s ease-out ${i * 0.2}s both` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 gap-2 text-center" style={{ animation: 'count-up 0.5s ease-out 0.8s both' }}>
+          <div>
+            <div className="text-lg font-bold text-slate-800">142</div>
+            <div className="text-[10px] text-slate-500">Projects</div>
+          </div>
+          <div>
+            <div className="text-lg font-bold text-slate-800">30</div>
+            <div className="text-[10px] text-slate-500">Years Data</div>
+          </div>
+          <div>
+            <div className="text-lg font-bold text-green-600">A+</div>
+            <div className="text-[10px] text-slate-500">Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ============================================
 // FEATURE CARD COMPONENT
 // ============================================
 const FeatureCard: React.FC<{
@@ -359,10 +438,10 @@ const CompanyMatchFeatures: React.FC = () => {
             href="/product#gap-coverage"
           />
 
-          {/* Card 4: Keep Image (for comparison) */}
+          {/* Card 4: Track Records Animation */}
           <FeatureCard
             title="Proven Track Records"
-            image="/track-record-performance-dashboard.jpg"
+            visualization={<TrackRecordVisualization />}
             description="See past tender success rates, reliability scores, and expertise areas. Partner with companies that have proven track records in your specific sector. Based on 30 years of actual tender outcomes, not just claims."
             href="/product#track-record"
           />

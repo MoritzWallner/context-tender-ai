@@ -1,6 +1,53 @@
+"use client"
+
 import type React from "react"
+import { useState, useEffect, useRef } from "react"
 import FramedCard from "./FramedCard"
 import SectionDivider from "./SectionDivider"
+
+// Animated Counter Component
+const AnimatedCounter: React.FC<{ end: number; suffix?: string; prefix?: string }> = ({ end, suffix = "", prefix = "" }) => {
+  const [count, setCount] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.3 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [isVisible])
+
+  useEffect(() => {
+    if (!isVisible) return
+    const duration = 2000
+    const steps = 60
+    const increment = end / steps
+    let current = 0
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= end) {
+        setCount(end)
+        clearInterval(timer)
+      } else {
+        setCount(Math.floor(current))
+      }
+    }, duration / steps)
+    return () => clearInterval(timer)
+  }, [isVisible, end])
+
+  return (
+    <div ref={ref} className="text-4xl md:text-5xl font-bold text-blue-600">
+      {prefix}{count.toLocaleString()}{suffix}
+    </div>
+  )
+}
 
 interface StatProps {
   value: string
@@ -28,46 +75,38 @@ const CheckItem: React.FC<CheckItemProps> = ({ text }) => (
 )
 
 const ProductPage: React.FC = () => {
+  const heroStats = [
+    { value: 2000, suffix: "+", prefix: "", label: "EU Portals", desc: "Monitored 24/7" },
+    { value: 27, suffix: "", prefix: "", label: "Countries", desc: "Full EU Coverage" },
+    { value: 10, suffix: "M+", prefix: "", label: "Companies", desc: "In partner database" },
+    { value: 24, suffix: "/7", prefix: "", label: "Monitoring", desc: "Real-time alerts" },
+  ]
+
   return (
     <div className="pt-32 bg-white bg-dotted-pattern">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-20 relative">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-1/4 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl" />
-          <div className="absolute top-20 right-1/4 w-64 h-64 bg-sky-100/30 rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+        <div className="text-center mb-16">
           <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
             Product Features
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tight max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight max-w-4xl mx-auto">
             Everything You Need to Win European Tenders
           </h1>
-          <p className="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
             From intelligent discovery across 2,000+ portals to AI-powered partner matching. One platform, complete control, maximum results.
           </p>
+        </div>
 
-          {/* Quick stats row */}
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">2,000+</div>
-              <div className="text-sm text-slate-500">EU Portals</div>
+        {/* Animated Stats Row */}
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          {heroStats.map((stat, idx) => (
+            <div key={idx} className="text-center p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow min-w-[160px] md:min-w-[200px]">
+              <AnimatedCounter end={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
+              <div className="text-slate-900 font-semibold mt-2">{stat.label}</div>
+              <div className="text-slate-400 text-sm">{stat.desc}</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">27</div>
-              <div className="text-sm text-slate-500">Countries</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">10M+</div>
-              <div className="text-sm text-slate-500">Companies</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">24/7</div>
-              <div className="text-sm text-slate-500">Monitoring</div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
