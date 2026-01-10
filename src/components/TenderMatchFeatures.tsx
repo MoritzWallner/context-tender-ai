@@ -5,76 +5,80 @@ import FramedCard from "./FramedCard"
 
 // ============================================
 // ANIMATED VISUALIZATION: European Coverage
+// Premium card-based design with subtle animations
 // ============================================
 const EuropeanCoverageVisualization: React.FC = () => {
   return (
-    <div className="aspect-[16/10] bg-gradient-to-br from-blue-50 to-slate-50 overflow-hidden relative">
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 overflow-hidden relative p-6">
       <style>{`
-        @keyframes radar-sweep {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+        @keyframes float-gentle {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-6px); }
         }
-        @keyframes ping-portal {
-          0%, 100% { transform: scale(1); opacity: 0.8; }
-          50% { transform: scale(1.3); opacity: 1; }
+        @keyframes pulse-ring {
+          0% { transform: scale(1); opacity: 0.6; }
+          100% { transform: scale(2); opacity: 0; }
         }
-        @keyframes data-flow {
-          0% { stroke-dashoffset: 100; }
-          100% { stroke-dashoffset: 0; }
+        @keyframes fade-in-up {
+          0% { opacity: 0; transform: translateY(10px); }
+          100% { opacity: 1; transform: translateY(0); }
         }
       `}</style>
 
-      <svg className="w-full h-full" viewBox="0 0 400 250" fill="none">
-        {/* Europe map simplified outline */}
-        <ellipse cx="200" cy="125" rx="120" ry="80" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 2" />
-        <ellipse cx="200" cy="125" rx="80" ry="55" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 2" />
-        <ellipse cx="200" cy="125" rx="40" ry="28" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 2" />
+      {/* Central hub with rings */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="relative">
+          {/* Pulsing rings */}
+          <div className="absolute inset-0 w-24 h-24 rounded-full border-2 border-blue-400/30" style={{ animation: 'pulse-ring 3s ease-out infinite' }} />
+          <div className="absolute inset-0 w-24 h-24 rounded-full border-2 border-blue-400/30" style={{ animation: 'pulse-ring 3s ease-out infinite 1s' }} />
+          <div className="absolute inset-0 w-24 h-24 rounded-full border-2 border-blue-400/30" style={{ animation: 'pulse-ring 3s ease-out infinite 2s' }} />
 
-        {/* Radar sweep */}
-        <g style={{ transformOrigin: "200px 125px", animation: "radar-sweep 8s linear infinite" }}>
-          <line x1="200" y1="125" x2="320" y2="125" stroke="url(#radar-gradient)" strokeWidth="2" />
-        </g>
+          {/* Center hub */}
+          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
+            <div className="text-center">
+              <div className="text-white font-bold text-lg">2,000+</div>
+              <div className="text-blue-200 text-[10px]">Portals</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        {/* Portal dots - scattered across Europe */}
-        <g>
-          {[
-            { cx: 180, cy: 80, delay: 0 }, { cx: 220, cy: 70, delay: 0.3 },
-            { cx: 260, cy: 90, delay: 0.6 }, { cx: 150, cy: 100, delay: 0.9 },
-            { cx: 240, cy: 110, delay: 1.2 }, { cx: 170, cy: 130, delay: 1.5 },
-            { cx: 200, cy: 140, delay: 1.8 }, { cx: 230, cy: 150, delay: 2.1 },
-            { cx: 140, cy: 140, delay: 2.4 }, { cx: 260, cy: 130, delay: 2.7 },
-            { cx: 190, cy: 170, delay: 3.0 }, { cx: 210, cy: 180, delay: 3.3 },
-          ].map((dot, i) => (
-            <circle
-              key={i}
-              cx={dot.cx}
-              cy={dot.cy}
-              r="4"
-              fill="#3b82f6"
-              style={{ animation: `ping-portal 2s ease-in-out infinite`, animationDelay: `${dot.delay}s` }}
-            />
-          ))}
-        </g>
+      {/* Floating country cards */}
+      <div className="absolute top-4 left-4 bg-white rounded-lg px-3 py-2 shadow-md border border-slate-100" style={{ animation: 'float-gentle 4s ease-in-out infinite' }}>
+        <div className="flex items-center gap-2">
+          <div className="w-5 h-3 rounded-sm" style={{ background: 'linear-gradient(180deg, #000 33%, #dd0000 33%, #dd0000 66%, #ffcc00 66%)' }} />
+          <span className="text-xs font-medium text-slate-700">Bund.de</span>
+        </div>
+      </div>
 
-        {/* Central hub */}
-        <circle cx="200" cy="125" r="20" fill="url(#hub-gradient)" className="drop-shadow-lg" />
-        <text x="200" y="129" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">2,000+</text>
+      <div className="absolute top-4 right-4 bg-white rounded-lg px-3 py-2 shadow-md border border-slate-100" style={{ animation: 'float-gentle 4s ease-in-out infinite 0.5s' }}>
+        <div className="flex items-center gap-2">
+          <div className="w-5 h-3 rounded-sm bg-blue-900 flex items-center justify-center">
+            <span className="text-[6px] text-yellow-400">★</span>
+          </div>
+          <span className="text-xs font-medium text-slate-700">TED.europa</span>
+        </div>
+      </div>
 
-        <defs>
-          <linearGradient id="radar-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient id="hub-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="100%" stopColor="#1d4ed8" />
-          </linearGradient>
-        </defs>
-      </svg>
+      <div className="absolute bottom-4 left-4 bg-white rounded-lg px-3 py-2 shadow-md border border-slate-100" style={{ animation: 'float-gentle 4s ease-in-out infinite 1s' }}>
+        <div className="flex items-center gap-2">
+          <div className="w-5 h-3 rounded-sm" style={{ background: 'linear-gradient(180deg, #ed2939 33%, #fff 33%, #fff 66%, #ed2939 66%)' }} />
+          <span className="text-xs font-medium text-slate-700">Auftrag.at</span>
+        </div>
+      </div>
 
-      <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm border border-slate-100">
-        <span className="text-blue-600 font-bold text-sm">27</span>
-        <span className="text-slate-500 text-xs ml-1">EU Countries</span>
+      <div className="absolute bottom-4 right-4 bg-white rounded-lg px-3 py-2 shadow-md border border-slate-100" style={{ animation: 'float-gentle 4s ease-in-out infinite 1.5s' }}>
+        <div className="flex items-center gap-2">
+          <div className="w-5 h-3 rounded-sm bg-red-600 flex items-center justify-center">
+            <span className="text-[8px] text-white font-bold">+</span>
+          </div>
+          <span className="text-xs font-medium text-slate-700">simap.ch</span>
+        </div>
+      </div>
+
+      {/* Stats badge */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full px-4 py-1.5 text-xs font-semibold shadow-lg">
+        27 EU Countries
       </div>
     </div>
   )
@@ -82,68 +86,82 @@ const EuropeanCoverageVisualization: React.FC = () => {
 
 // ============================================
 // ANIMATED VISUALIZATION: AI Matching
+// Clean, professional matching flow
 // ============================================
 const AIMatchingVisualization: React.FC = () => {
   return (
-    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden relative">
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 overflow-hidden relative p-6">
       <style>{`
-        @keyframes neural-pulse {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 1; }
+        @keyframes slide-in {
+          0% { opacity: 0; transform: translateX(-20px); }
+          100% { opacity: 1; transform: translateX(0); }
         }
-        @keyframes score-appear {
-          0% { transform: scale(0); opacity: 0; }
-          50% { transform: scale(1.2); opacity: 1; }
-          100% { transform: scale(1); opacity: 1; }
+        @keyframes score-pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
         }
-        @keyframes match-line {
-          0% { stroke-dashoffset: 50; }
+        @keyframes line-draw {
+          0% { stroke-dashoffset: 100; }
           100% { stroke-dashoffset: 0; }
         }
       `}</style>
 
-      <svg className="w-full h-full" viewBox="0 0 400 250" fill="none">
-        {/* Neural network nodes */}
-        <g className="opacity-20">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <circle key={i} cx={80} cy={30 + i * 40} r="8" fill="#94a3b8" style={{ animation: `neural-pulse 2s ease-in-out infinite`, animationDelay: `${i * 0.2}s` }} />
-          ))}
-          {[1, 2, 3, 4].map((i) => (
-            <circle key={i} cx={160} cy={50 + i * 45} r="10" fill="#64748b" style={{ animation: `neural-pulse 2s ease-in-out infinite`, animationDelay: `${i * 0.3}s` }} />
-          ))}
-        </g>
+      {/* Left: Input documents */}
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 space-y-2">
+        <div className="bg-white rounded-lg p-3 shadow-md border border-slate-100 w-28" style={{ animation: 'slide-in 0.5s ease-out both' }}>
+          <div className="h-1.5 bg-slate-200 rounded w-full mb-1.5"></div>
+          <div className="h-1.5 bg-slate-200 rounded w-3/4 mb-1.5"></div>
+          <div className="h-1.5 bg-slate-200 rounded w-1/2"></div>
+          <div className="text-[8px] text-slate-400 mt-2">Tender Doc</div>
+        </div>
+        <div className="bg-white rounded-lg p-3 shadow-md border border-slate-100 w-28" style={{ animation: 'slide-in 0.5s ease-out 0.2s both' }}>
+          <div className="h-1.5 bg-blue-200 rounded w-full mb-1.5"></div>
+          <div className="h-1.5 bg-blue-200 rounded w-2/3 mb-1.5"></div>
+          <div className="h-1.5 bg-blue-200 rounded w-4/5"></div>
+          <div className="text-[8px] text-blue-500 mt-2">Your Profile</div>
+        </div>
+      </div>
 
-        {/* Central AI Brain */}
-        <g>
-          <circle cx="200" cy="125" r="35" fill="url(#ai-gradient)" className="drop-shadow-lg" />
-          <text x="200" y="120" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">AI</text>
-          <text x="200" y="132" textAnchor="middle" fill="#bfdbfe" fontSize="7">MATCHING</text>
-        </g>
+      {/* Center: AI Brain */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
+          <div className="text-center">
+            <svg className="w-8 h-8 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            <div className="text-white text-[9px] font-medium mt-1">AI Match</div>
+          </div>
+        </div>
+      </div>
 
-        {/* Match results */}
-        {[
-          { x: 300, y: 60, score: "92%", color: "#22c55e" },
-          { x: 320, y: 125, score: "87%", color: "#22c55e" },
-          { x: 300, y: 190, score: "75%", color: "#f59e0b" },
-        ].map((match, i) => (
-          <g key={i}>
-            <line x1="235" y1="125" x2={match.x - 25} y2={match.y} stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 2" style={{ animation: `match-line 2s ease-out infinite`, animationDelay: `${i * 0.5}s` }} />
-            <rect x={match.x - 25} y={match.y - 15} width="50" height="30" rx="8" fill="white" stroke={match.color} strokeWidth="2" />
-            <text x={match.x} y={match.y + 5} textAnchor="middle" fill={match.color} fontSize="12" fontWeight="bold">{match.score}</text>
-          </g>
-        ))}
+      {/* Right: Match scores */}
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 space-y-2">
+        <div className="bg-white rounded-lg px-4 py-2 shadow-md border border-green-200" style={{ animation: 'score-pulse 2s ease-in-out infinite' }}>
+          <div className="text-lg font-bold text-green-600">92%</div>
+          <div className="text-[8px] text-slate-500">High Match</div>
+        </div>
+        <div className="bg-white rounded-lg px-4 py-2 shadow-md border border-green-200" style={{ animation: 'score-pulse 2s ease-in-out infinite 0.3s' }}>
+          <div className="text-lg font-bold text-green-600">87%</div>
+          <div className="text-[8px] text-slate-500">Strong Fit</div>
+        </div>
+        <div className="bg-white rounded-lg px-4 py-2 shadow-md border border-amber-200" style={{ animation: 'score-pulse 2s ease-in-out infinite 0.6s' }}>
+          <div className="text-lg font-bold text-amber-600">75%</div>
+          <div className="text-[8px] text-slate-500">Partial</div>
+        </div>
+      </div>
 
-        <defs>
-          <linearGradient id="ai-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="100%" stopColor="#1d4ed8" />
-          </linearGradient>
-        </defs>
+      {/* Connection lines */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+        <line x1="30%" y1="40%" x2="42%" y2="50%" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.4" />
+        <line x1="30%" y1="60%" x2="42%" y2="50%" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.4" />
+        <line x1="58%" y1="50%" x2="70%" y2="35%" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.4" />
+        <line x1="58%" y1="50%" x2="70%" y2="50%" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.4" />
+        <line x1="58%" y1="50%" x2="70%" y2="65%" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.4" />
       </svg>
 
-      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm border border-slate-100">
-        <span className="text-green-600 font-bold text-sm">70%+</span>
-        <span className="text-slate-500 text-xs ml-1">Accuracy</span>
+      {/* Accuracy badge */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full px-4 py-1.5 text-xs font-semibold shadow-lg">
+        70%+ Accuracy
       </div>
     </div>
   )
@@ -151,62 +169,60 @@ const AIMatchingVisualization: React.FC = () => {
 
 // ============================================
 // ANIMATED VISUALIZATION: Gap Analysis
+// Clean progress bars with check marks
 // ============================================
 const GapAnalysisVisualization: React.FC = () => {
   return (
-    <div className="aspect-[16/10] bg-gradient-to-br from-blue-50 to-slate-50 overflow-hidden relative flex items-center justify-center p-6">
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 overflow-hidden relative p-6 flex items-center justify-center">
       <style>{`
-        @keyframes check-appear {
-          0% { transform: scale(0) rotate(-180deg); opacity: 0; }
-          100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        @keyframes bar-fill {
+        @keyframes bar-grow {
           0% { width: 0%; }
-          100% { width: var(--target-width); }
         }
-        @keyframes pulse-soft {
+        @keyframes check-pop {
+          0% { transform: scale(0); }
+          50% { transform: scale(1.2); }
+          100% { transform: scale(1); }
+        }
+        @keyframes score-glow {
           0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
-          50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+          50% { box-shadow: 0 0 20px 4px rgba(34, 197, 94, 0.2); }
         }
       `}</style>
 
-      <div className="w-full max-w-[320px] space-y-4">
-        {/* Requirement bars */}
-        {[
-          { label: "Technical Fit", value: 95, color: "#22c55e" },
-          { label: "Certifications", value: 100, color: "#22c55e" },
-          { label: "Capacity", value: 80, color: "#f59e0b" },
-          { label: "Experience", value: 90, color: "#22c55e" },
-        ].map((req, i) => (
-          <div key={i} className="space-y-1">
-            <div className="flex justify-between text-xs">
-              <span className="text-slate-600 font-medium">{req.label}</span>
-              <span className="font-bold" style={{ color: req.color }}>{req.value}%</span>
-            </div>
-            <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-1000"
-                style={{
-                  width: `${req.value}%`,
-                  backgroundColor: req.color,
-                  animation: `bar-fill 1.5s ease-out`,
-                  animationDelay: `${i * 0.2}s`,
-                }}
-              />
-            </div>
-          </div>
-        ))}
+      <div className="w-full max-w-[300px] bg-white rounded-2xl p-5 shadow-lg border border-slate-100">
+        <div className="text-sm font-semibold text-slate-700 mb-4">Requirement Analysis</div>
 
-        {/* Overall Score */}
-        <div className="mt-6 p-4 bg-white rounded-xl border border-green-200 shadow-sm" style={{ animation: "pulse-soft 2s ease-in-out infinite" }}>
-          <div className="flex items-center justify-between">
-            <span className="text-slate-700 font-semibold">Match Score</span>
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-green-600">91%</span>
-              <svg className="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20" style={{ animation: "check-appear 0.5s ease-out", animationDelay: "1s", animationFillMode: "both" }}>
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+        <div className="space-y-3">
+          {[
+            { label: "Technical Fit", value: 95, color: "bg-green-500" },
+            { label: "Certifications", value: 100, color: "bg-green-500" },
+            { label: "Capacity", value: 80, color: "bg-amber-500" },
+            { label: "Experience", value: 90, color: "bg-green-500" },
+          ].map((item, i) => (
+            <div key={i} className="space-y-1">
+              <div className="flex justify-between text-xs">
+                <span className="text-slate-600">{item.label}</span>
+                <span className={`font-semibold ${item.value >= 90 ? 'text-green-600' : 'text-amber-600'}`}>{item.value}%</span>
+              </div>
+              <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div
+                  className={`h-full ${item.color} rounded-full`}
+                  style={{ width: `${item.value}%`, animation: `bar-grow 1s ease-out ${i * 0.15}s both` }}
+                />
+              </div>
             </div>
+          ))}
+        </div>
+
+        <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between" style={{ animation: 'score-glow 2s ease-in-out infinite' }}>
+          <div>
+            <div className="text-xs text-slate-500">Overall Score</div>
+            <div className="text-2xl font-bold text-green-600">91%</div>
+          </div>
+          <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center" style={{ animation: 'check-pop 0.5s ease-out 0.8s both' }}>
+            <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+            </svg>
           </div>
         </div>
       </div>
@@ -216,65 +232,67 @@ const GapAnalysisVisualization: React.FC = () => {
 
 // ============================================
 // ANIMATED VISUALIZATION: Enterprise Tools
+// Modern icon grid with floating animation
 // ============================================
 const EnterpriseToolsVisualization: React.FC = () => {
   return (
-    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden relative">
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 overflow-hidden relative p-6">
       <style>{`
-        @keyframes float-tool {
-          0%, 100% { transform: translateY(0); }
+        @keyframes float-card {
+          0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-8px); }
         }
-        @keyframes notification-pop {
+        @keyframes badge-pop {
           0% { transform: scale(0); }
-          50% { transform: scale(1.2); }
+          70% { transform: scale(1.1); }
           100% { transform: scale(1); }
         }
       `}</style>
 
-      <div className="absolute inset-0 p-6 flex items-center justify-center">
-        <div className="grid grid-cols-2 gap-4 w-full max-w-[320px]">
-          {[
-            { label: "Deadlines", color: "bg-blue-100", iconColor: "text-blue-600", delay: 0, icon: "calendar" },
-            { label: "Compliance", color: "bg-green-100", iconColor: "text-green-600", delay: 0.2, icon: "check" },
-            { label: "Team", color: "bg-purple-100", iconColor: "text-purple-600", delay: 0.4, icon: "users" },
-            { label: "Security", color: "bg-amber-100", iconColor: "text-amber-600", delay: 0.6, icon: "lock" },
-          ].map((tool, i) => (
-            <div
-              key={i}
-              className={`${tool.color} rounded-xl p-4 flex flex-col items-center justify-center shadow-sm border border-white`}
-              style={{ animation: `float-tool 4s ease-in-out infinite`, animationDelay: `${tool.delay}s` }}
-            >
-              <div className={`w-10 h-10 mb-2 ${tool.iconColor}`}>
-                {tool.icon === "calendar" && (
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                )}
-                {tool.icon === "check" && (
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                )}
-                {tool.icon === "users" && (
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                )}
-                {tool.icon === "lock" && (
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                )}
-              </div>
-              <span className="text-xs font-semibold text-slate-700">{tool.label}</span>
+      <div className="grid grid-cols-2 gap-3 h-full">
+        {[
+          { label: "Deadlines", color: "from-blue-500 to-blue-600", bgColor: "bg-blue-50", icon: "calendar", delay: 0 },
+          { label: "Compliance", color: "from-green-500 to-green-600", bgColor: "bg-green-50", icon: "check", delay: 0.1 },
+          { label: "Team", color: "from-purple-500 to-purple-600", bgColor: "bg-purple-50", icon: "users", delay: 0.2 },
+          { label: "Security", color: "from-amber-500 to-amber-600", bgColor: "bg-amber-50", icon: "lock", delay: 0.3 },
+        ].map((tool, i) => (
+          <div
+            key={i}
+            className={`${tool.bgColor} rounded-xl p-4 flex flex-col items-center justify-center shadow-sm border border-white`}
+            style={{ animation: `float-card 4s ease-in-out infinite ${tool.delay}s` }}
+          >
+            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tool.color} flex items-center justify-center shadow-md mb-2`}>
+              {tool.icon === "calendar" && (
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              )}
+              {tool.icon === "check" && (
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )}
+              {tool.icon === "users" && (
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              )}
+              {tool.icon === "lock" && (
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              )}
             </div>
-          ))}
-        </div>
+            <span className="text-xs font-semibold text-slate-700">{tool.label}</span>
+          </div>
+        ))}
       </div>
 
-      {/* Notification badges */}
-      <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shadow-lg" style={{ animation: "notification-pop 0.5s ease-out", animationDelay: "1s", animationFillMode: "both" }}>
+      {/* Notification badge */}
+      <div
+        className="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shadow-lg"
+        style={{ animation: 'badge-pop 0.5s ease-out 1s both' }}
+      >
         3
       </div>
     </div>

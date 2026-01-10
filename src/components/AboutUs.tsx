@@ -8,14 +8,14 @@ const AboutUs: React.FC = () => {
     {
       name: "Ben Müller-Niklas",
       role: "Co-Founder, CEO",
-      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+      img: "/team-ben.png",
       linkedin: "https://www.linkedin.com/in/ben-mueller-niklas/",
       blurred: false,
     },
     {
       name: "Moritz Wallner",
       role: "Co-Founder, CTO",
-      img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400",
+      img: "/team-moritz.png",
       linkedin: "https://www.linkedin.com/in/moritz-wallner/",
       blurred: false,
     },
@@ -67,7 +67,7 @@ const AboutUs: React.FC = () => {
                     We're building AlpX to help procurement teams win more public contracts with less effort and manual searching.
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <Link to="/waitlist" className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                    <Link to="/waitlist" className="btn-shine px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                       Join Waitlist
                     </Link>
                     <a href="mailto:office@alpx.at?subject=Talk to Founders" className="px-6 py-3 bg-white border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-colors">

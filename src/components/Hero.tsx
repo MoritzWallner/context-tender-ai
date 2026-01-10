@@ -968,6 +968,7 @@ const HeroSection: React.FC = () => {
         <div style={{ display: "flex", gap: "12px", marginTop: "8px", flexWrap: "wrap" }}>
           <a
             href="/waitlist"
+            className="btn-shine"
             style={{
               padding: "14px 32px",
               background: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
