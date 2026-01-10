@@ -400,7 +400,7 @@ const FeatureCard: React.FC<{
 // ============================================
 const CompanyMatchFeatures: React.FC = () => {
   return (
-    <section id="company-match-features" className="bg-white relative py-10">
+    <section id="company-match-features" className="relative py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <span className="text-blue-600 tracking-[0.3em] uppercase mb-4 block text-sm font-extrabold">Ecosystem</span>
