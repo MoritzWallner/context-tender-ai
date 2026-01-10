@@ -59,6 +59,14 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
+                    to="/why-alpx"
+                    className="hover:text-blue-600 transition-colors text-left"
+                  >
+                    Why AlpX
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/about"
                     className="hover:text-blue-600 transition-colors text-left"
                   >
