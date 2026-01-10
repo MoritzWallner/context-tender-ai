@@ -50,7 +50,7 @@ const AboutUs: React.FC = () => {
                 backgroundImage: "radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0)",
                 backgroundSize: "24px 24px"
               }}></div>
-              <img src="/alpx-logo-symbol.png" alt="AlpX Logo" className="h-16 md:h-20 w-auto object-contain relative z-10 drop-shadow-lg" />
+              <img src="/AlpX Technologies Logo lang.png" alt="AlpX Logo" className="h-16 md:h-20 w-auto object-contain relative z-10 drop-shadow-lg" />
             </div>
 
             {/* Story Content */}
