@@ -1,5 +1,6 @@
 import type React from "react"
 import FramedCard from "./FramedCard"
+import ScrollReveal from "./ScrollReveal"
 
 const ProblemCard: React.FC<{
   visualization: React.ReactNode
@@ -136,7 +137,7 @@ const ProgressVisualization = () => (
 
 const ProblemSection: React.FC = () => {
   return (
-    <section className="bg-white relative py-10">
+    <section className="relative py-10">
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{
@@ -146,19 +147,22 @@ const ProblemSection: React.FC = () => {
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-24">
-          <span className="text-blue-600 tracking-[0.3em] uppercase block mb-4 border-0 text-sm font-extrabold">
-            The Challenge
-          </span>
-          <h2 className="text-5xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
-            Fragmented Procurement Across Europe
-          </h2>
-          <p className="text-slate-500 text-lg leading-relaxed">
-            European tender procurement is fragmented across thousands of portals, in different languages and formats.
-            Teams waste 40% of their time on manual searches instead of winning contracts.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto mb-24">
+            <span className="text-blue-600 tracking-[0.3em] uppercase block mb-4 border-0 text-sm font-extrabold">
+              The Challenge
+            </span>
+            <h2 className="text-5xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
+              Fragmented Procurement Across Europe
+            </h2>
+            <p className="text-slate-500 text-lg leading-relaxed">
+              European tender procurement is fragmented across thousands of portals, in different languages and formats.
+              Teams waste 40% of their time on manual searches instead of winning contracts.
+            </p>
+          </div>
+        </ScrollReveal>
 
+        <ScrollReveal delay={100}>
         <FramedCard>
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <ProblemCard
@@ -213,8 +217,9 @@ const ProblemSection: React.FC = () => {
             </div>
           </div>
 
-          
+
         </FramedCard>
+        </ScrollReveal>
       </div>
     </section>
   )

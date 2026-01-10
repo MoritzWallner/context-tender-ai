@@ -20,6 +20,18 @@ const iconColors: Record<string, { light: string; dark: string }> = {
 const ComparisonRow: React.FC<ComparisonRowProps> = ({ category, traditional, alpx, icon }) => {
   const colors = iconColors[category] || { light: "bg-slate-100", dark: "text-slate-600" }
 
+  // Mapping category to specific hover colors
+  const hoverColorClasses: Record<string, string> = {
+    "Tender Search": "group-hover:bg-blue-100 group-hover:text-blue-600 group-hover:border-blue-200",
+    "Tender Analysis": "group-hover:bg-purple-100 group-hover:text-purple-600 group-hover:border-purple-200",
+    "Matching Quality": "group-hover:bg-emerald-100 group-hover:text-emerald-600 group-hover:border-emerald-200",
+    "Consortium Partners": "group-hover:bg-orange-100 group-hover:text-orange-600 group-hover:border-orange-200",
+    "Monitoring": "group-hover:bg-red-100 group-hover:text-red-600 group-hover:border-red-200",
+    "Cost": "group-hover:bg-cyan-100 group-hover:text-cyan-600 group-hover:border-cyan-200",
+  }
+
+  const hoverClass = hoverColorClasses[category] || "group-hover:bg-slate-100 group-hover:text-slate-600"
+
   return (
     <div
       id={`why-${category.toLowerCase().replace(/\s/g, "-")}`}
@@ -27,7 +39,7 @@ const ComparisonRow: React.FC<ComparisonRowProps> = ({ category, traditional, al
     >
       <div className="md:col-span-3 p-10 border-r border-slate-100 flex flex-col gap-6">
         <div
-          className={`w-12 h-12 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center text-slate-400 group-hover:${colors.light} group-hover:${colors.dark} group-hover:border-slate-200 transition-all duration-300`}
+          className={`w-12 h-12 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center text-slate-400 ${hoverClass} transition-all duration-300`}
         >
           {icon}
         </div>

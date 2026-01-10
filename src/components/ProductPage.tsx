@@ -4,6 +4,7 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import FramedCard from "./FramedCard"
 import SectionDivider from "./SectionDivider"
+import ScrollReveal from "./ScrollReveal"
 
 // Animated Counter Component
 const AnimatedCounter: React.FC<{ end: number; suffix?: string; prefix?: string }> = ({ end, suffix = "", prefix = "" }) => {
@@ -636,26 +637,30 @@ const ProductPage: React.FC = () => {
     <div className="pt-32 bg-white bg-dotted-pattern">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-        <div className="text-center mb-16">
-          <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
-            Product Features
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight max-w-4xl mx-auto">
-            Everything You Need to Win European Tenders
-          </h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            From intelligent discovery across 2,000+ portals to AI-powered partner matching. One platform, complete control, maximum results.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+              Product Features
+            </span>
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight max-w-4xl mx-auto">
+              Everything You Need to Win European Tenders
+            </h1>
+            <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+              From intelligent discovery across 2,000+ portals to AI-powered partner matching. One platform, complete control, maximum results.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Animated Stats Row */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {heroStats.map((stat, idx) => (
-            <div key={idx} className="text-center p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow min-w-[160px] md:min-w-[200px]">
-              <AnimatedCounter end={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
-              <div className="text-slate-900 font-semibold mt-2">{stat.label}</div>
-              <div className="text-slate-400 text-sm">{stat.desc}</div>
-            </div>
+            <ScrollReveal key={idx} delay={idx * 100}>
+              <div className="text-center p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+                <AnimatedCounter end={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
+                <div className="text-slate-900 font-semibold mt-2">{stat.label}</div>
+                <div className="text-slate-400 text-sm">{stat.desc}</div>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -664,6 +669,7 @@ const ProductPage: React.FC = () => {
 
       {/* Feature 1: Portal Coverage */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <ScrollReveal>
         <FramedCard>
           <div className="bg-white rounded-3xl border border-slate-100 p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -698,10 +704,12 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
         </FramedCard>
+        </ScrollReveal>
       </section>
 
       {/* Feature 2: Semantic AI Matching */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <ScrollReveal>
         <FramedCard>
           <div className="bg-white rounded-3xl border border-slate-100 p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -738,10 +746,12 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
         </FramedCard>
+        </ScrollReveal>
       </section>
 
       {/* Feature 3: Deep Gap Analysis */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <ScrollReveal>
         <FramedCard>
           <div className="bg-white rounded-3xl border border-slate-100 p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -776,10 +786,12 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
         </FramedCard>
+        </ScrollReveal>
       </section>
 
       {/* Feature 4: 24/7 AI Monitoring */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <ScrollReveal>
         <FramedCard>
           <div className="bg-white rounded-3xl border border-slate-100 p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -816,25 +828,29 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
         </FramedCard>
+        </ScrollReveal>
       </section>
 
       <SectionDivider variant="line" />
 
       {/* company.match Section Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
-          company.match
-        </span>
-        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight max-w-3xl mx-auto">
-          Find Perfect Partners in Minutes
-        </h2>
-        <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-          Access Europe's largest B2G company database and build winning consortiums with AI-powered partner matching.
-        </p>
+        <ScrollReveal>
+          <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+            company.match
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight max-w-3xl mx-auto">
+            Find Perfect Partners in Minutes
+          </h2>
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            Access Europe's largest B2G company database and build winning consortiums with AI-powered partner matching.
+          </p>
+        </ScrollReveal>
       </section>
 
       {/* Feature 5: AI-Powered Partner Matching */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <ScrollReveal>
         <FramedCard>
           <div className="bg-white rounded-3xl border border-slate-100 p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -869,10 +885,12 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
         </FramedCard>
+        </ScrollReveal>
       </section>
 
       {/* Feature 6: 10M+ European Companies */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <ScrollReveal>
         <FramedCard>
           <div className="bg-white rounded-3xl border border-slate-100 p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -909,10 +927,12 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
         </FramedCard>
+        </ScrollReveal>
       </section>
 
       {/* Feature 7: Smart Gap Coverage */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <ScrollReveal>
         <FramedCard>
           <div className="bg-white rounded-3xl border border-slate-100 p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -947,6 +967,7 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
         </FramedCard>
+        </ScrollReveal>
       </section>
 
     </div>

@@ -1,7 +1,7 @@
 import type React from "react"
 
 interface SectionDividerProps {
-  variant?: "dots" | "line" | "wave"
+  variant?: "dots" | "line" | "wave" | "grid"
 }
 
 const SectionDivider: React.FC<SectionDividerProps> = ({ variant = "dots" }) => {
@@ -23,9 +23,17 @@ const SectionDivider: React.FC<SectionDividerProps> = ({ variant = "dots" }) => 
 
   if (variant === "line") {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
-      </div>
+      <div
+        className="w-full h-7 opacity-50"
+        style={{
+          backgroundColor: '#fff',
+          backgroundImage: `
+            linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: '6px 6px'
+        }}
+      />
     )
   }
 
@@ -41,6 +49,22 @@ const SectionDivider: React.FC<SectionDividerProps> = ({ variant = "dots" }) => 
           />
         </svg>
       </div>
+    )
+  }
+
+  if (variant === "grid") {
+    return (
+      <div
+        className="w-full h-7 opacity-50"
+        style={{
+          backgroundColor: '#fff',
+          backgroundImage: `
+            linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: '6px 6px'
+        }}
+      />
     )
   }
 
