@@ -7,7 +7,7 @@ import SectionDivider from "./SectionDivider"
 import ScrollReveal from "./ScrollReveal"
 
 // Animated Counter Component
-const AnimatedCounter: React.FC<{ end: number; suffix?: string; prefix?: string }> = ({ end, suffix = "", prefix = "" }) => {
+const AnimatedCounter: React.FC<{ end: number; suffix?: string; prefix?: string }> = ({ end, suffix = "", prefix = "" }): JSX.Element => {
   const [count, setCount] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -44,7 +44,7 @@ const AnimatedCounter: React.FC<{ end: number; suffix?: string; prefix?: string 
   }, [isVisible, end])
 
   return (
-    <div ref={ref} className="text-4xl md:text-5xl font-bold text-blue-600">
+    <div ref={ref} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600">
       {prefix}{count.toLocaleString()}{suffix}
     </div>
   )
@@ -636,29 +636,29 @@ const ProductPage: React.FC = () => {
   return (
     <div className="pt-32 bg-white bg-dotted-pattern">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 sm:mb-12">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4 block">
               Product Features
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight max-w-4xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight max-w-4xl mx-auto px-2">
               Everything You Need to Win European Tenders
             </h1>
-            <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed px-2">
               From intelligent discovery across 2,000+ portals to AI-powered partner matching. One platform, complete control, maximum results.
             </p>
           </div>
         </ScrollReveal>
 
         {/* Animated Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-5xl mx-auto">
           {heroStats.map((stat, idx) => (
             <ScrollReveal key={idx} delay={idx * 100}>
-              <div className="text-center p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+              <div className="text-center p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
-                <div className="text-slate-900 font-semibold mt-2">{stat.label}</div>
-                <div className="text-slate-400 text-sm">{stat.desc}</div>
+                <div className="text-slate-900 font-semibold mt-1 sm:mt-2 text-sm sm:text-base">{stat.label}</div>
+                <div className="text-slate-400 text-xs sm:text-sm">{stat.desc}</div>
               </div>
             </ScrollReveal>
           ))}
@@ -668,11 +668,11 @@ const ProductPage: React.FC = () => {
       <SectionDivider variant="line" />
 
       {/* Feature 1: Portal Coverage */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
         <ScrollReveal>
         <FramedCard>
-          <div className="bg-white rounded-3xl border border-slate-100 p-12">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-100 p-4 sm:p-8 md:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
               <div className="space-y-8">
                 <div>
                   <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Feature</span>

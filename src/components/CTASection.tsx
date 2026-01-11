@@ -3,7 +3,7 @@ import { ArrowRight, Check } from 'lucide-react';
 
 const TenderMatchCTA: React.FC = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center p-6 font-sans">
+    <div className="flex min-h-[60vh] sm:min-h-[70vh] md:min-h-screen items-center justify-center p-4 sm:p-6 font-sans">
       
       {/* Inject Custom Keyframes for specific animations */}
       <style>{`
@@ -25,24 +25,24 @@ const TenderMatchCTA: React.FC = () => {
       `}</style>
 
       {/* Main Banner Container */}
-      <div className="relative mx-auto flex w-full max-w-[1200px] flex-col items-center justify-between overflow-hidden rounded-[24px] bg-gradient-to-br from-slate-50 via-[#e8f4fc] via-[#d4edfc] to-[#bae6fd] px-8 py-8 shadow-sm md:flex-row md:px-16 md:py-10">
+      <div className="relative mx-auto flex w-full max-w-[1200px] flex-col items-center justify-between overflow-hidden rounded-2xl sm:rounded-[24px] bg-gradient-to-br from-slate-50 via-[#e8f4fc] via-[#d4edfc] to-[#bae6fd] px-5 py-8 sm:px-8 sm:py-10 shadow-sm md:flex-row md:px-16 md:py-10">
         
         {/* --- Left Content --- */}
         <div className="relative z-10 max-w-full text-center md:max-w-[600px] md:text-left">
-          <p className="mb-4 text-sm text-blue-600 font-extrabold">Let's get started</p>
-          <h2 className="mb-4 text-3xl font-bold leading-tight text-slate-900 md:text-[42px]">
+          <p className="mb-3 sm:mb-4 text-xs sm:text-sm text-blue-600 font-extrabold">Let's get started</p>
+          <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-[42px] font-bold leading-tight text-slate-900">
             Ready to find more relevant tenders?
           </h2>
-          <p className="mb-8 text-lg leading-relaxed text-slate-500">
+          <p className="mb-6 sm:mb-8 text-sm sm:text-base md:text-lg leading-relaxed text-slate-500">
             Let tender.match handle the searching, so you can focus on winning contracts.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <a href="/waitlist" className="btn-shine group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-3.5 text-base font-semibold text-white shadow-[0_4px_12px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)]">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+            <a href="/waitlist" className="btn-shine group inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-white shadow-[0_4px_12px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)]">
               Join Waitlist
-              <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-200 group-hover:translate-x-1" />
             </a>
-            <a href="mailto:office@alpx.at?subject=Talk to Founders" className="group inline-flex items-center gap-2 rounded-xl bg-white/80 backdrop-blur px-7 py-3.5 text-base font-semibold text-slate-700 border border-slate-200 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-md">
+            <a href="mailto:office@alpx.at?subject=Talk to Founders" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white/80 backdrop-blur px-5 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-slate-700 border border-slate-200 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-md">
               Talk to Founders
             </a>
           </div>
