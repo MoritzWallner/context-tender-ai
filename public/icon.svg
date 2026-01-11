@@ -1,26 +1,38 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    @media (prefers-color-scheme: light) {
-      .background { fill: black; }
-      .foreground { fill: white; }
-    }
-    @media (prefers-color-scheme: dark) {
-      .background { fill: white; }
-      .foreground { fill: black; }
-    }
-  </style>
-  <g clip-path="url(#clip0_7960_43945)">
-    <rect class="background" width="180" height="180" rx="37" />
-    <g style="transform: scale(95%); transform-origin: center">
-      <path class="foreground"
-        d="M101.141 53H136.632C151.023 53 162.689 64.6662 162.689 79.0573V112.904H148.112V79.0573C148.112 78.7105 148.098 78.3662 148.072 78.0251L112.581 112.898C112.701 112.902 112.821 112.904 112.941 112.904H148.112V126.672H112.941C98.5504 126.672 86.5638 114.891 86.5638 100.5V66.7434H101.141V100.5C101.141 101.15 101.191 101.792 101.289 102.422L137.56 66.7816C137.255 66.7563 136.945 66.7434 136.632 66.7434H101.141V53Z" />
-      <path class="foreground"
-        d="M65.2926 124.136L14 66.7372H34.6355L64.7495 100.436V66.7372H80.1365V118.47C80.1365 126.278 70.4953 129.958 65.2926 124.136Z" />
-    </g>
+  <rect width="180" height="180" rx="37" fill="white"/>
+  <g transform="translate(15, 25)">
+    <!-- AlpX Triangular Infinity Logo -->
+    <path d="M75 10
+             C45 10, 20 45, 15 80
+             C10 115, 20 140, 50 140
+             C65 140, 78 130, 85 115
+             L75 100
+             C70 110, 60 118, 50 118
+             C35 118, 30 105, 35 80
+             C40 55, 55 35, 75 35
+             C85 35, 92 42, 95 55
+             L75 75
+             C72 65, 68 58, 60 58
+             C50 58, 45 70, 45 85
+             C45 95, 50 100, 58 100
+             L75 80
+             Z" fill="#111827"/>
+    <path d="M75 10
+             C105 10, 130 45, 135 80
+             C140 115, 130 140, 100 140
+             C85 140, 72 130, 65 115
+             L75 100
+             C80 110, 90 118, 100 118
+             C115 118, 120 105, 115 80
+             C110 55, 95 35, 75 35
+             C65 35, 58 42, 55 55
+             L75 75
+             C78 65, 82 58, 90 58
+             C100 58, 105 70, 105 85
+             C105 95, 100 100, 92 100
+             L75 80
+             Z" fill="#111827"/>
+    <!-- Center connecting piece -->
+    <ellipse cx="75" cy="85" rx="12" ry="10" fill="#111827"/>
   </g>
-  <defs>
-    <clipPath id="clip0_7960_43945">
-      <rect width="180" height="180" fill="white" />
-    </clipPath>
-  </defs>
 </svg>

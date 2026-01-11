@@ -5,19 +5,19 @@ import Logo from "./Logo"
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-slate-100 relative overflow-hidden pb-1.5 pt-10">
+    <footer className="bg-white border-t border-slate-100 relative overflow-hidden pb-1.5 pt-8 sm:pt-10">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 sm:px-6 my-0">
-        <div className="grid lg:grid-cols-12 gap-16 mb-24">
-          <div className="lg:col-span-5 space-y-10">
-            <Link to="/" className="block hover:opacity-80 transition-opacity">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-16 lg:mb-24">
+          <div className="sm:col-span-2 lg:col-span-5 space-y-6 sm:space-y-10 text-center sm:text-left">
+            <Link to="/" className="block hover:opacity-80 transition-opacity inline-block sm:block">
               <Logo size="lg" />
             </Link>
 
-            <p className="text-slate-500 text-lg max-w-sm leading-relaxed">
+            <p className="text-slate-500 text-base sm:text-lg max-w-sm leading-relaxed mx-auto sm:mx-0">
               Intelligent tender discovery for European markets
             </p>
 
-            <div className="flex items-center gap-5">
+            <div className="flex items-center justify-center sm:justify-start gap-5">
               <a
                 href="#"
                 className="w-10 h-10 rounded-xl border border-slate-100 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-600 transition-all bg-slate-50/50"
@@ -37,10 +37,10 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
-            <div className="space-y-6">
-              <h5 className="font-bold text-slate-900 text-sm uppercase tracking-widest">Navigation</h5>
-              <ul className="space-y-4 text-sm text-slate-500">
+          <div className="sm:col-span-2 lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
+            <div className="space-y-4 sm:space-y-6">
+              <h5 className="font-bold text-slate-900 text-xs sm:text-sm uppercase tracking-widest">Navigation</h5>
+              <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-slate-500">
                 <li>
                   <Link
                     to="/"
@@ -83,9 +83,9 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="space-y-6">
-              <h5 className="font-bold text-slate-900 text-sm uppercase tracking-widest">Contact</h5>
-              <ul className="space-y-4 text-sm">
+            <div className="space-y-4 sm:space-y-6">
+              <h5 className="font-bold text-slate-900 text-xs sm:text-sm uppercase tracking-widest">Contact</h5>
+              <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm">
                 <li>
                   <a href="tel:+436609919009" className="hover:text-blue-600 transition-colors text-slate-500">
                     +43 660 9919 009
@@ -103,9 +103,9 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="space-y-6">
-              <h5 className="font-bold text-slate-900 text-sm uppercase tracking-widest">Legal</h5>
-              <ul className="space-y-4 text-sm text-slate-500">
+            <div className="space-y-4 sm:space-y-6 col-span-2 sm:col-span-1">
+              <h5 className="font-bold text-slate-900 text-xs sm:text-sm uppercase tracking-widest">Legal</h5>
+              <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-slate-500">
                 <li>
                   <Link
                     to="/imprint"
@@ -127,11 +127,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-xs font-medium text-slate-400 tracking-wide">
+        <div className="pt-6 sm:pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+          <p className="text-[10px] sm:text-xs font-medium text-slate-400 tracking-wide text-center md:text-left">
             © 2025 AlpX Technologies GmbH. All rights reserved.
           </p>
-          <div className="flex gap-8 text-xs font-medium text-slate-400">
+          <div className="flex gap-6 sm:gap-8 text-[10px] sm:text-xs font-medium text-slate-400">
             <Link to="/imprint" className="hover:text-slate-900 transition-colors">
               Imprint
             </Link>
@@ -141,8 +141,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-[-5rem] left-0 right-0 flex justify-center opacity-[0.03] select-none pointer-events-none -z-10">
-          <span className="text-[20rem] font-black tracking-tighter uppercase leading-none">tender</span>
+        <div className="absolute bottom-[-3rem] sm:bottom-[-5rem] left-0 right-0 flex justify-center opacity-[0.03] select-none pointer-events-none -z-10">
+          <span className="text-[10rem] sm:text-[15rem] md:text-[20rem] font-black tracking-tighter uppercase leading-none">tender</span>
         </div>
       </div>
     </footer>

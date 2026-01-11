@@ -11,20 +11,20 @@ const ProblemCard: React.FC<{
   isHighlighted?: boolean
 }> = ({ visualization, stat, subtext, title, description, isHighlighted }) => (
   <div
-    className={`rounded-3xl p-10 border-2 transition-all duration-300 space-y-6 flex flex-col ${
+    className={`rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border-2 transition-all duration-300 space-y-4 sm:space-y-6 flex flex-col ${
       isHighlighted ? "bg-white border-slate-200" : "bg-white border-dashed border-slate-200 hover:border-slate-300"
     }`}
   >
-    <div className="aspect-square rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
+    <div className="aspect-square rounded-xl sm:rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center max-w-[180px] mx-auto sm:max-w-none">
       {visualization}
     </div>
-    <div className="min-h-20">
-      <div className="mb-1 text-3xl font-extrabold font-sans text-blue-600">{stat}</div>
-      <div className="text-sm text-slate-500 font-semibold">{subtext}</div>
+    <div className="min-h-16 sm:min-h-20 text-center sm:text-left">
+      <div className="mb-1 text-2xl sm:text-3xl font-extrabold font-sans text-blue-600">{stat}</div>
+      <div className="text-xs sm:text-sm text-slate-500 font-semibold">{subtext}</div>
     </div>
-    <div className="flex-grow">
-      <h3 className="text-2xl font-bold text-slate-900 mb-3">{title}</h3>
-      <p className="text-slate-500 leading-relaxed">{description}</p>
+    <div className="flex-grow text-center sm:text-left">
+      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">{title}</h3>
+      <p className="text-sm sm:text-base text-slate-500 leading-relaxed">{description}</p>
     </div>
   </div>
 )
@@ -148,14 +148,14 @@ const ProblemSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-24">
-            <span className="text-blue-600 tracking-[0.3em] uppercase block mb-4 border-0 text-sm font-extrabold">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-24">
+            <span className="text-blue-600 tracking-[0.3em] uppercase block mb-4 border-0 text-xs sm:text-sm font-extrabold">
               The Challenge
             </span>
-            <h2 className="text-5xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 sm:mb-8 tracking-tight">
               Fragmented Procurement Across Europe
             </h2>
-            <p className="text-slate-500 text-lg leading-relaxed">
+            <p className="text-slate-500 text-base sm:text-lg leading-relaxed px-2">
               European tender procurement is fragmented across thousands of portals, in different languages and formats.
               Teams waste 40% of their time on manual searches instead of winning contracts.
             </p>
@@ -164,7 +164,7 @@ const ProblemSection: React.FC = () => {
 
         <ScrollReveal delay={100}>
         <FramedCard>
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
             <ProblemCard
               visualization={<BarChartVisualization />}
               stat="8+ hours"
@@ -188,9 +188,9 @@ const ProblemSection: React.FC = () => {
             />
           </div>
 
-          <div className="bg-white rounded-3xl p-8 space-y-6 border-2 border-slate-200">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 pt-1">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 border-2 border-slate-200">
+            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+              <div className="flex-shrink-0 pt-1 hidden sm:block">
                 <svg
                   className="w-6 h-6 text-slate-600"
                   viewBox="0 0 24 24"
@@ -202,12 +202,12 @@ const ProblemSection: React.FC = () => {
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-slate-900 font-semibold leading-relaxed mb-4">
-                  <span className="font-black text-lg">The Real Cost:</span> Procurement teams waste 40% of total
+                <p className="text-slate-900 font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                  <span className="font-black text-base sm:text-lg">The Real Cost:</span> Procurement teams waste 40% of total
                   procurement time on manual searches instead of winning contracts.
                 </p>
-                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200">
-                  <p className="text-slate-700 text-sm leading-relaxed">
+                <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-slate-200">
+                  <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
                     <span className="font-bold">⚠ Warning:</span> Companies incur costs up to{" "}
                     <span className="font-black">€100k+ annually</span> in employee expenses searching portals, not
                     counting lost revenue from missed tender participation or overlooked opportunities.

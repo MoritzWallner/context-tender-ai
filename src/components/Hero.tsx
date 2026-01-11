@@ -911,123 +911,122 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
+      className="min-h-[calc(100vh-80px)] px-4 sm:px-8 md:px-12 lg:px-16 py-8 sm:py-12 md:py-16 lg:py-20"
       style={{
-        minHeight: "calc(100vh - 80px)",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "64px",
+        display: "flex",
+        flexDirection: "column",
         alignItems: "center",
-        padding: "80px 64px",
+        justifyContent: "center",
         maxWidth: "1400px",
         margin: "0 auto",
       }}
     >
-      {/* Left Side: Hero Content */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-        {/* Badge */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "6px",
-            padding: "8px 16px",
-            background: "#eff6ff",
-            border: "1px solid #bfdbfe",
-            borderRadius: "20px",
-            fontSize: "12px",
-            fontWeight: 600,
-            color: "#2563eb",
-            width: "fit-content",
-          }}
-        >
-          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#3b82f6" }} />
-          Now in Development – Early Access Available
-        </div>
-
-        {/* Headline */}
-        <h1
-          style={{
-            fontSize: "56px",
-            fontWeight: 800,
-            lineHeight: 1.1,
-            color: "#111827",
-            margin: 0,
-            letterSpacing: "-0.02em",
-          }}
-        >
-          Find Every Relevant Tender in Europe. <span style={{ color: "#3b82f6" }}>Automatically.</span>
-        </h1>
-
-        {/* Subheadline */}
-        <p style={{ fontSize: "18px", lineHeight: 1.6, color: "#6b7280", margin: 0 }}>
-          Stop wasting 8+ hours weekly on manual searches. Our AI understands your business context – not just keywords
-          – and finds opportunities that actually match.
-        </p>
-
-        {/* Buttons */}
-        <div style={{ display: "flex", gap: "12px", marginTop: "8px", flexWrap: "wrap" }}>
-          <a
-            href="/waitlist"
-            className="btn-shine"
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        {/* Left Side: Hero Content */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }} className="text-center lg:text-left">
+          {/* Badge */}
+          <div
+            className="mx-auto lg:mx-0"
             style={{
-              padding: "14px 32px",
-              background: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
-              color: "white",
-              border: "none",
-              borderRadius: "10px",
-              fontSize: "15px",
-              fontWeight: 600,
-              cursor: "pointer",
-              textDecoration: "none",
               display: "inline-flex",
               alignItems: "center",
-              gap: "8px",
-              boxShadow: "0 4px 12px rgba(37, 99, 235, 0.3)",
-              transition: "all 0.2s",
+              gap: "6px",
+              padding: "8px 16px",
+              background: "#eff6ff",
+              border: "1px solid #bfdbfe",
+              borderRadius: "20px",
+              fontSize: "11px",
+              fontWeight: 600,
+              color: "#2563eb",
+              width: "fit-content",
             }}
           >
-            Join Waitlist
-            <span>→</span>
-          </a>
-          <a
-            href="mailto:office@alpx.at?subject=Talk to Founders"
+            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#3b82f6" }} />
+            <span className="hidden sm:inline">Now in Development – Early Access Available</span>
+            <span className="sm:hidden">Early Access Available</span>
+          </div>
+
+          {/* Headline */}
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px]"
             style={{
-              padding: "14px 28px",
-              background: "white",
+              fontWeight: 800,
+              lineHeight: 1.1,
               color: "#111827",
-              border: "1px solid #e5e7eb",
-              borderRadius: "10px",
-              fontSize: "15px",
-              fontWeight: 500,
-              cursor: "pointer",
-              textDecoration: "none",
-              transition: "all 0.2s",
+              margin: 0,
+              letterSpacing: "-0.02em",
             }}
           >
-            Talk to Founders
-          </a>
+            Find Every Relevant Tender in Europe. <span style={{ color: "#3b82f6" }}>Automatically.</span>
+          </h1>
+
+          {/* Subheadline */}
+          <p className="text-base sm:text-lg" style={{ lineHeight: 1.6, color: "#6b7280", margin: 0 }}>
+            Stop wasting 8+ hours weekly on manual searches. Our AI understands your business context – not just keywords
+            – and finds opportunities that actually match.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 mt-2 justify-center lg:justify-start">
+            <a
+              href="/waitlist"
+              className="btn-shine"
+              style={{
+                padding: "14px 32px",
+                background: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
+                color: "white",
+                border: "none",
+                borderRadius: "10px",
+                fontSize: "15px",
+                fontWeight: 600,
+                cursor: "pointer",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                boxShadow: "0 4px 12px rgba(37, 99, 235, 0.3)",
+                transition: "all 0.2s",
+              }}
+            >
+              Join Waitlist
+              <span>→</span>
+            </a>
+            <a
+              href="mailto:office@alpx.at?subject=Talk to Founders"
+              style={{
+                padding: "14px 28px",
+                background: "white",
+                color: "#111827",
+                border: "1px solid #e5e7eb",
+                borderRadius: "10px",
+                fontSize: "15px",
+                fontWeight: 500,
+                cursor: "pointer",
+                textDecoration: "none",
+                transition: "all 0.2s",
+                textAlign: "center",
+              }}
+            >
+              Talk to Founders
+            </a>
+          </div>
+
+          {/* Trust Indicators */}
+          <div
+            className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mt-6 sm:mt-8"
+          >
+            <span style={{ fontSize: "12px", color: "#9ca3af", fontWeight: 500 }}>Trusted by:</span>
+            <span style={{ fontSize: "14px", fontWeight: 600, color: "#9ca3af", opacity: 0.7 }}>BuildIT</span>
+            <span style={{ fontSize: "14px", fontWeight: 600, color: "#9ca3af", opacity: 0.7 }}>GreenEnergy</span>
+            <span style={{ fontSize: "14px", fontWeight: 600, color: "#9ca3af", opacity: 0.7 }}>+50 more</span>
+          </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-start",
-            gap: "16px",
-            marginTop: "32px",
-          }}
-        >
-          <span style={{ fontSize: "12px", color: "#9ca3af", fontWeight: 500 }}>Trusted by:</span>
-          <span style={{ fontSize: "14px", fontWeight: 600, color: "#9ca3af", opacity: 0.7 }}>BuildIT</span>
-          <span style={{ fontSize: "14px", fontWeight: 600, color: "#9ca3af", opacity: 0.7 }}>GreenEnergy</span>
-          <span style={{ fontSize: "14px", fontWeight: 600, color: "#9ca3af", opacity: 0.7 }}>+50 more</span>
+        {/* Right Side: Product Demo */}
+        <div className="hidden md:flex justify-center lg:justify-end mt-8 lg:mt-0">
+          <ProductDemo />
         </div>
-      </div>
-
-      {/* Right Side: Product Demo */}
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <ProductDemo />
       </div>
     </section>
   )

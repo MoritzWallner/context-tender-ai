@@ -30,17 +30,17 @@ const AboutUs: React.FC = () => {
   ]
 
   return (
-    <div className="pt-32 bg-white bg-dotted-pattern">
+    <div className="pt-20 sm:pt-24 md:pt-32 bg-white bg-dotted-pattern">
       {/* Hero + Story Combined Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 sm:pb-12 md:pb-16">
         {/* Header */}
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">About Us</span>
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight max-w-4xl mx-auto">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4 block">About Us</span>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight max-w-4xl mx-auto px-2">
               Building the future of public procurement
             </h1>
-            <p className="text-lg text-slate-500">AI-first approach to smarter, faster tender discovery.</p>
+            <p className="text-sm sm:text-base md:text-lg text-slate-500">AI-first approach to smarter, faster tender discovery.</p>
           </div>
         </ScrollReveal>
 
@@ -49,37 +49,37 @@ const AboutUs: React.FC = () => {
         <FramedCard>
           <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm">
             {/* Logo Banner */}
-            <div className="h-56 md:h-64 bg-gradient-to-br from-blue-50 via-blue-100 to-slate-100 flex items-center justify-center relative">
+            <div className="h-40 sm:h-48 md:h-56 lg:h-64 bg-gradient-to-br from-blue-50 via-blue-100 to-slate-100 flex items-center justify-center relative">
               <div className="absolute inset-0 opacity-30" style={{
                 backgroundImage: "radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0)",
                 backgroundSize: "24px 24px"
               }}></div>
-              <img src="/alpx-logo-symbol.png" alt="AlpX Logo" className="h-36 md:h-44 w-auto object-contain relative z-10 drop-shadow-lg" />
+              <img src="/alpx-logo-symbol.png" alt="AlpX Logo" className="h-24 sm:h-32 md:h-36 lg:h-44 w-auto object-contain relative z-10 drop-shadow-lg" />
             </div>
 
             {/* Story Content */}
-            <div className="p-10">
-              <div className="grid lg:grid-cols-2 gap-12">
+            <div className="p-5 sm:p-7 md:p-10">
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
                 <div>
-                  <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+                  <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4 block">
                     Our Story
                   </span>
-                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight tracking-tight">
                     The reason behind our work
                   </h2>
-                  <p className="text-slate-500 text-lg mb-8 leading-relaxed">
+                  <p className="text-slate-500 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed">
                     We're building AlpX to help procurement teams win more public contracts with less effort and manual searching.
                   </p>
-                  <div className="flex flex-wrap gap-4">
-                    <Link to="/waitlist" className="btn-shine px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                  <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                    <Link to="/waitlist" className="btn-shine px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base text-center">
                       Join Waitlist
                     </Link>
-                    <a href="mailto:office@alpx.at?subject=Talk to Founders" className="px-6 py-3 bg-white border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-colors">
+                    <a href="mailto:office@alpx.at?subject=Talk to Founders" className="px-5 sm:px-6 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-colors text-sm sm:text-base text-center">
                       Talk to Founders
                     </a>
                   </div>
                 </div>
-                <div className="space-y-5 text-slate-600 leading-relaxed">
+                <div className="space-y-4 sm:space-y-5 text-slate-600 leading-relaxed text-sm sm:text-base">
                   <p>
                     B2G procurement needs a revolution. Procurement managers are stuck in endless manual searches across 2,000+ European tender portals. Finding relevant opportunities is a constant bottleneck, and companies miss billions in potential contracts every year.
                   </p>
@@ -100,22 +100,22 @@ const AboutUs: React.FC = () => {
       <SectionDivider variant="line" />
 
       {/* Team Section */}
-      <section className="py-16">
+      <section className="py-10 sm:py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Founders</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Team AlpX</h2>
-            <p className="text-slate-500 mb-12 max-w-2xl mx-auto">
+            <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4 block">Founders</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight">Team AlpX</h2>
+            <p className="text-slate-500 mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
               Building the future of intelligent public procurement.
             </p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
             {team.map((member, i) => (
               <ScrollReveal key={i} delay={i * 100}>
               <FramedCard variant="compact">
                 <div className="group text-left">
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 mb-5 relative">
+                  <div className="aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 mb-3 sm:mb-4 md:mb-5 relative">
                     {member.blurred ? (
                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-slate-200">
                         <div className="text-center">
@@ -134,19 +134,19 @@ const AboutUs: React.FC = () => {
                   </div>
                   <div className="flex items-center justify-between mb-1">
                     {member.blurred ? (
-                      <div className="h-6 w-28 bg-slate-200 rounded blur-[2px]"></div>
+                      <div className="h-5 sm:h-6 w-24 sm:w-28 bg-slate-200 rounded blur-[2px]"></div>
                     ) : (
-                      <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900">{member.name}</h3>
                     )}
                     {!member.blurred && (
                       <a
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-8 h-8 bg-slate-100 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors group/linkedin"
+                        className="w-7 h-7 sm:w-8 sm:h-8 bg-slate-100 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors group/linkedin"
                       >
                         <svg
-                          className="w-4 h-4 text-slate-600 group-hover/linkedin:text-white transition-colors"
+                          className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600 group-hover/linkedin:text-white transition-colors"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -155,7 +155,7 @@ const AboutUs: React.FC = () => {
                       </a>
                     )}
                   </div>
-                  <p className="text-slate-500 font-medium">{member.role}</p>
+                  <p className="text-slate-500 font-medium text-sm sm:text-base">{member.role}</p>
                 </div>
               </FramedCard>
               </ScrollReveal>

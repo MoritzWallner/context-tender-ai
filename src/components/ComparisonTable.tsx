@@ -35,30 +35,34 @@ const ComparisonRow: React.FC<ComparisonRowProps> = ({ category, traditional, al
   return (
     <div
       id={`why-${category.toLowerCase().replace(/\s/g, "-")}`}
-      className={`grid md:grid-cols-12 gap-0 border-b border-slate-100 last:border-0 group hover:bg-slate-50 transition-colors`}
+      className={`flex flex-col md:grid md:grid-cols-12 gap-0 border-b border-slate-100 last:border-0 group hover:bg-slate-50 transition-colors`}
     >
-      <div className="md:col-span-3 p-10 border-r border-slate-100 flex flex-col gap-6">
+      {/* Category Header - Full width on mobile */}
+      <div className="md:col-span-3 p-4 sm:p-6 md:p-10 md:border-r border-slate-100 flex flex-row md:flex-col items-center md:items-start gap-3 sm:gap-4 md:gap-6 bg-slate-50 md:bg-transparent">
         <div
-          className={`w-12 h-12 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center text-slate-400 ${hoverClass} transition-all duration-300`}
+          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center text-slate-400 ${hoverClass} transition-all duration-300 flex-shrink-0`}
         >
           {icon}
         </div>
-        <h4 className="text-lg font-bold text-slate-900 leading-tight">{category}</h4>
+        <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-tight">{category}</h4>
       </div>
 
-      <div className="md:col-span-4 p-10 border-r border-slate-100">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4 block">
-          The Manual Way
-        </span>
-        <p className="text-sm text-slate-400 leading-relaxed font-medium">{traditional}</p>
-      </div>
+      {/* Mobile: Stack vertically, Desktop: Side by side */}
+      <div className="flex flex-col md:contents">
+        <div className="md:col-span-4 p-4 sm:p-6 md:p-10 md:border-r border-slate-100 border-t md:border-t-0">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2 sm:mb-4 block">
+            The Manual Way
+          </span>
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-medium">{traditional}</p>
+        </div>
 
-      <div className="md:col-span-5 p-10 bg-slate-50/30">
-        <span className="uppercase tracking-widest mb-4 block flex items-center gap-2 text-blue-600 font-extrabold text-xs font-sans">
-          <img src="/alpx-logo-symbol.png" alt="AlpX" className="h-4 w-4 object-contain" />
-          The AlpX Way
-        </span>
-        <p className="text-sm text-slate-900 font-semibold leading-relaxed">{alpx}</p>
+        <div className="md:col-span-5 p-4 sm:p-6 md:p-10 bg-blue-50/30 md:bg-slate-50/30 border-t md:border-t-0">
+          <span className="uppercase tracking-widest mb-2 sm:mb-4 block flex items-center gap-2 text-blue-600 font-extrabold text-[10px] sm:text-xs font-sans">
+            <img src="/alpx-logo-symbol.png" alt="AlpX" className="h-3 w-3 sm:h-4 sm:w-4 object-contain" />
+            The AlpX Way
+          </span>
+          <p className="text-xs sm:text-sm text-slate-900 font-semibold leading-relaxed">{alpx}</p>
+        </div>
       </div>
     </div>
   )
@@ -164,18 +168,18 @@ const ComparisonTable: React.FC = () => {
   ]
 
   return (
-    <section id="why-alpx" className="py-10">
+    <section id="why-alpx" className="py-6 sm:py-8 md:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="mb-10 sm:mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 md:gap-8">
           <div>
-            <span className="tracking-[0.3em] uppercase mb-4 block text-sm font-extrabold text-blue-600">
+            <span className="tracking-[0.3em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm font-extrabold text-blue-600">
               Comparison
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
               Why tender.match is the Smarter Way to Find Public Contracts
             </h2>
           </div>
-          <p className="text-slate-500 max-w-sm leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-500 max-w-sm leading-relaxed">
             See how we replace guesswork with intelligent automation at every step.
           </p>
         </div>

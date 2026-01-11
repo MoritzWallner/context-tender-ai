@@ -311,9 +311,9 @@ const FeatureCard: React.FC<{
   <FramedCard variant="default">
     <div className="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500 overflow-hidden">
       {visualization}
-      <div className="p-10">
-        <h3 className="text-2xl font-bold text-slate-900 mb-4">{title}</h3>
-        <p className="text-slate-500 leading-relaxed mb-8">{description}</p>
+      <div className="p-5 sm:p-7 md:p-10">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-2 sm:mb-3 md:mb-4">{title}</h3>
+        <p className="text-slate-500 leading-relaxed mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base">{description}</p>
         <a
           href={href}
           className="text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center gap-2 group/btn transition-colors"
@@ -340,18 +340,18 @@ const TenderMatchFeatures: React.FC = () => {
   return (
     <section id="tender-match-features" className="bg-slate-50/50 relative py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-24">
-          <span className="text-blue-600 tracking-[0.3em] uppercase mb-4 block text-sm font-extrabold">Ecosystem</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-24 px-2">
+          <span className="text-blue-600 tracking-[0.3em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm font-extrabold">Ecosystem</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 md:mb-8 tracking-tight">
             All-in-one tender.match engine
           </h2>
-          <p className="text-slate-500 text-lg leading-relaxed">
+          <p className="text-slate-500 text-sm sm:text-base md:text-lg leading-relaxed">
             From intelligent discovery across 2,000+ European portals to AI-powered gap analysis, tender.match automates
             your entire procurement workflow with surgical precision.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
           <FeatureCard
             title="European Market Coverage"
             visualization={<EuropeanCoverageVisualization />}
