@@ -8,7 +8,7 @@ import FramedCard from "./FramedCard"
 // ============================================
 const NetworkGraphVisualization: React.FC = () => {
   return (
-    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden relative flex items-center justify-center">
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 to-indigo-50 overflow-hidden relative flex items-center justify-center">
       <style>{`
         @keyframes pulse-node {
           0%, 100% { transform: scale(1); opacity: 0.8; }
@@ -78,7 +78,7 @@ const NetworkGraphVisualization: React.FC = () => {
 
       {/* Stats Badge */}
       <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm border border-slate-100">
-        <span className="text-blue-600 font-bold text-sm">10M+</span>
+        <span className="text-indigo-600 font-bold text-sm">10M+</span>
         <span className="text-slate-500 text-xs ml-1">Companies</span>
       </div>
     </div>
@@ -90,7 +90,7 @@ const NetworkGraphVisualization: React.FC = () => {
 // ============================================
 const FloatingCardsVisualization: React.FC = () => {
   return (
-    <div className="aspect-[16/10] bg-gradient-to-br from-blue-50 to-slate-50 overflow-hidden relative">
+    <div className="aspect-[16/10] bg-gradient-to-br from-indigo-50 to-slate-50 overflow-hidden relative">
       <style>{`
         @keyframes float-card-1 {
           0%, 100% { transform: translate(0, 0) rotate(-2deg); }
@@ -116,7 +116,7 @@ const FloatingCardsVisualization: React.FC = () => {
         style={{ animation: "float-card-1 6s ease-in-out infinite" }}
       >
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-xs font-bold">TB</div>
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">TB</div>
           <div>
             <div className="text-xs font-semibold text-slate-800">TechBuild AG</div>
             <div className="text-[10px] text-slate-400">Munich, DE</div>
@@ -133,7 +133,7 @@ const FloatingCardsVisualization: React.FC = () => {
         style={{ animation: "float-card-2 5s ease-in-out infinite 0.5s" }}
       >
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white text-xs font-bold">GE</div>
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">GE</div>
           <div>
             <div className="text-xs font-semibold text-slate-800">GreenEnergy BV</div>
             <div className="text-[10px] text-slate-400">Amsterdam, NL</div>
@@ -141,7 +141,7 @@ const FloatingCardsVisualization: React.FC = () => {
         </div>
         <div className="flex items-center gap-1">
           <div className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-medium" style={{ animation: "match-pulse 2s ease-in-out infinite 0.3s" }}>92% Match</div>
-          <div className="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">ISO 9001</div>
+          <div className="text-[10px] bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded">ISO 9001</div>
         </div>
       </div>
 
@@ -151,7 +151,7 @@ const FloatingCardsVisualization: React.FC = () => {
         style={{ animation: "float-card-3 7s ease-in-out infinite 1s" }}
       >
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">IN</div>
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-400 to-indigo-500 flex items-center justify-center text-white text-xs font-bold">IN</div>
           <div>
             <div className="text-xs font-semibold text-slate-800">InfraSolutions SRL</div>
             <div className="text-[10px] text-slate-400">Vienna, AT</div>
@@ -171,7 +171,7 @@ const FloatingCardsVisualization: React.FC = () => {
       </svg>
 
       {/* Center AI Badge */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg">
         <span className="text-white text-xs font-bold">AI</span>
       </div>
     </div>
@@ -183,7 +183,7 @@ const FloatingCardsVisualization: React.FC = () => {
 // ============================================
 const MatchingFlowVisualization: React.FC = () => {
   return (
-    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-blue-50/50 to-slate-50 overflow-hidden relative flex items-center justify-center">
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-indigo-50/50 to-slate-50 overflow-hidden relative flex items-center justify-center">
       <style>{`
         @keyframes particle-flow {
           0% { transform: translateX(-100%); opacity: 0; }
@@ -220,15 +220,15 @@ const MatchingFlowVisualization: React.FC = () => {
       {/* Center AI Hub with rotating ring */}
       <div className="relative">
         <div
-          className="absolute left-1/2 top-1/2 w-24 h-24 rounded-full border-2 border-dashed border-blue-200"
+          className="absolute left-1/2 top-1/2 w-24 h-24 rounded-full border-2 border-dashed border-indigo-200"
           style={{ animation: "rotate-ring 20s linear infinite" }}
         />
         <div
-          className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex flex-col items-center justify-center shadow-lg relative z-10"
+          className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-600 flex flex-col items-center justify-center shadow-lg relative z-10"
           style={{ animation: "glow-center 3s ease-in-out infinite" }}
         >
           <span className="text-white text-[10px] font-bold">MATCH</span>
-          <span className="text-blue-200 text-[8px]">ENGINE</span>
+          <span className="text-indigo-200 text-[8px]">ENGINE</span>
         </div>
       </div>
 
@@ -253,14 +253,14 @@ const MatchingFlowVisualization: React.FC = () => {
       {/* Particle Flow Lines */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Left to Center */}
-        <div className="absolute top-1/2 left-[30%] w-[20%] h-0.5 bg-gradient-to-r from-slate-300 to-blue-400">
+        <div className="absolute top-1/2 left-[30%] w-[20%] h-0.5 bg-gradient-to-r from-slate-300 to-indigo-400">
           <div
-            className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-500"
+            className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-indigo-500"
             style={{ animation: "particle-flow 2s ease-in-out infinite" }}
           />
         </div>
         {/* Center to Right */}
-        <div className="absolute top-1/2 left-[50%] w-[20%] h-0.5 bg-gradient-to-r from-blue-400 to-green-400">
+        <div className="absolute top-1/2 left-[50%] w-[20%] h-0.5 bg-gradient-to-r from-indigo-400 to-green-400">
           <div
             className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-green-500"
             style={{ animation: "particle-flow 2s ease-in-out infinite 1s" }}
@@ -276,7 +276,7 @@ const MatchingFlowVisualization: React.FC = () => {
 // ============================================
 const TrackRecordVisualization: React.FC = () => {
   return (
-    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 overflow-hidden relative p-6 flex items-center justify-center">
+    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-50 overflow-hidden relative p-6 flex items-center justify-center">
       <style>{`
         @keyframes bar-grow-track {
           0% { width: 0%; }
@@ -313,8 +313,8 @@ const TrackRecordVisualization: React.FC = () => {
         <div className="space-y-3">
           {[
             { label: "Win Rate", value: 78, color: "bg-green-500" },
-            { label: "On-Time Delivery", value: 95, color: "bg-blue-500" },
-            { label: "Client Retention", value: 88, color: "bg-purple-500" },
+            { label: "On-Time Delivery", value: 95, color: "bg-indigo-500" },
+            { label: "Client Retention", value: 88, color: "bg-indigo-400" },
           ].map((item, i) => (
             <div key={i} className="space-y-1">
               <div className="flex justify-between text-xs">
@@ -361,7 +361,7 @@ const FeatureCard: React.FC<{
   href: string
 }> = ({ title, description, image, visualization, href }) => (
   <FramedCard variant="default">
-    <div className="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500 overflow-hidden">
+    <div className="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-indigo-100 transition-all duration-500 overflow-hidden">
       {visualization ? (
         visualization
       ) : (
@@ -378,7 +378,7 @@ const FeatureCard: React.FC<{
         <p className="text-slate-500 leading-relaxed mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base">{description}</p>
         <a
           href={href}
-          className="text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center gap-2 group/btn transition-colors"
+          className="text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-2 group/btn transition-colors"
         >
           Discover details
           <svg
@@ -403,7 +403,7 @@ const CompanyMatchFeatures: React.FC = () => {
     <section id="company-match-features" className="relative py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-24 px-2">
-          <span className="text-blue-600 tracking-[0.3em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm font-extrabold">Ecosystem</span>
+          <span className="text-indigo-600 tracking-[0.3em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm font-extrabold">Ecosystem</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 md:mb-8 tracking-tight">
             Complete company.match ecosystem
           </h2>
@@ -419,7 +419,7 @@ const CompanyMatchFeatures: React.FC = () => {
             title="10M+ European Companies"
             visualization={<NetworkGraphVisualization />}
             description="Built from 30 years of tender outcomes, trade register data, website analysis, and real-time updates. The most comprehensive B2B database for European public procurement. Find partners you never knew existed."
-            href="/product#company-database"
+            href="/company-match/product#company-database"
           />
 
           {/* Card 2: Option B - Floating Cards */}
@@ -427,7 +427,7 @@ const CompanyMatchFeatures: React.FC = () => {
             title="AI-Powered Partner Matching"
             visualization={<FloatingCardsVisualization />}
             description="Our AI identifies perfect consortium partners based on complementary capabilities, proven track record, and geographic coverage. Find partners in minutes, not weeks of networking. Win tenders worth millions."
-            href="/product#partner-matching"
+            href="/company-match/product#partner-matching"
           />
 
           {/* Card 3: Option C - Matching Flow */}
@@ -435,7 +435,7 @@ const CompanyMatchFeatures: React.FC = () => {
             title="Automatic Gap Coverage"
             visualization={<MatchingFlowVisualization />}
             description="See exactly which capabilities you're missing to win a tender. Our AI automatically suggests partners who can close those gaps. Turn 'we can't do this' into 'we found the perfect partner' in seconds."
-            href="/product#gap-coverage"
+            href="/company-match/product#gap-coverage"
           />
 
           {/* Card 4: Track Records Animation */}
@@ -443,7 +443,7 @@ const CompanyMatchFeatures: React.FC = () => {
             title="Proven Track Records"
             visualization={<TrackRecordVisualization />}
             description="See past tender success rates, reliability scores, and expertise areas. Partner with companies that have proven track records in your specific sector. Based on 30 years of actual tender outcomes, not just claims."
-            href="/product#track-record"
+            href="/company-match/product#track-record"
           />
         </div>
       </div>

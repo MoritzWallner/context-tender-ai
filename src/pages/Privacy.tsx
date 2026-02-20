@@ -1,27 +1,30 @@
 "use client"
 
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/NavbarNew"
 import Footer from "@/components/Footer"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+    <div className="min-h-screen text-slate-900 overflow-x-hidden relative">
+      <AnimatedBackground />
+      <div className="relative z-10">
       <Navbar />
       <main className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Legal</span>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
               Privacy Policy
             </h1>
-            <p className="text-slate-500">Last updated: January 2025</p>
+            <p className="text-slate-500">Last updated: February 2026</p>
           </div>
 
           <div className="prose prose-slate max-w-none">
             <div className="bg-slate-50 rounded-2xl p-8 mb-8 border border-slate-100">
               <h2 className="text-xl font-bold text-slate-900 mb-4">Overview</h2>
               <p className="text-slate-600 leading-relaxed">
-                AlpX Technologies GmbH ("we", "us", "our") operates tender.match and company.match. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services, in compliance with the General Data Protection Regulation (GDPR) and Austrian data protection laws.
+                AlpX Technologies FlexCo ("we", "us", "our") operates tender.match and company.match. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services, in compliance with the General Data Protection Regulation (GDPR) and Austrian data protection laws.
               </p>
             </div>
 
@@ -29,10 +32,10 @@ const Privacy = () => {
               <h2 className="text-2xl font-bold text-slate-900 mb-4">1. Data Controller</h2>
               <p className="text-slate-600 mb-4">The data controller responsible for your personal data is:</p>
               <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
-                <p className="text-slate-700 font-medium">AlpX Technologies GmbH</p>
+                <p className="text-slate-700 font-medium">AlpX Technologies FlexCo</p>
                 <p className="text-slate-600">Schrammelgasse 79</p>
                 <p className="text-slate-600">1170 Vienna, Austria</p>
-                <p className="text-slate-600">Email: privacy@alpx.at</p>
+                <p className="text-slate-600">Email: privacy@alpxtechnologies.com</p>
               </div>
             </section>
 
@@ -102,7 +105,7 @@ const Privacy = () => {
                 <li><strong>Object:</strong> Object to processing based on legitimate interest</li>
                 <li><strong>Withdraw Consent:</strong> Withdraw consent at any time</li>
               </ul>
-              <p className="text-slate-600 mt-4">To exercise these rights, contact us at privacy@alpx.at</p>
+              <p className="text-slate-600 mt-4">To exercise these rights, contact us at privacy@alpxtechnologies.com</p>
             </section>
 
             <section className="mb-10">
@@ -153,7 +156,7 @@ const Privacy = () => {
               <h2 className="text-2xl font-bold text-slate-900 mb-4">13. Contact Us</h2>
               <p className="text-slate-600 mb-4">For questions about this Privacy Policy or our data practices, contact us:</p>
               <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
-                <p className="text-slate-600">Email: privacy@alpx.at</p>
+                <p className="text-slate-600">Email: privacy@alpxtechnologies.com</p>
                 <p className="text-slate-600">Phone: +43 660 9919 009</p>
                 <p className="text-slate-600">Address: Schrammelgasse 79, 1170 Vienna, Austria</p>
               </div>
@@ -162,6 +165,7 @@ const Privacy = () => {
         </div>
       </main>
       <Footer />
+      </div>
     </div>
   )
 }

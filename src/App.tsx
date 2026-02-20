@@ -2,9 +2,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
-import Product from "./pages/Product";
+import TenderMatchLanding from "./pages/TenderMatchLanding";
+import TenderMatchProduct from "./pages/TenderMatchProduct";
+import CompanyMatchLanding from "./pages/CompanyMatchLanding";
+import CompanyMatchProduct from "./pages/CompanyMatchProduct";
 import About from "./pages/About";
 import Waitlist from "./pages/Waitlist";
 import Imprint from "./pages/Imprint";
@@ -22,7 +25,11 @@ const App = () => (
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/tender-match" element={<TenderMatchLanding />} />
+          <Route path="/tender-match/product" element={<TenderMatchProduct />} />
+          <Route path="/company-match" element={<CompanyMatchLanding />} />
+          <Route path="/company-match/product" element={<CompanyMatchProduct />} />
+          <Route path="/product" element={<Navigate to="/tender-match/product" replace />} />
           <Route path="/about" element={<About />} />
           <Route path="/waitlist" element={<Waitlist />} />
           <Route path="/imprint" element={<Imprint />} />

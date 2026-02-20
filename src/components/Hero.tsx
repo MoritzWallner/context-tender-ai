@@ -942,8 +942,8 @@ const HeroSection: React.FC = () => {
             }}
           >
             <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#3b82f6" }} />
-            <span className="hidden sm:inline">Now in Development – Early Access Available</span>
-            <span className="sm:hidden">Early Access Available</span>
+            <span className="hidden sm:inline">tender.match — AI-Powered Tender Discovery</span>
+            <span className="sm:hidden">tender.match</span>
           </div>
 
           {/* Headline */}
@@ -957,56 +957,26 @@ const HeroSection: React.FC = () => {
               letterSpacing: "-0.02em",
             }}
           >
-            Find Every Relevant Tender in Europe. <span style={{ color: "#3b82f6" }}>Automatically.</span>
+            Stop Searching. <span style={{ color: "#3b82f6" }}>Start Winning.</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-base sm:text-lg" style={{ lineHeight: 1.6, color: "#6b7280", margin: 0 }}>
-            Stop wasting 8+ hours weekly on manual searches. Our AI understands your business context – not just keywords
-            – and finds opportunities that actually match.
+            While your competitors spend 8+ hours weekly searching procurement portals, AlpX monitors 2,000+ sources across 27 EU countries and delivers only the opportunities that match your capabilities.
           </p>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 mt-2 justify-center lg:justify-start">
             <a
               href="/waitlist"
-              className="btn-shine"
-              style={{
-                padding: "14px 32px",
-                background: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
-                color: "white",
-                border: "none",
-                borderRadius: "10px",
-                fontSize: "15px",
-                fontWeight: 600,
-                cursor: "pointer",
-                textDecoration: "none",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "8px",
-                boxShadow: "0 4px 12px rgba(37, 99, 235, 0.3)",
-                transition: "all 0.2s",
-              }}
+              className="btn-shine inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg shadow-sm transition-all"
             >
-              Join Waitlist
+              Try it for free
               <span>→</span>
             </a>
             <a
-              href="mailto:office@alpx.at?subject=Talk to Founders"
-              style={{
-                padding: "14px 28px",
-                background: "white",
-                color: "#111827",
-                border: "1px solid #e5e7eb",
-                borderRadius: "10px",
-                fontSize: "15px",
-                fontWeight: 500,
-                cursor: "pointer",
-                textDecoration: "none",
-                transition: "all 0.2s",
-                textAlign: "center",
-              }}
+              href="mailto:office@alpxtechnologies.com?subject=Talk to Founders"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 hover:bg-gray-50 transition-all"
             >
               Talk to Founders
             </a>

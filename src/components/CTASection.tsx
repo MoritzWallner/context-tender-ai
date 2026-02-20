@@ -42,7 +42,7 @@ const TenderMatchCTA: React.FC = () => {
               Join Waitlist
               <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-200 group-hover:translate-x-1" />
             </a>
-            <a href="mailto:office@alpx.at?subject=Talk to Founders" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white/80 backdrop-blur px-5 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-slate-700 border border-slate-200 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-md">
+            <a href="mailto:office@alpxtechnologies.com?subject=Talk to Founders" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white/80 backdrop-blur px-5 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-slate-700 border border-slate-200 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-md">
               Talk to Founders
             </a>
           </div>

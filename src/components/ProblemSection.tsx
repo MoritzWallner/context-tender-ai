@@ -149,15 +149,14 @@ const ProblemSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-24">
-            <span className="text-blue-600 tracking-[0.3em] uppercase block mb-4 border-0 text-xs sm:text-sm font-extrabold">
-              The Challenge
+            <span className="text-blue-600 tracking-[0.3em] uppercase block mb-3 sm:mb-4 border-0 text-[10px] sm:text-xs font-extrabold">
+              The Problem
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 sm:mb-8 tracking-tight">
-              Fragmented Procurement Across Europe
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 sm:mb-8 tracking-tight">
+              Your Team Searches.<br className="hidden sm:block" /> Your Competitors Win.
             </h2>
-            <p className="text-slate-500 text-base sm:text-lg leading-relaxed px-2">
-              European tender procurement is fragmented across thousands of portals, in different languages and formats.
-              Teams waste 40% of their time on manual searches instead of winning contracts.
+            <p className="text-slate-500 text-sm sm:text-base md:text-lg leading-relaxed px-2">
+              European procurement is scattered across 2,000+ portals in 24 languages. While your team manually sifts through them, the best opportunities pass by.
             </p>
           </div>
         </ScrollReveal>
@@ -166,55 +165,26 @@ const ProblemSection: React.FC = () => {
         <FramedCard>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
             <ProblemCard
-              visualization={<BarChartVisualization />}
-              stat="8+ hours"
-              subtext="per week lost"
-              title="Time Drain"
-              description="Hours wasted manually checking countless portals across different countries, formats, and languages."
+              visualization={<PortalsVisualization />}
+              stat="Up to 60%"
+              subtext="missed opportunities"
+              title="Invisible Opportunities"
+              description="Fragmented portals across Europe mean most relevant opportunities are never discovered. Your competitors find them first — or nobody does."
             />
             <ProblemCard
-              visualization={<PortalsVisualization />}
-              stat="2,000+"
-              subtext="portals to check"
-              title="Fragmented Systems"
-              description="Different countries, formats, languages, and systems make comprehensive searches nearly impossible."
+              visualization={<BarChartVisualization />}
+              stat="8+ hrs/week"
+              subtext="wasted on manual searches"
+              title="Time Kills Revenue"
+              description="Your team spends more time looking for tenders than actually winning them. Manual portal checks across 27 countries — in different languages and formats."
             />
             <ProblemCard
               visualization={<ProgressVisualization />}
-              stat="40-60%"
-              subtext="opportunities missed"
-              title="Missed Opportunities"
-              description="Relevant projects remain undiscovered due to poor keyword matching and incomplete portal coverage."
+              stat="47 days"
+              subtext="avg. publication to deadline"
+              title="The Clock Is Ticking"
+              description="By the time you find a tender manually, your competitors have already submitted. Speed is the difference between winning and watching."
             />
-          </div>
-
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 border-2 border-slate-200">
-            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
-              <div className="flex-shrink-0 pt-1 hidden sm:block">
-                <svg
-                  className="w-6 h-6 text-slate-600"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-                  <path d="M12 8V12L15 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
-              <div className="flex-1">
-                <p className="text-slate-900 font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
-                  <span className="font-black text-base sm:text-lg">The Real Cost:</span> Procurement teams waste 40% of total
-                  procurement time on manual searches instead of winning contracts.
-                </p>
-                <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-slate-200">
-                  <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
-                    <span className="font-bold">⚠ Warning:</span> Companies incur costs up to{" "}
-                    <span className="font-black">€100k+ annually</span> in employee expenses searching portals, not
-                    counting lost revenue from missed tender participation or overlooked opportunities.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
 
 

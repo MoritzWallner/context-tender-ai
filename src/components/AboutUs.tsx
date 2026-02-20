@@ -21,8 +21,8 @@ const AboutUs: React.FC = () => {
       blurred: false,
     },
     {
-      name: "Coming Soon",
-      role: "COO",
+      name: "Vincent Press",
+      role: "COO/CFO",
       img: "",
       linkedin: "#",
       blurred: true,
@@ -30,17 +30,17 @@ const AboutUs: React.FC = () => {
   ]
 
   return (
-    <div className="pt-20 sm:pt-24 md:pt-32 bg-white bg-dotted-pattern">
+    <div className="pt-20 sm:pt-24 md:pt-32">
       {/* Hero + Story Combined Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 sm:pb-12 md:pb-16">
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4 block">About Us</span>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight max-w-4xl mx-auto px-2">
-              Building the future of public procurement
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight max-w-4xl mx-auto px-2" style={{ lineHeight: 1.1 }}>
+              Building Europe's AI-Powered B2B Intelligence Platform
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-slate-500">AI-first approach to smarter, faster tender discovery.</p>
+            <p className="text-sm sm:text-base md:text-lg text-slate-500">AI-first approach to smarter tenders, better suppliers, and stronger partnerships.</p>
           </div>
         </ScrollReveal>
 
@@ -64,30 +64,30 @@ const AboutUs: React.FC = () => {
                   <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4 block">
                     Our Story
                   </span>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight tracking-tight">
                     The reason behind our work
                   </h2>
                   <p className="text-slate-500 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed">
-                    We're building AlpX to help procurement teams win more public contracts with less effort and manual searching.
+                    We're building AlpX to give businesses of every size the intelligence they need — from winning public contracts to finding the perfect suppliers, partners, and products across Europe.
                   </p>
                   <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                     <Link to="/waitlist" className="btn-shine px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base text-center">
-                      Join Waitlist
+                      Try it for free
                     </Link>
-                    <a href="mailto:office@alpx.at?subject=Talk to Founders" className="px-5 sm:px-6 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-colors text-sm sm:text-base text-center">
+                    <a href="mailto:office@alpxtechnologies.com?subject=Talk to Founders" className="px-5 sm:px-6 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition-colors text-sm sm:text-base text-center">
                       Talk to Founders
                     </a>
                   </div>
                 </div>
                 <div className="space-y-4 sm:space-y-5 text-slate-600 leading-relaxed text-sm sm:text-base">
                   <p>
-                    B2G procurement needs a revolution. Procurement managers are stuck in endless manual searches across 2,000+ European tender portals. Finding relevant opportunities is a constant bottleneck, and companies miss billions in potential contracts every year.
+                    B2B and B2G procurement need a revolution. Procurement managers are stuck in endless manual searches across 2,000+ European tender portals. Finding relevant opportunities is a constant bottleneck, and companies miss billions in potential contracts every year.
                   </p>
                   <p>
-                    Our vision is a procurement engine with true AI autonomy—searching 2,000+ portals in seconds, finding only tenders that match your capabilities, and identifying perfect consortium partners to maximize your winning chances.
+                    That's why we built Europe's largest context-based B2B company database — 10M+ companies, without requiring any of them to register. This enables small and medium-sized enterprises without large networks to access enterprise-grade tools like Reverse Tendering and B2B Matching, selecting from a massive pool of suppliers and partners. Better prices, better companies — even across borders.
                   </p>
                   <p>
-                    Founded by a team that has lived the painful inefficiencies of manual tender searches, backed by deep expertise in AI, data analytics, and B2G markets.
+                    Founded by a team that has experienced the painful inefficiencies of manual procurement firsthand, backed by deep expertise in AI, data analytics, and European B2B and B2G markets.
                   </p>
                 </div>
               </div>
@@ -97,7 +97,7 @@ const AboutUs: React.FC = () => {
         </ScrollReveal>
       </section>
 
-      <SectionDivider variant="line" />
+      <SectionDivider />
 
       {/* Team Section */}
       <section className="py-10 sm:py-12 md:py-16">
@@ -106,7 +106,7 @@ const AboutUs: React.FC = () => {
             <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-4 block">Founders</span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight">Team AlpX</h2>
             <p className="text-slate-500 mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
-              Building the future of intelligent public procurement.
+              Building the future of intelligent B2B discovery.
             </p>
           </ScrollReveal>
 

@@ -1,18 +1,21 @@
 "use client"
 
 import { Link } from "react-router-dom"
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/NavbarNew"
 import Footer from "@/components/Footer"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 const Imprint = () => {
   return (
-    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+    <div className="min-h-screen text-slate-900 overflow-x-hidden relative">
+      <AnimatedBackground />
+      <div className="relative z-10">
       <Navbar />
       <main className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Legal</span>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
               Impressum
             </h1>
             <p className="text-slate-500">Legal Disclosure according to Austrian Law</p>
@@ -25,7 +28,7 @@ const Imprint = () => {
                 Informationen gemäß § 5 E-Commerce-Gesetz (ECG)
               </h2>
               <div className="space-y-2 text-slate-600">
-                <p className="font-semibold text-slate-900">AlpX Technologies GmbH</p>
+                <p className="font-semibold text-slate-900">AlpX Technologies FlexCo</p>
                 <p>Schrammelgasse 79</p>
                 <p>1170 Wien</p>
                 <p>Österreich / Austria</p>
@@ -38,8 +41,8 @@ const Imprint = () => {
               <div className="space-y-2 text-slate-600">
                 <p>
                   <strong className="text-slate-700">E-Mail:</strong>{" "}
-                  <a href="mailto:office@alpx.at" className="text-blue-600 hover:text-blue-700">
-                    office@alpx.at
+                  <a href="mailto:office@alpxtechnologies.com" className="text-blue-600 hover:text-blue-700">
+                    office@alpxtechnologies.com
                   </a>
                 </p>
                 <p>
@@ -55,7 +58,7 @@ const Imprint = () => {
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
               <h2 className="text-xl font-bold text-slate-900 mb-4">Firmenbuchdaten / Company Register</h2>
               <div className="space-y-2 text-slate-600">
-                <p><strong className="text-slate-700">Rechtsform:</strong> Gesellschaft mit beschränkter Haftung (GmbH)</p>
+                <p><strong className="text-slate-700">Rechtsform:</strong> Flexible Kapitalgesellschaft (FlexCo)</p>
                 <p><strong className="text-slate-700">Firmenbuchgericht:</strong> Handelsgericht Wien</p>
                 <p><strong className="text-slate-700">Firmenbuchnummer:</strong> FN [wird nach Gründung ergänzt]</p>
                 <p><strong className="text-slate-700">UID-Nummer:</strong> ATU[wird nach Gründung ergänzt]</p>
@@ -67,7 +70,6 @@ const Imprint = () => {
               <h2 className="text-xl font-bold text-slate-900 mb-4">Geschäftsführung / Managing Directors</h2>
               <div className="space-y-1 text-slate-600">
                 <p>Ben Müller-Niklas</p>
-                <p>Moritz Wallner</p>
               </div>
             </div>
 
@@ -94,7 +96,7 @@ const Imprint = () => {
                 Medieninhaber gemäß § 25 Mediengesetz
               </h2>
               <div className="space-y-2 text-slate-600">
-                <p className="font-semibold text-slate-900">AlpX Technologies GmbH</p>
+                <p className="font-semibold text-slate-900">AlpX Technologies FlexCo</p>
                 <p>Schrammelgasse 79, 1170 Wien, Österreich</p>
                 <p className="mt-4"><strong className="text-slate-700">Unternehmensgegenstand:</strong> Entwicklung und Betrieb von Software für die öffentliche Auftragsvergabe</p>
               </div>
@@ -166,6 +168,7 @@ const Imprint = () => {
         </div>
       </main>
       <Footer />
+      </div>
     </div>
   )
 }

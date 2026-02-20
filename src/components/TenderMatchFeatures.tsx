@@ -356,25 +356,25 @@ const TenderMatchFeatures: React.FC = () => {
             title="European Market Coverage"
             visualization={<EuropeanCoverageVisualization />}
             description="Monitor 2,000+ procurement portals across 27 EU countries in real-time. Our AI scans every portal 24/7, aggregates opportunities in one dashboard, and alerts you instantly when relevant tenders appear."
-            href="/product#portal-coverage"
+            href="/tender-match/product#portal-coverage"
           />
           <FeatureCard
             title="AI-Powered Matching"
             visualization={<AIMatchingVisualization />}
             description="Automatic capability matching with 70%+ accuracy. Our AI identifies opportunities you can win based on your expertise, experience, and qualifications—no manual screening required."
-            href="/product#semantic-matching"
+            href="/tender-match/product#semantic-matching"
           />
           <FeatureCard
             title="Deep Gap Analysis"
             visualization={<GapAnalysisVisualization />}
             description="See exactly what you can deliver and what's missing. AI-powered analysis with 95% accuracy shows which subcontractors or partners you need for each opportunity."
-            href="/product#gap-analysis"
+            href="/tender-match/product#gap-analysis"
           />
           <FeatureCard
             title="Enterprise-Grade Tools"
             visualization={<EnterpriseToolsVisualization />}
             description="Deadline management, compliance checks, team collaboration, and role-based access. Everything you need to manage tenders efficiently in one platform."
-            href="/product#tools"
+            href="/tender-match/product#tools"
           />
         </div>
       </div>

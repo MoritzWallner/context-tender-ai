@@ -3,9 +3,10 @@
 import type React from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/NavbarNew"
 import Footer from "@/components/Footer"
 import FramedCard from "@/components/FramedCard"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 const Waitlist = () => {
   const [formData, setFormData] = useState({
@@ -71,7 +72,9 @@ const Waitlist = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
+    <div className="min-h-screen text-slate-900 overflow-x-hidden relative">
+      <AnimatedBackground />
+      <div className="relative z-10">
       <Navbar />
       <main className="pt-20">
         <section className="py-20 bg-slate-50/50">
@@ -80,7 +83,7 @@ const Waitlist = () => {
               <span className="text-blue-600 tracking-[0.3em] uppercase mb-4 block text-sm font-extrabold">
                 Early Access
               </span>
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
                 Become an Early Adopter
               </h1>
               <p className="text-xl text-slate-500">
@@ -300,6 +303,7 @@ const Waitlist = () => {
         </section>
       </main>
       <Footer />
+      </div>
     </div>
   )
 }

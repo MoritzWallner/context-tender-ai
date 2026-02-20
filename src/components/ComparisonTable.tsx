@@ -38,7 +38,7 @@ const ComparisonRow: React.FC<ComparisonRowProps> = ({ category, traditional, al
       className={`flex flex-col md:grid md:grid-cols-12 gap-0 border-b border-slate-100 last:border-0 group hover:bg-slate-50 transition-colors`}
     >
       {/* Category Header - Full width on mobile */}
-      <div className="md:col-span-3 p-4 sm:p-6 md:p-10 md:border-r border-slate-100 flex flex-row md:flex-col items-center md:items-start gap-3 sm:gap-4 md:gap-6 bg-slate-50 md:bg-transparent">
+      <div className="md:col-span-3 p-4 sm:p-5 md:p-6 md:border-r border-slate-100 flex flex-row md:flex-col items-center md:items-start gap-3 sm:gap-4 bg-slate-50 md:bg-transparent">
         <div
           className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center text-slate-400 ${hoverClass} transition-all duration-300 flex-shrink-0`}
         >
@@ -49,15 +49,15 @@ const ComparisonRow: React.FC<ComparisonRowProps> = ({ category, traditional, al
 
       {/* Mobile: Stack vertically, Desktop: Side by side */}
       <div className="flex flex-col md:contents">
-        <div className="md:col-span-4 p-4 sm:p-6 md:p-10 md:border-r border-slate-100 border-t md:border-t-0">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2 sm:mb-4 block">
+        <div className="md:col-span-4 p-4 sm:p-5 md:p-6 md:border-r border-slate-100 border-t md:border-t-0">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2 sm:mb-3 block">
             The Manual Way
           </span>
           <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-medium">{traditional}</p>
         </div>
 
-        <div className="md:col-span-5 p-4 sm:p-6 md:p-10 bg-blue-50/30 md:bg-slate-50/30 border-t md:border-t-0">
-          <span className="uppercase tracking-widest mb-2 sm:mb-4 block flex items-center gap-2 text-blue-600 font-extrabold text-[10px] sm:text-xs font-sans">
+        <div className="md:col-span-5 p-4 sm:p-5 md:p-6 bg-blue-50/30 md:bg-slate-50/30 border-t md:border-t-0">
+          <span className="uppercase tracking-widest mb-2 sm:mb-3 block flex items-center gap-2 text-blue-600 font-extrabold text-[10px] sm:text-xs font-sans">
             <img src="/alpx-logo-symbol.png" alt="AlpX" className="h-3 w-3 sm:h-4 sm:w-4 object-contain" />
             The AlpX Way
           </span>
@@ -175,7 +175,7 @@ const ComparisonTable: React.FC = () => {
             <span className="tracking-[0.3em] uppercase mb-3 sm:mb-4 block text-xs sm:text-sm font-extrabold text-blue-600">
               Comparison
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
               Why tender.match is the Smarter Way to Find Public Contracts
             </h2>
           </div>
