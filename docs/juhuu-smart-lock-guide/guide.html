@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>JUHUU Smart Lock – Anleitung</title>
+<!--
+  JUHUU Smart Lock – Installations-, Test- & Batterieanleitung (A4)
+  PDF erzeugen:  node build-pdf.mjs   →  JUHUU-Smart-Lock-Anleitung.pdf
+
+  Branding anpassen: nur die Variablen unter :root ändern (--brand …).
+  Screenshots einfügen: in einem .screen-Element den Inhalt durch
+  <img src="assets/screens/DATEI.png"> ersetzen (Klasse "has-shot" ergänzen).
+-->
+<style>
+@font-face{font-family:"Inter";font-weight:400;src:url(assets/fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;src:url(assets/fonts/inter-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;src:url(assets/fonts/inter-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:700;src:url(assets/fonts/inter-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Jakarta";font-weight:600;src:url(assets/fonts/plus-jakarta-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Jakarta";font-weight:700;src:url(assets/fonts/plus-jakarta-sans-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Jakarta";font-weight:800;src:url(assets/fonts/plus-jakarta-sans-latin-800-normal.woff2) format("woff2")}
+
+:root{
+  /* ---- JUHUU Branding (hier anpassen) ---- */
+  --brand:#5B2EE5;        /* Primärfarbe */
+  --brand-2:#8B5CF6;      /* Verlauf / Akzent hell */
+  --brand-ink:#170F3A;    /* sehr dunkle Markenfarbe */
+  --brand-soft:#F1ECFF;   /* helle Fläche */
+  --accent:#FF7A1A;       /* passt zu den Pfeilen der Herstellergrafiken */
+  --ok:#14A44D;
+  --warn:#E5484D;
+  --ink:#16142B;
+  --muted:#5E5B76;
+  --line:#E4E1EF;
+  --paper:#FFFFFF;
+  --tint:#F7F6FB;
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#d9d7e3}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);font-size:9.6pt;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+h1,h2,h3,h4,.wordmark,.num{font-family:Jakarta,Inter,sans-serif}
+
+.page{width:210mm;height:297mm;background:var(--paper);position:relative;overflow:hidden;margin:0 auto 8mm;padding:14mm 15mm 16mm;display:flex;flex-direction:column;page-break-after:always;break-after:page}
+@media print{html,body{background:#fff}.page{margin:0}}
+
+/* header / footer */
+.top{display:flex;align-items:center;justify-content:space-between;padding-bottom:5mm;margin-bottom:6mm;border-bottom:1px solid var(--line)}
+.wordmark{font-weight:800;letter-spacing:.06em;font-size:13pt;color:var(--brand);display:flex;align-items:center;gap:2mm}
+.wordmark .dot{width:3.2mm;height:3.2mm;border-radius:50%;background:linear-gradient(135deg,var(--brand-2),var(--brand))}
+.top .sec{display:flex;align-items:center;gap:3mm;font-size:8.5pt;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.top .sec .chip{background:var(--brand);color:#fff;font-family:Jakarta;font-weight:800;border-radius:2mm;padding:.6mm 2.2mm;letter-spacing:0}
+.foot{position:absolute;left:15mm;right:15mm;bottom:8mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--muted)}
+.foot b{color:var(--brand)}
+
+h2{font-size:20pt;font-weight:800;line-height:1.15;letter-spacing:-.01em;margin-bottom:2mm}
+h2 .k{color:var(--brand)}
+.lead{color:var(--muted);font-size:10pt;max-width:160mm;margin-bottom:5mm}
+h3{font-size:11.5pt;font-weight:700;margin:1mm 0 3mm;display:flex;align-items:center;gap:2.5mm}
+h3 .tag{font-size:7.5pt;font-family:Inter;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);border-radius:10mm;padding:.8mm 2.6mm}
+
+/* step grid */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm 6mm}
+.steps.three{grid-template-columns:1fr 1fr 1fr;gap:4mm 5mm}
+.step{display:flex;flex-direction:column}
+.fig{position:relative;border:1px solid var(--line);border-radius:3mm;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;height:56mm}
+.tall .fig{height:64mm}
+.fig img{max-width:100%;max-height:100%;object-fit:contain}
+.num{position:absolute;top:2.2mm;left:2.2mm;min-width:9mm;height:7mm;padding:0 1.8mm;border-radius:2mm;background:var(--brand);color:#fff;font-weight:800;font-size:9.5pt;display:flex;align-items:center;justify-content:center;box-shadow:0 1mm 2.5mm rgba(91,46,229,.25)}
+.step h4{font-size:10pt;font-weight:700;margin:2.4mm 0 .6mm}
+.step p{color:var(--muted);font-size:8.8pt}
+.step p b{color:var(--ink)}
+
+/* boxes */
+.box{border-radius:3mm;padding:3.5mm 4.5mm;display:flex;gap:3mm;font-size:8.8pt;align-items:flex-start}
+.box svg{flex:0 0 5mm;height:5mm;margin-top:.3mm}
+.box.info{background:var(--brand-soft);color:#2a2160}
+.box.info svg{color:var(--brand)}
+.box.warn{background:#FFF1EA;color:#6b2f0b}
+.box.warn svg{color:var(--accent)}
+.box b{color:inherit}
+.box ul{padding-left:4mm}
+.banner{margin-top:auto;border-radius:4mm;background:linear-gradient(120deg,var(--brand-ink),var(--brand) 70%,var(--brand-2));color:#fff;padding:6mm 7mm;display:flex;gap:5mm;align-items:center}
+.banner .ic{width:13mm;height:13mm;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex:0 0 13mm}
+.banner h4{font-family:Jakarta;font-size:13pt;font-weight:800}
+.banner p{opacity:.85;font-size:9pt}
+
+/* cover */
+.cover{background:radial-gradient(120% 80% at 100% 0%,var(--brand-2) 0%,var(--brand) 38%,var(--brand-ink) 85%);color:#fff;padding:18mm 18mm 16mm}
+.cover .wordmark{color:#fff;font-size:20pt}
+.cover .wordmark .dot{background:#fff}
+.cover .kicker{margin-top:34mm;font-size:9pt;text-transform:uppercase;letter-spacing:.18em;font-weight:600;opacity:.8}
+.cover h1{font-size:40pt;line-height:1.02;font-weight:800;letter-spacing:-.02em;margin:4mm 0 5mm}
+.cover h1 span{color:#FFD4B5}
+.cover .sub{font-size:12pt;opacity:.88;max-width:140mm}
+.cover .hero{margin:14mm -2mm 0;background:#fff;border-radius:5mm;padding:8mm 10mm;display:flex;align-items:center;justify-content:center;box-shadow:0 6mm 18mm rgba(0,0,0,.25)}
+.cover .hero img{width:150mm}
+.toc{margin-top:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm}
+.toc div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:3mm;padding:3mm 3.5mm;font-size:8.8pt}
+.toc b{display:block;font-family:Jakarta;font-size:13pt;font-weight:800;color:#FFD4B5}
+.cover .meta{display:flex;justify-content:space-between;font-size:7.5pt;opacity:.7;margin-top:6mm}
+
+/* contents page */
+.contents{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;margin-bottom:6mm}
+.contents .it{border:1px solid var(--line);border-radius:3mm;padding:3mm;display:flex;flex-direction:column}
+.contents .it .im{height:30mm;display:flex;align-items:center;justify-content:center}
+.contents .it img{max-height:100%;max-width:100%}
+.contents .it h4{font-size:9pt;margin-top:2mm}
+.contents .it p{font-size:8pt;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+table.spec{width:100%;border-collapse:collapse;font-size:8.8pt}
+table.spec td{padding:1.8mm 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.spec td:first-child{color:var(--muted);width:46%}
+table.spec td:last-child{font-weight:600}
+.need{list-style:none;display:flex;flex-direction:column;gap:2.2mm}
+.need li{display:flex;gap:2.5mm;align-items:flex-start;font-size:8.8pt}
+.need li i{flex:0 0 5mm;height:5mm;border-radius:1.4mm;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800;font-size:8pt}
+
+/* phones */
+.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm 6mm}
+.phone-step{display:flex;flex-direction:column;align-items:center;text-align:center}
+.phone{width:37mm;height:70mm;border-radius:6mm;background:#1b1830;padding:1.6mm;position:relative;box-shadow:0 2mm 5mm rgba(23,15,58,.18)}
+.phone:before{content:"";position:absolute;top:2.6mm;left:50%;width:9mm;height:1.6mm;border-radius:1mm;background:#000;transform:translateX(-50%);z-index:2}
+.screen{width:100%;height:100%;border-radius:4.6mm;background:#fff;overflow:hidden;position:relative;display:flex;flex-direction:column;font-size:6pt;color:var(--ink)}
+.screen.has-shot img{width:100%;height:100%;object-fit:cover}
+.shot-tag{position:absolute;bottom:1.2mm;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(255,122,26,.95);color:#fff;font-weight:700;font-size:5.2pt;letter-spacing:.06em;text-transform:uppercase;padding:.6mm 1.8mm;border-radius:5mm}
+.s-bar{height:9mm;background:var(--brand);color:#fff;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.4mm;font-family:Jakarta;font-weight:800;letter-spacing:.06em;font-size:6.6pt}
+.s-body{flex:1;padding:3mm 2.6mm;display:flex;flex-direction:column;gap:1.8mm;align-items:stretch}
+.s-btn{background:var(--brand);color:#fff;border-radius:2mm;text-align:center;padding:1.6mm;font-weight:700}
+.s-in{border:1px solid var(--line);border-radius:1.6mm;padding:1.4mm;color:#9a97ad}
+.s-row{display:flex;justify-content:space-between;border:1px solid var(--line);border-radius:1.6mm;padding:1.4mm}
+.s-row.sel{border-color:var(--brand);background:var(--brand-soft)}
+.s-muted{color:var(--muted);text-align:center}
+.s-card{border-radius:2mm;background:var(--tint);padding:2mm}
+.s-h{font-family:Jakarta;font-weight:800;font-size:7.6pt}
+.phone-step .n{margin-top:2mm;width:7mm;height:7mm;border-radius:50%;background:var(--brand);color:#fff;font-family:Jakarta;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:9pt}
+.phone-step h4{font-size:9.6pt;margin:1.6mm 0 .6mm}
+.phone-step p{font-size:8.2pt;color:var(--muted);max-width:55mm}
+
+/* admin */
+.adm{display:grid;grid-template-columns:1fr 1fr;gap:3mm 6mm;counter-reset:a}
+.adm .a{display:flex;gap:3mm}
+.adm .a .n{flex:0 0 7mm;height:7mm;border-radius:2mm;background:var(--brand-ink);color:#fff;font-family:Jakarta;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:9pt}
+.adm .a h4{font-size:9.6pt;margin-bottom:.4mm}
+.adm .a p{font-size:8.4pt;color:var(--muted)}
+.dash{border-radius:3mm;border:1px solid var(--line);overflow:hidden;height:52mm;display:flex;position:relative;background:var(--tint)}
+.dash .side{width:30mm;background:var(--brand-ink);padding:3mm;display:flex;flex-direction:column;gap:2mm}
+.dash .side i{display:block;height:2.2mm;border-radius:1mm;background:rgba(255,255,255,.18)}
+.dash .side i.on{background:var(--brand-2)}
+.dash .side .wm{color:#fff;font-family:Jakarta;font-weight:800;font-size:7pt;letter-spacing:.08em;margin-bottom:2mm}
+.dash .main{flex:1;padding:4mm;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto 1fr;gap:3mm}
+.dash .kpi{background:#fff;border-radius:2mm;padding:2.4mm;font-size:6.5pt;color:var(--muted)}
+.dash .kpi b{display:block;font-family:Jakarta;font-size:10pt;color:var(--ink)}
+.dash .kpi b.g{color:var(--ok)}
+.dash .log{grid-column:1/-1;background:#fff;border-radius:2mm;padding:2.4mm;font-size:6.3pt;display:flex;flex-direction:column;gap:1.3mm}
+.dash .log div{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:1mm;color:var(--muted)}
+.dash .log div span:first-child{color:var(--ink);font-weight:600}
+.dash .shot-tag{font-size:6pt}
+table.check{width:100%;border-collapse:collapse;font-size:8.6pt}
+table.check th{text-align:left;font-size:7.4pt;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding:1.4mm 2mm;border-bottom:1.5px solid var(--ink)}
+table.check td{padding:1.9mm 2mm;border-bottom:1px solid var(--line)}
+table.check td.c{width:9mm;text-align:center}
+.cb{display:inline-block;width:3.6mm;height:3.6mm;border:1.4px solid var(--ink);border-radius:.8mm}
+.sign{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6mm;margin-top:5mm;font-size:7.6pt;color:var(--muted)}
+.sign div{border-top:1px solid var(--ink);padding-top:1.2mm}
+
+/* safety */
+.saf{display:grid;grid-template-columns:38mm 1fr 62mm;gap:3mm 5mm;align-items:center;border-bottom:1px solid var(--line);padding:2.6mm 0}
+.saf h4{font-size:9.8pt}
+.saf p{font-size:8.4pt;color:var(--muted)}
+.saf img{max-height:17mm;max-width:62mm;justify-self:end}
+.faq{width:100%;border-collapse:collapse;font-size:8.4pt}
+.faq td{padding:2mm 2mm;border-bottom:1px solid var(--line);vertical-align:top}
+.faq td:first-child{font-weight:600;width:42%}
+.faq td:last-child{color:var(--muted)}
+.support{margin-top:auto;border-radius:4mm;background:var(--brand-ink);color:#fff;padding:5mm 6mm;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:5mm;align-items:center}
+.support h4{font-family:Jakarta;font-size:13pt;font-weight:800}
+.support .ph{font-size:8.6pt;opacity:.9}
+.support .ph b{display:block;font-size:7pt;text-transform:uppercase;letter-spacing:.1em;opacity:.65;margin-bottom:.6mm}
+.todo{background:rgba(255,122,26,.18);color:#FFB27A;border-radius:1mm;padding:0 1mm}
+.page .todo-light{background:#FFF1EA;color:#B4520F;border-radius:1mm;padding:0 1mm;font-weight:600}
+.small{font-size:7.6pt;color:var(--muted)}
+.mt{margin-top:5mm}.mt2{margin-top:3mm}
+</style>
+</head>
+<body>
+
+<!-- SVG-Symbole -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/><rect x="11" y="10" width="2" height="7" rx="1" fill="#fff"/><circle cx="12" cy="7" r="1.3" fill="#fff"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 2.5 23 21.5H1z" fill="currentColor"/><rect x="11" y="9" width="2" height="7" rx="1" fill="#fff"/><circle cx="12" cy="18.3" r="1.2" fill="#fff"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-bt" viewBox="0 0 24 24"><path d="M7 7l10 10-5 4V3l5 4L7 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2.5" fill="currentColor"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><g fill="currentColor"><path d="M3 3h7v7H3zM5 5v3h3V5zM14 3h7v7h-7zM16 5v3h3V5zM3 14h7v7H3zM5 16v3h3v-3zM14 14h3v3h-3zM18 18h3v3h-3zM18 14h3v2h-3zM14 18h2v3h-2z"/></g></symbol>
+</svg>
+
+<!-- =============== 1 COVER =============== -->
+<section class="page cover">
+  <div class="wordmark"><span class="dot"></span>JUHUU</div>
+  <div class="kicker">Installations- &amp; Bedienungsanleitung</div>
+  <h1>Ihr Smart Lock.<br><span>Einbauen, testen, loslegen.</span></h1>
+  <p class="sub">Schritt für Schritt vom alten Schließzylinder zum digitalen Zugang – inklusive Funktionstest in der JUHUU App und Batteriewechsel.</p>
+  <div class="hero"><img src="assets/img/pc_lock.png" alt="Smart Lock Zylinder"></div>
+  <div class="toc">
+    <div><b>01</b>Vorbereitung &amp; Lieferumfang</div>
+    <div><b>02</b>Installation an der Tür</div>
+    <div><b>03</b>Test in der JUHUU App</div>
+    <div><b>04</b>Test &amp; Abnahme für Admins</div>
+    <div><b>05</b>Batteriewechsel</div>
+    <div><b>06</b>Sicherheit, Pflege &amp; Hilfe</div>
+  </div>
+  <div class="meta"><span>Modell: Tapkey Smart Lock (Knaufzylinder) · eingebunden in JUHUU</span><span>Version 1.0 · Entwurf</span></div>
+</section>
+
+<!-- =============== 2 VORBEREITUNG =============== -->
+<section class="page">
+  <div class="top"><div class="wordmark"><span class="dot"></span>JUHUU</div><div class="sec"><span class="chip">01</span>Vorbereitung</div></div>
+  <h2>Bevor Sie <span class="k">starten</span></h2>
+  <p class="lead">Ihr Smart Lock wurde von JUHUU bereits vorkonfiguriert und in die JUHUU Plattform eingebunden. Sie müssen es nur noch einbauen und testen.</p>
+
+  <div class="box info" style="margin-bottom:6mm">
+    <svg><use href="#i-info"/></svg>
+    <div><b>Wichtig: Keine Hersteller-App nötig.</b> Die Produktregistrierung beim Hersteller (Tapkey-App, Owner Card) hat JUHUU bereits für Sie erledigt. Bitte überspringen Sie den Abschnitt „Produktregistrierung“ in der beiliegenden Herstelleranleitung – geöffnet und verwaltet wird das Schloss ausschließlich über die <b>JUHUU App</b>.</div>
+  </div>
+
+  <h3><span class="tag">Lieferumfang</span></h3>
+  <div class="contents">
+    <div class="it"><div class="im"><img src="assets/img/pc_lock.png" alt=""></div><h4>Smart Lock</h4><p>Elektronischer Knaufzylinder, Batterie bereits eingelegt</p></div>
+    <div class="it"><div class="im"><img src="assets/img/pc_tools.png" alt=""></div><h4>Installationswerkzeug</h4><p>Torx-T6-Schraubendreher, Stulpschraube, Knaufwerkzeug</p></div>
+    <div class="it"><div class="im"><img src="assets/img/pc_card.png" alt=""></div><h4>Owner Card</h4><p>Bereits durch JUHUU registriert – bitte gut aufbewahren</p></div>
+    <div class="it"><div class="im"><img src="assets/img/pc_nfc.png" alt=""></div><h4>NFC-Tags</h4><p>Optional, nur falls bestellt</p></div>
+  </div>
+
+  <div class="two">
+    <div>
+      <h3><span class="tag">Das brauchen Sie</span></h3>
+      <ul class="need">
+        <li><i>1</i><div><b>Kreuzschlitz-Schraubendreher</b> für die Stulpschraube der Tür</div></li>
+        <li><i>2</i><div><b>Schlüssel des alten Zylinders</b> – zum Herausziehen nötig</div></li>
+        <li><i>3</i><div><b>Smartphone</b> mit aktiviertem Bluetooth und der <b>JUHUU App</b> (App Store / Google Play)</div></li>
+        <li><i>4</i><div><b>Ca. 15 Minuten Zeit</b> – bei geöffneter Tür arbeiten</div></li>
+      </ul>
+      <div class="box warn mt">
+        <svg><use href="#i-warn"/></svg>
+        <div><b>Passt der Zylinder?</b> Messen Sie vor dem Ausbau die Länge des alten Zylinders (außen/innen ab Stulpschraube). Weicht sie ab, melden Sie sich bitte vor dem Einbau bei JUHUU.</div>
+      </div>
+    </div>
+    <div>
+      <h3><span class="tag">Technische Daten</span></h3>
+      <table class="spec">
+        <tr><td>Funktechnologie</td><td>Bluetooth (BLE) &amp; NFC</td></tr>
+        <tr><td>Schutzklasse</td><td>IP65 (wetterfest)</td></tr>
+        <tr><td>Feuerwiderstandsklasse</td><td>T90</td></tr>
+        <tr><td>Batterietyp</td><td>CR2 (Li-MnO₂-System)</td></tr>
+        <tr><td>Schließzyklen pro Batterie</td><td>25.000+</td></tr>
+        <tr><td>Temperaturbereich</td><td>−25 bis +65 °C</td></tr>
+        <tr><td>Relative Feuchtigkeit</td><td>20–99 % (nicht kondensierend)</td></tr>
+        <tr><td>Zertifizierung</td><td>DIN EN 15684</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="foot"><span><b>JUHUU</b> · Smart Lock Anleitung</span><span>2</span></div>
+</section>
+
+<!-- =============== 3 INSTALLATION A =============== -->
+<section class="page">
+  <div class="top"><div class="wordmark"><span class="dot"></span>JUHUU</div><div class="sec"><span class="chip">02</span>Installation</div></div>
+  <h2>Installation <span class="k">an der Tür</span></h2>
+  <p class="lead">Arbeiten Sie immer bei geöffneter Tür – so können Sie sich nicht versehentlich aussperren.</p>
+
+  <h3><span class="tag">Teil A</span> Alten Zylinder ausbauen</h3>
+  <div class="steps three">
+    <div class="step"><div class="fig"><span class="num">1</span><img src="assets/img/1_1.png" alt=""></div><h4>Stulpschraube lösen</h4><p>Schraube an der Türkante (Stulp) herausdrehen.</p></div>
+    <div class="step"><div class="fig"><span class="num">2</span><img src="assets/img/1_2.png" alt=""></div><h4>Schlüssel leicht drehen</h4><p>Schlüssel stecken und leicht drehen, bis der Schließbart im Zylinder verschwindet.</p></div>
+    <div class="step"><div class="fig"><span class="num">3</span><img src="assets/img/1_3.png" alt=""></div><h4>Zylinder herausziehen</h4><p>Alten Zylinder am Schlüssel nach außen ziehen.</p></div>
+  </div>
+
+  <h3 class="mt"><span class="tag">Teil B</span> Smart Lock einbauen</h3>
+  <div class="steps three">
+    <div class="step"><div class="fig"><span class="num">4</span><img src="assets/img/1_4.png" alt=""></div><h4>Zylinder von außen einsetzen</h4><p>Elektronikknauf zeigt <b>nach außen</b>. Knauf und Batterie sind bereits vormontiert.</p></div>
+    <div class="step"><div class="fig"><span class="num">5</span><img src="assets/img/1_5.png" alt=""></div><h4>Innenknauf aufstecken</h4><p>Innenknauf auf der Innenseite auf den Zylinderkörper schieben.</p></div>
+    <div class="step"><div class="fig"><span class="num">6</span><img src="assets/img/1_6.png" alt=""></div><h4>Feststellschraube anziehen</h4><p>Mit dem beiliegenden <b>Torx T6</b> fixieren – die Schraube ist bereits vormontiert.</p></div>
+  </div>
+
+  <div class="box info mt">
+    <svg><use href="#i-info"/></svg>
+    <div><b>Video-Anleitung des Herstellers:</b> tapkey.com/videoguide-smart-lock – zeigt die Schritte 1–9 im Bewegtbild.</div>
+  </div>
+  <div class="foot"><span><b>JUHUU</b> · Smart Lock Anleitung</span><span>3</span></div>
+</section>
+
+<!-- =============== 4 INSTALLATION B =============== -->
+<section class="page">
+  <div class="top"><div class="wordmark"><span class="dot"></span>JUHUU</div><div class="sec"><span class="chip">02</span>Installation</div></div>
+  <h3><span class="tag">Teil C</span> Fixieren &amp; mechanisch prüfen</h3>
+  <div class="steps three tall">
+    <div class="step"><div class="fig"><span class="num">7</span><img src="assets/img/1_7.png" alt=""></div><h4>Riegel ausfahren</h4><p>Innenknauf drehen, bis der Riegel ausfährt – so sitzt der Zylinder exakt in Position.</p></div>
+    <div class="step"><div class="fig"><span class="num">8</span><img src="assets/img/1_8.png" alt=""></div><h4>Stulpschraube eindrehen</h4><p>Neue Stulpschraube aus dem Set handfest eindrehen. Nicht überdrehen.</p></div>
+    <div class="step"><div class="fig"><span class="num">9</span><img src="assets/img/1_9.png" alt=""></div><h4>Mechanik testen</h4><p>Innenknauf in beide Richtungen drehen: Riegel muss leicht aus- und einfahren.</p></div>
+  </div>
+
+  <h3 class="mt"><span class="tag">JUHUU</span> QR-Code anbringen</h3>
+  <div class="two" style="align-items:center">
+    <div class="step">
+      <div class="fig" style="height:46mm;background:var(--tint)">
+        <span class="num">10</span>
+        <svg viewBox="0 0 220 130" style="width:80%;height:auto">
+          <rect x="70" y="5" width="80" height="125" rx="3" fill="#fff" stroke="#c9c5da"/>
+          <rect x="78" y="62" width="10" height="16" rx="2" fill="#c9c5da"/>
+          <rect x="104" y="20" width="38" height="46" rx="5" fill="var(--brand)"/>
+          <g transform="translate(111 25) scale(1)"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M3 3h7v7H3zM5 5v3h3V5zM14 3h7v7h-7zM16 5v3h3V5zM3 14h7v7H3zM5 16v3h3v-3zM14 14h3v3h-3zM18 18h3v3h-3zM18 14h3v2h-3zM14 18h2v3h-2z"/></svg></g>
+          <text x="123" y="60" font-size="6" fill="#fff" text-anchor="middle" font-family="Jakarta" font-weight="800">JUHUU</text>
+          <path d="M160 40 l25 -10" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M148 43 l10 -3 -3 9" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <h4 style="font-size:11pt;margin-bottom:1.5mm">JUHUU-QR-Code gut sichtbar anbringen</h4>
+      <p style="color:var(--muted)">Kleben Sie den mitgelieferten JUHUU-QR-Code-Aufkleber auf Augenhöhe neben die Tür (außen). Über diesen Code finden Nutzer:innen das Schloss in der App und können es mieten.</p>
+      <ul class="need mt2">
+        <li><i><svg width="10" height="10"><use href="#i-check"/></svg></i>Untergrund sauber, trocken und fettfrei</li>
+        <li><i><svg width="10" height="10"><use href="#i-check"/></svg></i>Nicht auf das Schloss selbst kleben</li>
+        <li><i><svg width="10" height="10"><use href="#i-check"/></svg></i>Code muss zur Tür passen (Gerät-ID prüfen)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box warn mt">
+    <svg><use href="#i-warn"/></svg>
+    <div><b>Tür noch nicht schließen!</b> Führen Sie zuerst den Funktionstest in der JUHUU App (Kapitel 03) bei <b>geöffneter Tür</b> durch.</div>
+  </div>
+
+  <div class="banner">
+    <div class="ic"><svg width="26" height="26" style="color:#fff"><use href="#i-check"/></svg></div>
+    <div><h4>Geschafft – Ihr Smart Lock ist eingebaut!</h4><p>Jetzt nur noch in der JUHUU App testen, dann ist die Tür einsatzbereit.</p></div>
+  </div>
+  <div class="foot"><span><b>JUHUU</b> · Smart Lock Anleitung</span><span>4</span></div>
+</section>
+
+<!-- =============== 5 TEST NUTZER =============== -->
+<section class="page">
+  <div class="top"><div class="wordmark"><span class="dot"></span>JUHUU</div><div class="sec"><span class="chip">03</span>Test in der App</div></div>
+  <h2>Testen in der <span class="k">JUHUU App</span></h2>
+  <p class="lead">So öffnen Nutzer:innen das Schloss – und genau so führen Sie den ersten Funktionstest durch. Halten Sie das Smartphone dabei in der Nähe des Schlosses.</p>
+
+  <div class="phones">
+    <!-- 1 -->
+    <div class="phone-step">
+      <div class="phone"><div class="screen">
+        <div class="s-body" style="justify-content:center;align-items:center;gap:2.4mm">
+          <div style="width:15mm;height:15mm;border-radius:3.6mm;background:linear-gradient(135deg,var(--brand-2),var(--brand));display:flex;align-items:center;justify-content:center;color:#fff;font-family:Jakarta;font-weight:800;font-size:7pt;letter-spacing:.05em">JUHUU</div>
+          <div class="s-h">JUHUU</div><div class="s-muted">Mobility &amp; Smart Access</div>
+          <div class="s-btn" style="width:70%">Laden</div>
+        </div><span class="shot-tag">Screenshot folgt</span></div></div>
+      <div class="n">1</div><h4>App installieren</h4><p>„JUHUU“ im App Store oder bei Google Play laden.</p>
+    </div>
+    <!-- 2 -->
+    <div class="phone-step">
+      <div class="phone"><div class="screen">
+        <div class="s-bar">JUHUU</div>
+        <div class="s-body"><div class="s-h">Anmelden</div><div class="s-in">E-Mail</div><div class="s-in">Passwort</div><div class="s-btn">Weiter</div><div class="s-muted">oder mit Apple / Google</div></div>
+        <span class="shot-tag">Screenshot folgt</span></div></div>
+      <div class="n">2</div><h4>Anmelden</h4><p>Konto anlegen oder einloggen und Zahlungsmittel hinterlegen.</p>
+    </div>
+    <!-- 3 -->
+    <div class="phone-step">
+      <div class="phone"><div class="screen" style="background:#1d1a2e">
+        <div class="s-body" style="align-items:center;justify-content:center;color:#fff">
+          <div style="width:24mm;height:24mm;border:2px solid var(--brand-2);border-radius:3mm;display:flex;align-items:center;justify-content:center"><svg width="44" height="44" style="color:#fff"><use href="#i-qr"/></svg></div>
+          <div style="margin-top:2mm;opacity:.8">QR-Code an der Tür scannen</div>
+        </div><span class="shot-tag">Screenshot folgt</span></div></div>
+      <div class="n">3</div><h4>QR-Code scannen</h4><p>In der App den Scanner öffnen und den JUHUU-Code neben der Tür scannen.</p>
+    </div>
+    <!-- 4 -->
+    <div class="phone-step">
+      <div class="phone"><div class="screen">
+        <div class="s-bar">JUHUU</div>
+        <div class="s-body"><div class="s-h">Smart Lock · Eingang</div><div class="s-muted" style="text-align:left">Standort · Gerät-ID</div>
+          <div class="s-row sel"><span>Tarif A</span><b>€ –,–</b></div><div class="s-row"><span>Tarif B</span><b>€ –,–</b></div>
+          <div class="s-btn" style="margin-top:auto;margin-bottom:4mm">Miete starten</div></div>
+        <span class="shot-tag">Screenshot folgt</span></div></div>
+      <div class="n">4</div><h4>Miete abschließen</h4><p>Tarif wählen, Bedingungen bestätigen und Miete starten.</p>
+    </div>
+    <!-- 5 -->
+    <div class="phone-step">
+      <div class="phone"><div class="screen">
+        <div class="s-bar">JUHUU</div>
+        <div class="s-body" style="align-items:center;justify-content:center">
+          <div style="width:22mm;height:22mm;border-radius:50%;background:var(--brand);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 2.5mm var(--brand-soft);font-weight:800;font-family:Jakarta;font-size:7.5pt"><svg width="20" height="20" style="color:#fff;margin-bottom:1mm"><use href="#i-lock"/></svg>Öffnen</div>
+          <div class="s-muted" style="margin-top:3mm;display:flex;align-items:center;gap:1mm"><svg width="9" height="9" style="color:var(--brand)"><use href="#i-bt"/></svg>Verbinde mit Schloss …</div>
+        </div><span class="shot-tag">Screenshot folgt</span></div></div>
+      <div class="n">5</div><h4>„Öffnen“ drücken</h4><p>Die App verbindet sich per Bluetooth mit dem Schloss und schaltet es frei.</p>
+    </div>
+    <!-- 6 -->
+    <div class="phone-step">
+      <div class="phone"><div class="screen">
+        <div class="s-bar">JUHUU</div>
+        <div class="s-body" style="align-items:center;justify-content:center;gap:2mm">
+          <div style="width:16mm;height:16mm;border-radius:50%;background:var(--ok);display:flex;align-items:center;justify-content:center"><svg width="30" height="30" style="color:#fff"><use href="#i-check"/></svg></div>
+          <div class="s-h">Freigegeben</div><div class="s-muted">Jetzt den Außenknauf drehen</div>
+        </div><span class="shot-tag">Screenshot folgt</span></div></div>
+      <div class="n">6</div><h4>Knauf drehen</h4><p>Solange freigegeben, den Außenknauf drehen – der Riegel fährt ein, die Tür öffnet sich.</p>
+    </div>
+  </div>
+
+  <div class="two" style="margin-top:auto;margin-bottom:2mm">
+    <div class="box info"><svg><use href="#i-bt"/></svg><div><b>Tipps:</b> Bluetooth und Standortfreigabe aktivieren, nah am Schloss stehen. Der Außenknauf dreht frei durch, bis die App das Schloss freigibt – das ist normal.</div></div>
+    <div class="box info"><svg><use href="#i-check"/></svg><div><b>Test bestanden, wenn</b> sich die Tür über die App öffnen <b>und</b> wieder verriegeln lässt. Beenden Sie danach die Testmiete in der App.</div></div>
+  </div>
+  <div class="foot"><span><b>JUHUU</b> · Smart Lock Anleitung</span><span>5</span></div>
+</section>
+
+<!-- =============== 6 TEST ADMIN =============== -->
+<section class="page">
+  <div class="top"><div class="wordmark"><span class="dot"></span>JUHUU</div><div class="sec"><span class="chip">04</span>Admin</div></div>
+  <h2>Test &amp; Abnahme für <span class="k">Administrator:innen</span></h2>
+  <p class="lead">Für Betreiber:innen und Hausverwaltungen: so prüfen Sie im JUHUU Dashboard, dass das Schloss korrekt eingebunden ist, bevor es für Kund:innen freigegeben wird.</p>
+
+  <div class="dash">
+    <div class="side"><div class="wm">JUHUU</div><i class="on"></i><i></i><i></i><i></i><i></i></div>
+    <div class="main">
+      <div class="kpi">Gerät<b>Smart Lock · Eingang</b></div>
+      <div class="kpi">Status<b class="g">Aktiv</b></div>
+      <div class="kpi">Batterie<b>OK</b></div>
+      <div class="log">
+        <div><span>Zugriffsprotokoll</span><span>Zeit</span></div>
+        <div><span>Testmiete gestartet · Admin</span><span>hh:mm</span></div>
+        <div><span>Schloss geöffnet (Bluetooth)</span><span>hh:mm</span></div>
+        <div><span>Miete beendet</span><span>hh:mm</span></div>
+      </div>
+    </div>
+    <span class="shot-tag">Dashboard-Screenshot folgt</span>
+  </div>
+
+  <div class="adm mt">
+    <div class="a"><div class="n">1</div><div><h4>Gerät im Dashboard finden</h4><p>Im JUHUU Dashboard Standort öffnen und das Smart Lock auswählen. Gerät-ID / Seriennummer mit dem Etikett am Schloss abgleichen.</p></div></div>
+    <div class="a"><div class="n">2</div><div><h4>Konfiguration prüfen</h4><p>Name, Standort, Tarif und Sichtbarkeit in der App kontrollieren. QR-Code an der Tür muss genau zu diesem Gerät führen.</p></div></div>
+    <div class="a"><div class="n">3</div><div><h4>Testmiete durchführen</h4><p>Mit einem Admin- oder Testkonto in der App den QR-Code scannen, Miete starten und „Öffnen“ drücken (siehe Kapitel 03).</p></div></div>
+    <div class="a"><div class="n">4</div><div><h4>Protokoll &amp; Status prüfen</h4><p>Im Dashboard müssen die Testmiete und der Öffnungsvorgang erscheinen. Batteriestatus kontrollieren.</p></div></div>
+    <div class="a"><div class="n">5</div><div><h4>Testmiete beenden / stornieren</h4><p>Testmiete in der App beenden und ggf. im Dashboard stornieren, damit keine Kosten entstehen.</p></div></div>
+    <div class="a"><div class="n">6</div><div><h4>Freigeben</h4><p>Gerät für Kund:innen aktivieren und Abnahme unten dokumentieren.</p></div></div>
+  </div>
+
+  <h3 class="mt"><span class="tag">Abnahme-Checkliste</span></h3>
+  <table class="check">
+    <tr><th>Prüfpunkt</th><th class="c">OK</th><th>Anmerkung</th></tr>
+    <tr><td>Zylinder sitzt bündig, Stulp- und Feststellschraube fest</td><td class="c"><span class="cb"></span></td><td></td></tr>
+    <tr><td>Riegel fährt per Innenknauf leicht aus und ein</td><td class="c"><span class="cb"></span></td><td></td></tr>
+    <tr><td>QR-Code angebracht und führt zum richtigen Gerät</td><td class="c"><span class="cb"></span></td><td></td></tr>
+    <tr><td>Öffnen über JUHUU App funktioniert (bei offener und geschlossener Tür)</td><td class="c"><span class="cb"></span></td><td></td></tr>
+    <tr><td>Vorgang im Dashboard-Protokoll sichtbar, Batteriestatus OK</td><td class="c"><span class="cb"></span></td><td></td></tr>
+    <tr><td>Testmiete beendet, Gerät für Kund:innen freigegeben</td><td class="c"><span class="cb"></span></td><td></td></tr>
+  </table>
+  <div class="sign"><div>Datum</div><div>Gerät-ID / Standort</div><div>Name &amp; Unterschrift</div></div>
+  <div class="foot"><span><b>JUHUU</b> · Smart Lock Anleitung</span><span>6</span></div>
+</section>
+
+<!-- =============== 7 BATTERIE A =============== -->
+<section class="page">
+  <div class="top"><div class="wordmark"><span class="dot"></span>JUHUU</div><div class="sec"><span class="chip">05</span>Batteriewechsel</div></div>
+  <h2><span class="k">Batterie</span> wechseln</h2>
+  <p class="lead">Die Batterie reicht für über 25.000 Schließzyklen. Für den Wechsel brauchen Sie das beiliegende Knaufwerkzeug und eine Original-Ersatzbatterie (CR2, Li-MnO₂-System) – erhältlich über JUHUU.</p>
+
+  <div class="steps three">
+    <div class="step"><div class="fig"><span class="num">1</span><img src="assets/img/4_1.png" alt=""></div><h4>Knaufwerkzeug ansetzen</h4><p>Werkzeug von der Türseite her am Außenknauf ansetzen.</p></div>
+    <div class="step"><div class="fig"><span class="num">2</span><img src="assets/img/4_2.png" alt=""></div><h4>Bajonett entriegeln</h4><p>Werkzeug in Pfeilrichtung drehen, um den Bajonettverschluss zu lösen.</p></div>
+    <div class="step"><div class="fig"><span class="num">3</span><img src="assets/img/4_3.png" alt=""></div><h4>Knaufhülse abziehen</h4><p>Hülse gerade nach vorne abziehen – die Elektronik wird sichtbar.</p></div>
+    <div class="step"><div class="fig"><span class="num">4</span><img src="assets/img/4_4.png" alt=""></div><h4>Alte Batterie entfernen</h4><p>Stecker vorsichtig abziehen und Batterie herausnehmen.</p></div>
+    <div class="step"><div class="fig"><span class="num">5</span><img src="assets/img/4_5.png" alt=""></div><h4>Neue Batterie einsetzen</h4><p>Neue Batterie in das Fach schieben.</p></div>
+    <div class="step"><div class="fig"><span class="num">6</span><img src="assets/img/4_6.png" alt=""></div><h4>Stecker einsetzen</h4><p>Batteriestecker wieder einstecken – auf festen Sitz achten.</p></div>
+  </div>
+
+  <div class="box warn mt">
+    <svg><use href="#i-warn"/></svg>
+    <div><b>Elektronik schützen (ESD):</b> Berühren Sie vor dem Öffnen einen geerdeten Metallgegenstand (z. B. Heizkörper oder Wasserhahn), um sich zu entladen. Bauteile im Knauf nicht mit den Fingern berühren.</div>
+  </div>
+  <div class="foot"><span><b>JUHUU</b> · Smart Lock Anleitung</span><span>7</span></div>
+</section>
+
+<!-- =============== 8 BATTERIE B =============== -->
+<section class="page">
+  <div class="top"><div class="wordmark"><span class="dot"></span>JUHUU</div><div class="sec"><span class="chip">05</span>Batteriewechsel</div></div>
+  <h3><span class="tag">Wieder verschließen</span></h3>
+  <div class="steps three tall">
+    <div class="step"><div class="fig"><span class="num">7</span><img src="assets/img/4_7.png" alt=""></div><h4>Knaufhülse passgenau aufstecken</h4><p>Nur eine Position ist möglich – die Mitnahmenocken sind unterschiedlich breit.</p></div>
+    <div class="step"><div class="fig"><span class="num">8</span><img src="assets/img/4_8.png" alt=""></div><h4>Knaufwerkzeug ansetzen</h4><p>Werkzeug wie in Schritt 1 erneut ansetzen.</p></div>
+    <div class="step"><div class="fig"><span class="num">9</span><img src="assets/img/4_9.png" alt=""></div><h4>Bajonett verriegeln</h4><p>Werkzeug gegen die Pfeilrichtung aus Schritt 2 drehen, bis der Knauf fest sitzt.</p></div>
+  </div>
+
+  <div class="two mt">
+    <div>
+      <h3><span class="tag">Danach</span> Funktionstest</h3>
+      <ul class="need">
+        <li><i>1</i><div>Knauf auf festen Sitz prüfen – er darf sich nicht abziehen lassen.</div></li>
+        <li><i>2</i><div>In der JUHUU App eine Testöffnung durchführen (Kapitel 03, Schritte 3–6).</div></li>
+        <li><i>3</i><div>Admins: Batteriestatus im JUHUU Dashboard kontrollieren.</div></li>
+      </ul>
+    </div>
+    <div class="box info" style="align-self:start">
+      <svg><use href="#i-info"/></svg>
+      <div><b>Altbatterie richtig entsorgen:</b> Lithium-Batterien gehören nicht in den Hausmüll. Geben Sie sie an einer Sammelstelle oder im Handel ab. Pole vorher abkleben.</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div class="ic"><svg width="26" height="26" style="color:#fff"><use href="#i-check"/></svg></div>
+    <div><h4>Batterie erfolgreich getauscht!</h4><p>Ihr Smart Lock ist wieder für über 25.000 Öffnungen bereit.</p></div>
+  </div>
+  <div class="foot"><span><b>JUHUU</b> · Smart Lock Anleitung</span><span>8</span></div>
+</section>
+
+<!-- =============== 9 SICHERHEIT & HILFE =============== -->
+<section class="page">
+  <div class="top"><div class="wordmark"><span class="dot"></span>JUHUU</div><div class="sec"><span class="chip">06</span>Sicherheit &amp; Hilfe</div></div>
+  <h2>Sicherheit, Pflege &amp; <span class="k">Hilfe</span></h2>
+
+  <div class="saf"><h4>Allgemein</h4><p>Nicht in die Hände von Kleinkindern (0–3 Jahre) – verschluckbare Kleinteile. Gerät nicht öffnen oder verändern, außer für den Batteriewechsel.</p><img src="assets/img/sf_general.png" alt=""></div>
+  <div class="saf"><h4>Installation</h4><p>Vor dem Berühren der Elektronik an einem geerdeten Gegenstand entladen (ESD). Einbau bei geöffneter Tür.</p><img src="assets/img/sf_install.png" alt=""></div>
+  <div class="saf"><h4>Knauf betätigen</h4><p>Den Knauf nur drehen – nicht zum Zuziehen der Tür oder als Griff verwenden.</p><img src="assets/img/sf_knob.png" alt=""></div>
+  <div class="saf"><h4>Reinigung &amp; Pflege</h4><p>Nicht in Wasser tauchen, keine Hochdruck- oder Lösungsmittelreiniger. Nur mit einem feuchten Tuch abwischen.</p><img src="assets/img/sf_clean.png" alt=""></div>
+  <div class="saf"><h4>Lagerung</h4><p>Trocken lagern, vor Nässe schützen und innerhalb des zulässigen Temperaturbereichs aufbewahren.</p><img src="assets/img/sf_storage.png" alt=""></div>
+  <div class="saf" style="border-bottom:0"><h4>Zertifizierung</h4><p>CE · DIN EN 15684 · IP65 · T90</p><img src="assets/img/sf_cert.png" alt=""></div>
+
+  <h3 class="mt2"><span class="tag">Fehlerbehebung</span></h3>
+  <table class="faq">
+    <tr><td>App findet das Schloss nicht / verbindet nicht</td><td>Bluetooth &amp; Standort aktivieren, näher ans Schloss gehen, App neu starten. Prüfen, ob die Miete aktiv ist.</td></tr>
+    <tr><td>Außenknauf dreht durch</td><td>Normal, solange das Schloss nicht freigegeben ist. Erst „Öffnen“ in der App drücken, dann drehen.</td></tr>
+    <tr><td>Riegel klemmt oder fährt schwer</td><td>Zylinderposition prüfen, Stulpschraube nicht zu fest anziehen, Tür auf Verzug prüfen.</td></tr>
+    <tr><td>QR-Code wird nicht erkannt</td><td>Code sauber halten, ausreichend Licht. Alternativ das Schloss in der App über die Karte/Suche finden.</td></tr>
+    <tr><td>Hinweis „Batterie schwach“</td><td>Batterie wie in Kapitel 05 beschrieben tauschen.</td></tr>
+  </table>
+
+  <div class="support">
+    <div><h4>Fragen? Wir helfen gern.</h4><div class="ph" style="margin-top:1mm">Ihr JUHUU Support-Team</div></div>
+    <div class="ph"><b>E-Mail</b><span class="todo">support@… ergänzen</span></div>
+    <div class="ph"><b>Telefon / Web</b><span class="todo">ergänzen</span> · juhuu.app</div>
+  </div>
+  <p class="small" style="margin-top:3mm">Illustrationen: Tapkey GmbH, Herstelleranleitung Tapkey Smart Lock. Weitere Sicherheitshinweise des Herstellers: tapkey.com/sicherheit.</p>
+  <div class="foot"><span><b>JUHUU</b> · Smart Lock Anleitung</span><span>9</span></div>
+</section>
+
+</body>
+</html>
